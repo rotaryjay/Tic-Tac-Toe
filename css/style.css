@@ -20,7 +20,8 @@ body {
 }
 .playerOneOverlay .playerOneInput,
 .playerTwoOverlay .playerTwoInput,
-.winnerOverlay .winnerWrapper {
+.winnerOverlay .winnerWrapper,
+.tiedOverlay .tiedWrapper {
     position: absolute;
     width: 300px;
     background-color: white;
@@ -34,10 +35,14 @@ body {
     font-size: 3em;
     font-family: 'REM', sans-serif;
 }
+.tiedOverlay .tiedWrapper {
+    font-size: 0.5em;
+}
 .winnerOverlay .winnerWrapper {
     font-size: 1em;
 }
-.winnerOverlay .winnerWrapper .close {
+.winnerOverlay .winnerWrapper .close,
+.tiedOverlay .tiedWrapper .closeNoWinner {
     position: absolute;
     top: 0;
     right: 0;
@@ -52,7 +57,10 @@ body {
 .winnerOverlay .winnerWrapper .close:hover {
     opacity: 1;
 }
-.playerOneOverlay.hidden, .playerTwoOverlay.hidden, .winnerOverlay.hidden {
+.playerOneOverlay.hidden,
+.playerTwoOverlay.hidden,
+.winnerOverlay.hidden,
+.tiedOverlay.hidden {
     display: none;
 }
 .playerOneNameInput, .playerTwoNameInput {
@@ -95,7 +103,7 @@ main {
     background: no-repeat center/cover url(../img/o.png);
     box-shadow: var(--boxshadowinset);
 }
-.playerOne, .playerTwo {
+.playerOne, .playerTwo, .playerOneTotalWins, .playerTwoTotalWins {
     font-family: 'REM', sans-serif;
     text-align: center;
     font-size: 3em;

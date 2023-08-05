@@ -28,6 +28,9 @@ let box9lockedto = open;
 let currentPlayer = 0;
 let playerOneName = 'Player One';
 let playerTwoName = 'Player Two';
+let playerOneTotalWins = 0;
+let playerTwoTotalWins = 0;
+let currentGameWinner = 'none';
 
 document.querySelector('.close').addEventListener('click', function () {
     box1lockedto = open;
@@ -39,13 +42,18 @@ document.querySelector('.close').addEventListener('click', function () {
     box7lockedto = open;
     box8lockedto = open;
     box9lockedto = open;
+    if (currentGameWinner == playerOneName) {
+        playerOneTotalWins++;
+    } else if (currentGameWinner == playerTwoName) {
+        playerTwoTotalWins++;
+    }
     document.querySelector('.winnerOverlay').classList.add('hidden');
     document.querySelector('.box1').classList.remove('x');
     document.querySelector('.box1').classList.remove('o');
     document.querySelector('.box1').classList.remove('locked');
     box1Locked = false;
     document.querySelector('.box2').classList.remove('x');
-    document.querySelector('.box2').classList.remove('0');
+    document.querySelector('.box2').classList.remove('o');
     document.querySelector('.box2').classList.remove('locked');
     box2Locked = false;
     document.querySelector('.box3').classList.remove('x');
@@ -76,6 +84,57 @@ document.querySelector('.close').addEventListener('click', function () {
     document.querySelector('.box9').classList.remove('o');
     document.querySelector('.box9').classList.remove('locked');
     box9Locked = false;
+    currentPlayer = 0;
+});
+document.querySelector('.closeNoWinner').addEventListener('click', function () {
+    box1lockedto = open;
+    box2lockedto = open;
+    box3lockedto = open;
+    box4lockedto = open;
+    box5lockedto = open;
+    box6lockedto = open;
+    box7lockedto = open;
+    box8lockedto = open;
+    box9lockedto = open;
+    document.querySelector('.winnerOverlay').classList.add('hidden');
+    document.querySelector('.box1').classList.remove('x');
+    document.querySelector('.box1').classList.remove('o');
+    document.querySelector('.box1').classList.remove('locked');
+    box1Locked = false;
+    document.querySelector('.box2').classList.remove('x');
+    document.querySelector('.box2').classList.remove('o');
+    document.querySelector('.box2').classList.remove('locked');
+    box2Locked = false;
+    document.querySelector('.box3').classList.remove('x');
+    document.querySelector('.box3').classList.remove('o');
+    document.querySelector('.box3').classList.remove('locked');
+    box3Locked = false;
+    document.querySelector('.box4').classList.remove('x');
+    document.querySelector('.box4').classList.remove('o');
+    document.querySelector('.box4').classList.remove('locked');
+    box4Locked = false;
+    document.querySelector('.box5').classList.remove('x');
+    document.querySelector('.box5').classList.remove('o');
+    document.querySelector('.box5').classList.remove('locked');
+    box5Locked = false;
+    document.querySelector('.box6').classList.remove('x');
+    document.querySelector('.box6').classList.remove('o');
+    document.querySelector('.box6').classList.remove('locked');
+    box6Locked = false;
+    document.querySelector('.box7').classList.remove('x');
+    document.querySelector('.box7').classList.remove('o');
+    document.querySelector('.box7').classList.remove('locked');
+    box7Locked = false;
+    document.querySelector('.box8').classList.remove('x');
+    document.querySelector('.box8').classList.remove('o');
+    document.querySelector('.box8').classList.remove('locked');
+    box8Locked = false;
+    document.querySelector('.box9').classList.remove('x');
+    document.querySelector('.box9').classList.remove('o');
+    document.querySelector('.box9').classList.remove('locked');
+    box9Locked = false;
+    currentPlayer = 0;
+    document.querySelector('.tiedOverlay').classList.add('hidden');
 });
 
 document.querySelector('.playerOneNameInput').addEventListener('keypress', function (e) {
@@ -265,50 +324,77 @@ box9.addEventListener('click', function() {
         }
     }
 });
-document.querySelector('.thegrid').addEventListener('mouseover', function() {
+document.querySelector('.tictactoe').addEventListener('mouseover', function() {
     if (box1lockedto === 0 && box2lockedto === 0 && box3lockedto === 0) {
-        //alert(`${playerOneName} is the winner!`);
         document.querySelector('.winnerOverlay').classList.remove('hidden');
         document.querySelector('.winner').textContent = playerOneName;
+        currentGameWinner = playerOneName;
     } else if (box1lockedto === 1 && box2lockedto === 1 && box3lockedto === 1) {
-        //alert(`${playerTwoName} is the winner!`);
         document.querySelector('.winnerOverlay').classList.remove('hidden');
         document.querySelector('.winner').textContent = playerTwoName;
+        currentGameWinner = playerTwoName;
     } else if (box1lockedto === 0 && box4lockedto === 0 && box7lockedto === 0) {
         document.querySelector('.winnerOverlay').classList.remove('hidden');
         document.querySelector('.winner').textContent = playerOneName;
+        currentGameWinner = playerOneName;
     } else if (box1lockedto === 1 && box4lockedto === 1 && box7lockedto === 1) {
         document.querySelector('.winnerOverlay').classList.remove('hidden');
         document.querySelector('.winner').textContent = playerTwoName;
+        currentGameWinner = playerTwoName;
     } else if (box1lockedto === 0 && box5lockedto === 0 && box9lockedto === 0) {
         document.querySelector('.winnerOverlay').classList.remove('hidden');
         document.querySelector('.winner').textContent = playerOneName;
+        currentGameWinner = playerOneName;
     } else if (box1lockedto === 1 && box5lockedto === 1 && box9lockedto === 1) {
         document.querySelector('.winnerOverlay').classList.remove('hidden');
         document.querySelector('.winner').textContent = playerTwoName;
+        currentGameWinner = playerTwoName;
     } else if (box4lockedto === 0 && box5lockedto === 0 && box6lockedto === 0) {
         document.querySelector('.winnerOverlay').classList.remove('hidden');
         document.querySelector('.winner').textContent = playerOneName;
+        currentGameWinner = playerOneName;
     } else if (box4lockedto === 1 && box5lockedto === 1 && box6lockedto === 1) {
         document.querySelector('.winnerOverlay').classList.remove('hidden');
         document.querySelector('.winner').textContent = playerTwoName;
+        currentGameWinner = playerTwoName;
     } else if (box7lockedto === 0 && box8lockedto === 0 && box9lockedto === 0) {
         document.querySelector('.winnerOverlay').classList.remove('hidden');
         document.querySelector('.winner').textContent = playerOneName;
+        currentGameWinner = playerOneName;
     } else if (box7lockedto === 1 && box8lockedto === 1 && box9lockedto === 1) {
         document.querySelector('.winnerOverlay').classList.remove('hidden');
         document.querySelector('.winner').textContent = playerTwoName;
+        currentGameWinner = playerTwoName;
     } else if (box2lockedto === 0 && box5lockedto === 0 && box8lockedto === 0) {
         document.querySelector('.winnerOverlay').classList.remove('hidden');
         document.querySelector('.winner').textContent = playerOneName;
+        currentGameWinner = playerOneName;
     } else if (box2lockedto === 1 && box5lockedto === 1 && box8lockedto === 1) {
         document.querySelector('.winnerOverlay').classList.remove('hidden');
         document.querySelector('.winner').textContent = playerTwoName;
+        currentGameWinner = playerTwoName;
     } else if (box3lockedto === 0 && box6lockedto === 0 && box9lockedto === 0) {
         document.querySelector('.winnerOverlay').classList.remove('hidden');
         document.querySelector('.winner').textContent = playerOneName;
+        currentGameWinner = playerOneName;
     } else if (box3lockedto === 1 && box6lockedto === 1 && box9lockedto === 1) {
         document.querySelector('.winnerOverlay').classList.remove('hidden');
         document.querySelector('.winner').textContent = playerTwoName;
+        currentGameWinner = playerTwoName;
+    } else if (box7lockedto === 0 && box5lockedto === 0 && box3lockedto === 0) {
+        document.querySelector('.winnerOverlay').classList.remove('hidden');
+        document.querySelector('.winner').textContent = playerOneName;
+        currentGameWinner = playerOneName;
+    } else if (box7lockedto === 1 && box5lockedto === 1 && box3lockedto === 1) {
+        document.querySelector('.winnerOverlay').classList.remove('hidden');
+        document.querySelector('.winner').textContent = playerTwoName;
+        currentGameWinner = playerTwoName;
+    }
+    document.querySelector('.playerOneTotalWins').textContent = playerOneTotalWins;
+    document.querySelector('.playerTwoTotalWins').textContent = playerTwoTotalWins;
+    if (box1Locked === true && box2Locked === true && box3Locked === true && box4Locked === true && box5Locked === true && box6Locked === true && box7Locked === true && box8Locked === true && box9Locked === true) {
+        document.querySelector('.tiedOverlay').classList.remove('hidden');
     }
 });
+document.querySelector('.playerOneTotalWins').textContent = playerOneTotalWins;
+document.querySelector('.playerTwoTotalWins').textContent = playerTwoTotalWins;
