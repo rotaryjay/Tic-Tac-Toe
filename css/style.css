@@ -10,6 +10,13 @@
 body {
     background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url(../img/background.jpg);
 }
+main { 
+    display: grid; 
+    grid-template-columns: 0.25fr 1fr 0.25fr; 
+    grid-template-rows: 1fr; 
+    grid-column-gap: 0px;
+    grid-row-gap: 0px; 
+}
 .playerOneOverlay, .playerTwoOverlay, .winnerOverlay {
     position: absolute;
     top: 0;
@@ -115,5 +122,6 @@ main {
     padding-top: 25px;
     text-align: center;
     font-family: 'REM', sans-serif;
-    color: var(--white)
+    color: var(--white);
+    align-self: center;
 }
