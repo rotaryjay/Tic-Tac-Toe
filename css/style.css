@@ -11,26 +11,26 @@ body {
     background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url(../img/background.jpg);
 }
 main { 
-    display: grid; 
-    grid-template-columns: 0.25fr 1fr 0.25fr; 
-    grid-template-rows: 1fr; 
-    grid-column-gap: 0px;
-    grid-row-gap: 0px; 
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
-.playerOneOverlay, .playerTwoOverlay, .winnerOverlay {
+.playerOneOverlay, .playerTwoOverlay, .winnerOverlay, .tiedOverlay {
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     background-color: rgba(255,255,255,0.9);
+    z-index: 10000;
 }
 .playerOneOverlay .playerOneInput,
 .playerTwoOverlay .playerTwoInput,
 .winnerOverlay .winnerWrapper,
 .tiedOverlay .tiedWrapper {
     position: absolute;
-    width: 300px;
     background-color: white;
     top: 50%;
     left: 50%;
@@ -79,10 +79,6 @@ main {
     padding: 5px;
     font-family: 'REM', sans-serif;
 }
-main {
-    display: grid;
-    grid-template-columns: 25% 50% 25%;
-}
 .thegrid { 
     background-color: var(--black);
     max-width: 600px;
@@ -123,5 +119,43 @@ main {
     text-align: center;
     font-family: 'REM', sans-serif;
     color: var(--white);
-    align-self: center;
 }
+.col1 {
+    order: 1;
+    flex-grow: 1;
+}
+.col2 {
+    order: 2;
+    flex-grow: 2;
+}
+.col3 {
+    order: 3;
+    flex-grow: 1;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    main {
+        width: 95%;
+    }
+    .col1 {
+        order: 2;
+        flex-grow: 1;
+        transform: scale(0.5);
+    }
+    .col2 {
+        order: 1;
+        flex-grow: 2;
+        width: 100vw;
+    }
+    .col3 {
+        order: 3;
+        flex-grow: 1;
+        transform: scale(0.5);
+    }   
+} 
