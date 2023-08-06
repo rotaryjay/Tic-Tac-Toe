@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=REM:wght@200&display=swap" rel="stylesheet">
+  </head>
+  <body class="tictactoe">
+    <div class="playerOneOverlay">
+        <div class="playerOneInput">
+            Player 1:
+            <br>
+            <input class="playerOneNameInput" value="" autofocus="">
+        </div>
+    </div>
+    <div class="playerTwoOverlay hidden">
+        <div class="playerTwoInput">
+            Player 2:
+            <br>
+            <input class="playerTwoNameInput" value="" autofocus="">
+        </div>
+    </div>
+    <div class="winnerOverlay hidden">
+        <div class="winnerWrapper">
+            <h1><span class="winner">Winner</span> is the winner!</h1>
+            <div class="close"></div>
+        </div>
+    </div>
+    <div class="tiedOverlay hidden">
+        <div class="tiedWrapper">
+            <h1>There is no winner!</h1>
+            <div class="closeNoWinner"></div>
+        </div>
+    </div>
+    <main>
+        <div class="col1">
+            <span>Player 1 (X)</span>
+            <h1 class="playerOne">Player 1</h1>
+            <span>Total wins</span>
+            <h1 class="playerOneTotalWins">0</h1>
+        </div>
+        <div class="col2">
+            <div class="thegrid"> 
+                <div class="square box1"></div>
+                <div class="square box2"></div>
+                <div class="square box3"></div>
+                <div class="square box4"></div>
+                <div class="square box5"></div>
+                <div class="square box6"></div>
+                <div class="square box7"></div>
+                <div class="square box8"></div>
+                <div class="square box9"></div>
+            </div>
+        </div>
+        <div class="col3">
+            <span>Player 2 (O)</span>
+            <h1 class="playerTwo">Player 2</h1>
+            <span>Total wins</span>
+            <h1 class="playerTwoTotalWins">0</h1>
+        </div>
+    </main>
+	<script src="js/script.js"></script>
+  </body>
+</html>
