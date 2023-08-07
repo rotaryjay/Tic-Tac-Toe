@@ -8,20 +8,31 @@ function buildStyles() {
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('dist/css/'));
 }
+
 function copyIndex() {
-    return gulp.src('app/index.html')
-        .pipe(gulp.dest('dist'))
-}
-function copyImg() {
-    return gulp.src('app/img/*')
-        .pipe(gulp.dest('dist/img'))
-}
-function copyJs() {
-    return gulp.src('app/js/*')
-        .pipe(gulp.dest('dist/js'))
+  return gulp.src('app/index.html')
+    .pipe(gulp.dest('dist'));
 }
 
-exports.buildStyles = buildStyles;
-exports.copyIndex = copyIndex;
-exports.copyImg = copyImg;
-exports.copyJs = copyJs;
+function copyPng() {
+  return gulp.src('app/img/*.png')
+    .pipe(gulp.dest('dist/img'));
+}
+
+function copyJpg() {
+  return gulp.src('app/img/*.jpg')
+    .pipe(gulp.dest('dist/img'));
+}
+
+function copyFavicon() {
+  return gulp.src('app/img/favicon/*')
+    .pipe(gulp.dest('dist/img/favicon'));
+}
+
+function copyJs() {
+  return gulp.src('app/js/*')
+    .pipe(gulp.dest('dist/js'));
+}
+
+// Define a default task that runs all the tasks in parallel
+exports.default = gulp.parallel(buildStyles, copyIndex, copyPng, copyJpg, copyFavicon, copyJs);

@@ -8,7 +8,19 @@
   --boxshadowinset: inset 0 0 17px 4px rgba(0,0,0,0.3);
 }
 
-.overlay {
+body {
+  background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), fixed no-repeat center/cover url(../img/background.jpg);
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.playerOneOverlay, .playerTwoOverlay, .winnerOverlay, .tiedOverlay {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -32,7 +44,9 @@
   font-family: "REM", sans-serif;
 }
 
-.playerTwoOverlay .playerTwoInput {
+.playerTwoOverlay .playerTwoInput,
+.winnerOverlay .winnerWrapper,
+.tiedOverlay .tiedWrapper {
   position: absolute;
   background-color: white;
   top: 50%;
@@ -46,34 +60,12 @@
   font-family: "REM", sans-serif;
 }
 
-.winnerOverlay .winnerWrapper {
-  position: absolute;
-  background-color: white;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 50px;
-  box-shadow: 0 0 100px rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
-  text-align: center;
-  font-size: 1em;
-  font-family: "REM", sans-serif;
-}
-
 .tiedOverlay .tiedWrapper {
   font-size: 0.5em;
 }
 
-body {
-  background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), fixed no-repeat center/cover url(../img/background.jpg);
-}
-
-main {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+.winnerOverlay .winnerWrapper {
+  font-size: 1em;
 }
 
 .winnerOverlay .winnerWrapper .close,
@@ -111,6 +103,37 @@ main {
   font-family: "REM", sans-serif;
 }
 
+.thegrid {
+  background-color: var(--black);
+  max-width: 600px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  border: 10px solid var(--black);
+  border-radius: 10px;
+  margin: 0 auto;
+  box-shadow: var(--boxshadow);
+}
+
+.thegrid .square {
+  background-color: var(--white);
+  height: 200px;
+  border-radius: 10px;
+}
+
+.thegrid .square.x {
+  background: no-repeat center/cover url(../img/x.png);
+  box-shadow: var(--boxshadowinset);
+}
+
+.thegrid .square.o {
+  background: no-repeat center/cover url(../img/o.png);
+  box-shadow: var(--boxshadowinset);
+}
+
 .playerOne, .playerTwo, .playerOneTotalWins, .playerTwoTotalWins {
   font-family: "REM", sans-serif;
   text-align: center;
@@ -142,35 +165,7 @@ main {
   flex-grow: 1;
 }
 
-.thegrid {
-  background-color: black;
-  width: 300px;
-  height: 300px;
-  border-radius: 10px;
-  margin: 0 auto;
-  box-shadow: var(--boxshadow);
-}
-
-.thegrid .square {
-  background-color: white;
-  height: 98px;
-  width: 98px;
-  float: left;
-  border: 1px solid black;
-  border-radius: 10px;
-}
-
-.thegrid .square.x {
-  background: no-repeat center/cover url(../img/x.png);
-  box-shadow: var(--boxshadowinset);
-}
-
-.thegrid .square.o {
-  background: no-repeat center/cover url(../img/o.png);
-  box-shadow: var(--boxshadowinset);
-}
-
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1280px) {
   body {
     margin: 0;
     padding: 0;
@@ -185,7 +180,8 @@ main {
   }
   .col2 {
     order: 1;
-    flex-grow: 1;
+    flex-grow: 2;
+    width: 100vw;
   }
   .col3 {
     order: 3;

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="css/style.css">
@@ -12,27 +12,27 @@
     <link href="https://fonts.googleapis.com/css2?family=REM:wght@200&display=swap" rel="stylesheet">
   </head>
   <body class="tictactoe">
-    <div class="playerOneOverlay">
+    <div class="playerOneOverlay overlay">
         <div class="playerOneInput">
             Player 1:
             <br>
             <input class="playerOneNameInput" value="" autofocus="">
         </div>
     </div>
-    <div class="playerTwoOverlay hidden">
+    <div class="playerTwoOverlay overlay hidden">
         <div class="playerTwoInput">
             Player 2:
             <br>
             <input class="playerTwoNameInput" value="" autofocus="">
         </div>
     </div>
-    <div class="winnerOverlay hidden">
+    <div class="winnerOverlay overlay hidden">
         <div class="winnerWrapper">
             <h1><span class="winner">Winner</span> is the winner!</h1>
             <div class="close"></div>
         </div>
     </div>
-    <div class="tiedOverlay hidden">
+    <div class="tiedOverlay overlay hidden">
         <div class="tiedWrapper">
             <h1>There is no winner!</h1>
             <div class="closeNoWinner"></div>
