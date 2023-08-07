@@ -3,6 +3,19 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
 
+// Change this require to a dynamic import
+async function getRev() {
+  const rev = await import('gulp-rev');
+  return rev.default;
+}
+
+async function revCss() {
+  const rev = await getRev();
+  return gulp.src('app/css/style.css')
+    .pipe(rev())
+    .pipe(gulp.dest('app/css'))
+}
+
 function buildStyles() {
   return gulp.src('app/scss/style.scss')
     .pipe(sass().on('error', sass.logError))
@@ -35,4 +48,4 @@ function copyJs() {
 }
 
 // Define a default task that runs all the tasks in parallel
-exports.default = gulp.parallel(buildStyles, copyIndex, copyPng, copyJpg, copyFavicon, copyJs);
+exports.default = gulp.parallel(revCss, buildStyles, copyIndex, copyPng, copyJpg, copyFavicon, copyJs);

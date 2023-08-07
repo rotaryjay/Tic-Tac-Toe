@@ -32,6 +32,60 @@ let playerOneTotalWins = 0;
 let playerTwoTotalWins = 0;
 let currentGameWinner = 'none';
 
+function clearBoxOne() {
+    box1.classList.remove('x');
+    box1.classList.remove('o');
+    box1.classList.remove('locked');
+    box1Locked = false;
+}
+function clearBoxTwo() {
+    box2.classList.remove('x');
+    box2.classList.remove('o');
+    box2.classList.remove('locked');
+    box2Locked = false;
+}
+function clearBoxThree() {
+    box3.classList.remove('x');
+    box3.classList.remove('o');
+    box3.classList.remove('locked');
+    box3Locked = false;
+}
+function clearBoxFour() {
+    box4.classList.remove('x');
+    box4.classList.remove('o');
+    box4.classList.remove('locked');
+    box4Locked = false;
+}
+function clearBoxFive() {
+    box5.classList.remove('x');
+    box5.classList.remove('o');
+    box5.classList.remove('locked');
+    box5Locked = false;
+}
+function clearBoxSix() {
+    box6.classList.remove('x');
+    box6.classList.remove('o');
+    box6.classList.remove('locked');
+    box6Locked = false;
+}
+function clearBoxSeven() {
+    box7.classList.remove('x');
+    box7.classList.remove('o');
+    box7.classList.remove('locked');
+    box7Locked = false;
+}
+function clearBoxEight() {
+    box8.classList.remove('x');
+    box8.classList.remove('o');
+    box8.classList.remove('locked');
+    box8Locked = false;
+}
+function clearBoxNine() {
+    box9.classList.remove('x');
+    box9.classList.remove('o');
+    box9.classList.remove('locked');
+    box9Locked = false;
+}
 // When the game is won by any of the players
 document.querySelector('.close').addEventListener('click', function () {
     // Sets all of the boxes to unlocked
@@ -53,43 +107,15 @@ document.querySelector('.close').addEventListener('click', function () {
     // Hides the Winner overlay
     document.querySelector('.winnerOverlay').classList.add('hidden');
     // Removes all of the x's and o's from all 9 boxes and removes the "locked" class
-    document.querySelector('.box1').classList.remove('x');
-    document.querySelector('.box1').classList.remove('o');
-    document.querySelector('.box1').classList.remove('locked');
-    box1Locked = false;
-    document.querySelector('.box2').classList.remove('x');
-    document.querySelector('.box2').classList.remove('o');
-    document.querySelector('.box2').classList.remove('locked');
-    box2Locked = false;
-    document.querySelector('.box3').classList.remove('x');
-    document.querySelector('.box3').classList.remove('o');
-    document.querySelector('.box3').classList.remove('locked');
-    box3Locked = false;
-    document.querySelector('.box4').classList.remove('x');
-    document.querySelector('.box4').classList.remove('o');
-    document.querySelector('.box4').classList.remove('locked');
-    box4Locked = false;
-    document.querySelector('.box5').classList.remove('x');
-    document.querySelector('.box5').classList.remove('o');
-    document.querySelector('.box5').classList.remove('locked');
-    box5Locked = false;
-    document.querySelector('.box6').classList.remove('x');
-    document.querySelector('.box6').classList.remove('o');
-    document.querySelector('.box6').classList.remove('locked');
-    box6Locked = false;
-    document.querySelector('.box7').classList.remove('x');
-    document.querySelector('.box7').classList.remove('o');
-    document.querySelector('.box7').classList.remove('locked');
-    box7Locked = false;
-    document.querySelector('.box8').classList.remove('x');
-    document.querySelector('.box8').classList.remove('o');
-    document.querySelector('.box8').classList.remove('locked');
-    box8Locked = false;
-    document.querySelector('.box9').classList.remove('x');
-    document.querySelector('.box9').classList.remove('o');
-    document.querySelector('.box9').classList.remove('locked');
-    box9Locked = false;
-    c
+    clearBoxOne();
+    clearBoxTwo();
+    clearBoxThree();
+    clearBoxFour();
+    clearBoxFive();
+    clearBoxSix();
+    clearBoxSeven();
+    clearBoxEight();
+    clearBoxNine();
     currentPlayer = 0;
 });
 // When the game is tied
@@ -105,42 +131,15 @@ document.querySelector('.closeNoWinner').addEventListener('click', function () {
     box8lockedto = open;
     box9lockedto = open;
     // Removes all of the x's and o's from all 9 boxes and removes the "locked" class
-    document.querySelector('.box1').classList.remove('x');
-    document.querySelector('.box1').classList.remove('o');
-    document.querySelector('.box1').classList.remove('locked');
-    box1Locked = false;
-    document.querySelector('.box2').classList.remove('x');
-    document.querySelector('.box2').classList.remove('o');
-    document.querySelector('.box2').classList.remove('locked');
-    box2Locked = false;
-    document.querySelector('.box3').classList.remove('x');
-    document.querySelector('.box3').classList.remove('o');
-    document.querySelector('.box3').classList.remove('locked');
-    box3Locked = false;
-    document.querySelector('.box4').classList.remove('x');
-    document.querySelector('.box4').classList.remove('o');
-    document.querySelector('.box4').classList.remove('locked');
-    box4Locked = false;
-    document.querySelector('.box5').classList.remove('x');
-    document.querySelector('.box5').classList.remove('o');
-    document.querySelector('.box5').classList.remove('locked');
-    box5Locked = false;
-    document.querySelector('.box6').classList.remove('x');
-    document.querySelector('.box6').classList.remove('o');
-    document.querySelector('.box6').classList.remove('locked');
-    box6Locked = false;
-    document.querySelector('.box7').classList.remove('x');
-    document.querySelector('.box7').classList.remove('o');
-    document.querySelector('.box7').classList.remove('locked');
-    box7Locked = false;
-    document.querySelector('.box8').classList.remove('x');
-    document.querySelector('.box8').classList.remove('o');
-    document.querySelector('.box8').classList.remove('locked');
-    box8Locked = false;
-    document.querySelector('.box9').classList.remove('x');
-    document.querySelector('.box9').classList.remove('o');
-    document.querySelector('.box9').classList.remove('locked');
-    box9Locked = false;
+    clearBoxOne();
+    clearBoxTwo();
+    clearBoxThree();
+    clearBoxFour();
+    clearBoxFive();
+    clearBoxSix();
+    clearBoxSeven();
+    clearBoxEight();
+    clearBoxNine();
     // Sets current player to Player 1
     currentPlayer = 0;
     // Hides the "There is no winner" dialogue
@@ -159,42 +158,15 @@ document.querySelector('.resetButton').addEventListener('click', function () {
     box8lockedto = open;
     box9lockedto = open;
     // Removes all of the x's and o's from all 9 boxes and removes the "locked" class
-    document.querySelector('.box1').classList.remove('x');
-    document.querySelector('.box1').classList.remove('o');
-    document.querySelector('.box1').classList.remove('locked');
-    box1Locked = false;
-    document.querySelector('.box2').classList.remove('x');
-    document.querySelector('.box2').classList.remove('o');
-    document.querySelector('.box2').classList.remove('locked');
-    box2Locked = false;
-    document.querySelector('.box3').classList.remove('x');
-    document.querySelector('.box3').classList.remove('o');
-    document.querySelector('.box3').classList.remove('locked');
-    box3Locked = false;
-    document.querySelector('.box4').classList.remove('x');
-    document.querySelector('.box4').classList.remove('o');
-    document.querySelector('.box4').classList.remove('locked');
-    box4Locked = false;
-    document.querySelector('.box5').classList.remove('x');
-    document.querySelector('.box5').classList.remove('o');
-    document.querySelector('.box5').classList.remove('locked');
-    box5Locked = false;
-    document.querySelector('.box6').classList.remove('x');
-    document.querySelector('.box6').classList.remove('o');
-    document.querySelector('.box6').classList.remove('locked');
-    box6Locked = false;
-    document.querySelector('.box7').classList.remove('x');
-    document.querySelector('.box7').classList.remove('o');
-    document.querySelector('.box7').classList.remove('locked');
-    box7Locked = false;
-    document.querySelector('.box8').classList.remove('x');
-    document.querySelector('.box8').classList.remove('o');
-    document.querySelector('.box8').classList.remove('locked');
-    box8Locked = false;
-    document.querySelector('.box9').classList.remove('x');
-    document.querySelector('.box9').classList.remove('o');
-    document.querySelector('.box9').classList.remove('locked');
-    box9Locked = false;
+    clearBoxOne();
+    clearBoxTwo();
+    clearBoxThree();
+    clearBoxFour();
+    clearBoxFive();
+    clearBoxSix();
+    clearBoxSeven();
+    clearBoxEight();
+    clearBoxNine();
     // Sets current player to Player 1
     currentPlayer = 0;
     // Shows the Player One input dialogue again
@@ -204,10 +176,7 @@ document.querySelector('.resetButton').addEventListener('click', function () {
     playerOneTotalWins = 0;
     playerTwoTotalWins = 0;
 });
-// Player Two Set Focus Function
-function setPlayerTwoFocus() {
-    let playerTwoInput = document.querySelector('.playerTwoNameInput');
-}
+
 // Player One name input
 document.querySelector('.playerOneNameInput').addEventListener('keypress', function (e) {
     // If enter key is pressed
