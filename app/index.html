@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tic Tac Toe</title>
-    <link rel="stylesheet" href="css/style3.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,14 +16,14 @@
         <div class="playerOneInput">
             Player 1:
             <br>
-            <input class="playerOneNameInput" value="" autofocus="">
+            <input id="playerOneNameInput" class="playerOneNameInput" value="" autofocus="">
         </div>
     </div>
     <div class="playerTwoOverlay overlay hidden">
         <div class="playerTwoInput">
             Player 2:
             <br>
-            <input class="playerTwoNameInput" value="" autofocus="">
+            <input id="playerTwoNameInput" class="playerTwoNameInput" value="" autofocus="">
         </div>
     </div>
     <div class="winnerOverlay overlay hidden">
@@ -57,6 +57,7 @@
                 <div class="square box8"></div>
                 <div class="square box9"></div>
             </div>
+            <div class="resetButton">Reset</div>
         </div>
         <div class="col3">
             <span>Player 2 (O)</span>

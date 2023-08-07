@@ -4,7 +4,7 @@
     height: 300px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: var(--boxshadow);
+    box-shadow: $boxshadow;
     .square {
         background-color: $white;
         height: 98px;
@@ -12,11 +12,13 @@
         float: left;
         border: 1px solid $black;
         border-radius: 10px;
-    } &.x {
-        background: no-repeat center/cover url(../img/x.png);
-        box-shadow: var(--boxshadowinset);
-    } &.o {
-        background: no-repeat center/cover url(../img/o.png);
-        box-shadow: var(--boxshadowinset);
+    } & .x {
+        background: no-repeat center/contain url(../img/x.png);
+        box-shadow: $boxshadowinset;
+        transition: $hovertransition;
+    } & .o {
+        background: no-repeat center/contain url(../img/o.png);
+        box-shadow: $boxshadowinset;
+        transition: $hovertransition;
     }
 }

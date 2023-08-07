@@ -1,13 +1,3 @@
-:root {
-  --lightgrey: rgba(242,242,242,1);
-  --white: #ffffff;
-  --black: black;
-  --green: green;
-  --red: red;
-  --boxshadow: 0 0 50px 10px rgba(0,0,0,0.6);
-  --boxshadowinset: inset 0 0 17px 4px rgba(0,0,0,0.3);
-}
-
 .overlay {
   position: absolute;
   top: 0;
@@ -76,7 +66,22 @@ main {
   justify-content: center;
 }
 
-.winnerOverlay .winnerWrapper .close,
+.winnerOverlay .winnerWrapper .close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 50px;
+  width: 50px;
+  background-image: url(../img/x.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 30px 30px;
+  opacity: 0.5;
+}
+.winnerOverlay .winnerWrapper :hover {
+  opacity: 1;
+}
+
 .tiedOverlay .tiedWrapper .closeNoWinner {
   position: absolute;
   top: 0;
@@ -90,10 +95,6 @@ main {
   opacity: 0.5;
 }
 
-.winnerOverlay .winnerWrapper .close:hover {
-  opacity: 1;
-}
-
 .playerOneOverlay.hidden,
 .playerTwoOverlay.hidden,
 .winnerOverlay.hidden,
@@ -103,7 +104,7 @@ main {
 
 .playerOneNameInput, .playerTwoNameInput {
   border: none;
-  background-color: rgb(225, 225, 225);
+  background-color: rgb(242, 242, 242);
   font-size: 0.6em;
   border-radius: 10px;
   text-align: center;
@@ -115,8 +116,8 @@ main {
   font-family: "REM", sans-serif;
   text-align: center;
   font-size: 3em;
-  text-shadow: 0px 0px 20px var(--black);
-  color: var(--white);
+  text-shadow: 0px 0px 20px black;
+  color: white;
   margin: 0;
 }
 
@@ -124,7 +125,7 @@ main {
   padding-top: 25px;
   text-align: center;
   font-family: "REM", sans-serif;
-  color: var(--white);
+  color: white;
 }
 
 .col1 {
@@ -148,7 +149,7 @@ main {
   height: 300px;
   border-radius: 10px;
   margin: 0 auto;
-  box-shadow: var(--boxshadow);
+  box-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.6);
 }
 .thegrid .square {
   background-color: white;
@@ -158,13 +159,15 @@ main {
   border: 1px solid black;
   border-radius: 10px;
 }
-.thegrid.x {
-  background: no-repeat center/cover url(../img/x.png);
-  box-shadow: var(--boxshadowinset);
+.thegrid .x {
+  background: no-repeat center/contain url(../img/x.png);
+  box-shadow: inset 0 0 17px 4px rgba(0, 0, 0, 0.3);
+  transition: all 300ms ease-in-out;
 }
-.thegrid.o {
-  background: no-repeat center/cover url(../img/o.png);
-  box-shadow: var(--boxshadowinset);
+.thegrid .o {
+  background: no-repeat center/contain url(../img/o.png);
+  box-shadow: inset 0 0 17px 4px rgba(0, 0, 0, 0.3);
+  transition: all 300ms ease-in-out;
 }
 
 @media only screen and (max-width: 800px) {
@@ -189,4 +192,19 @@ main {
     flex-grow: 1;
     transform: scale(0.5);
   }
+}
+.resetButton {
+  display: inline-block;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid black;
+  box-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.6);
+}
+.resetButton:hover {
+  background-color: rgb(242, 242, 242);
+  transition: all 300ms ease-in-out;
 }
