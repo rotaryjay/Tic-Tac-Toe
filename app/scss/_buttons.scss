@@ -13,6 +13,17 @@
         transform: scale(1.05);
         box-shadow: $buttonhovershadow;
     }
+    &.disabled {
+        cursor: not-allowed;
+        color: grey;
+        border: 1px solid grey;
+        &:hover {
+            background-color: inherit;
+            transition: $transition;
+            transform: none;
+            box-shadow: none;
+        }
+    }
 }
 .resetButton {
     display: block;

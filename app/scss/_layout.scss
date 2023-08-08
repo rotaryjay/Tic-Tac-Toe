@@ -1,3 +1,4 @@
+/*html, body {touch-action: none;}*/
 body {
     background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url(../img/background.jpg);
     main { 
@@ -19,7 +20,7 @@ body {
     }
     .col2 {
         order: 2;
-        flex-grow: 2;
+        flex-grow: 1;
     }
     .col3 {
         order: 3;

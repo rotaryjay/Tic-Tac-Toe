@@ -7,6 +7,8 @@ const box6 = document.querySelector('.box6');
 const box7 = document.querySelector('.box7');
 const box8 = document.querySelector('.box8');
 const box9 = document.querySelector('.box9');
+let onePlayer = false;
+let twoPlayer = true;
 let box1Locked = false;
 let box2Locked = false;
 let box3Locked = false;
@@ -98,16 +100,24 @@ function playerTwoIsTheWinner() {
 }
 
 // Player Mode select
-document.querySelector('.onePlayerModeButton').addEventListener('click', function () {
+/*document.querySelector('.onePlayerModeButton').addEventListener('click', function () {
     document.querySelector('.playerModeOverlay').classList.add('hidden');
     document.querySelector('.playerOneOverlay').classList.remove('hidden');
     document.getElementById('playerOneNameInput').focus();
-});
-document.querySelector('.twoPlayerModeButton').addEventListener('click', function () {
+    onePlayer = true;
+    twoPlayer = false;
+});*/
+document.querySelector('.twoPlayerModeButton').addEventListener('click', activateTwoPlayerMode);
+document.querySelector('.twoPlayerModeButton').addEventListener('touchstart', activateTwoPlayerMode);
+
+function activateTwoPlayerMode() {
     document.querySelector('.playerModeOverlay').classList.add('hidden');
     document.querySelector('.playerOneOverlay').classList.remove('hidden');
     document.getElementById('playerOneNameInput').focus();
-});
+    onePlayer = false;
+    twoPlayer = true;
+}
+
 
 // Settings Overlay Toggle
 const gear = document.querySelector('.gearButtonWrapper');
@@ -209,14 +219,12 @@ document.querySelector('.resetButton').addEventListener('click', function () {
     clearBoxNine();
     // Sets current player to Player 1
     currentPlayer = 0;
-    // Shows the Player One input dialogue again
-    document.querySelector('.playerOneOverlay').classList.remove('hidden');
-    document.getElementById("playerOneNameInput").focus();
     // Resets the Total Wins for both players back to zero
     playerOneTotalWins = 0;
     playerTwoTotalWins = 0;
     document.querySelector('.playerOneTotalWins').textContent = playerOneTotalWins;
     document.querySelector('.playerTwoTotalWins').textContent = playerTwoTotalWins;
+    document.querySelector('.playerModeOverlay').classList.remove('hidden');
     document.querySelector('.settingsOverlay').classList.add('hidden');
 });
 
@@ -531,3 +539,8 @@ document.querySelector('.tictactoe').addEventListener('mouseover', function() {
         }
     }
 });
+
+// Disable pinch zoom
+/*document.addEventListener('touchmove', function (event) {
+    if (event.scale !== 1) { event.preventDefault(); }
+  }, false);*/

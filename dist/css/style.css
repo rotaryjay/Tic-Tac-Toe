@@ -52,6 +52,7 @@ table {
   border-spacing: 0;
 }
 
+/*html, body {touch-action: none;}*/
 body {
   background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), fixed no-repeat center/cover url(../img/background.jpg);
 }
@@ -74,7 +75,7 @@ body .col1 {
 }
 body .col2 {
   order: 2;
-  flex-grow: 2;
+  flex-grow: 1;
 }
 body .col3 {
   order: 3;
@@ -402,29 +403,6 @@ body .col3 {
   transition: all 300ms ease-in-out;
 }
 
-@media only screen and (max-width: 800px) {
-  body {
-    margin: 0;
-    padding: 0;
-  }
-  main {
-    width: 95%;
-  }
-  .col1 {
-    order: 2;
-    flex-grow: 1;
-    transform: scale(0.5);
-  }
-  .col2 {
-    order: 1;
-    flex-grow: 1;
-  }
-  .col3 {
-    order: 3;
-    flex-grow: 1;
-    transform: scale(0.5);
-  }
-}
 .button {
   border: 1px solid black;
   border-radius: 5px;
@@ -440,6 +418,17 @@ body .col3 {
   transition: all 0.2s ease-in-out;
   transform: scale(1.05);
   box-shadow: 0 0 20px -2px rgba(0, 0, 0, 0.3);
+}
+.button.disabled {
+  cursor: not-allowed;
+  color: grey;
+  border: 1px solid grey;
+}
+.button.disabled:hover {
+  background-color: inherit;
+  transition: all 0.2s ease-in-out;
+  transform: none;
+  box-shadow: none;
 }
 
 .resetButton {
@@ -469,4 +458,21 @@ body .col3 {
 .playerModeButtons .twoPlayerModeButton {
   max-width: 150px;
   display: inline-block;
+}
+
+@media only screen and (max-device-width: 535px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+  .col1 {
+    order: 2;
+    flex-grow: 1;
+    transform: scale(0.5);
+  }
+  .col2 {
+    order: 1;
+    flex-grow: 1;
+  }
+  .col3 {
+    order: 3;
+    flex-grow: 1;
+    transform: scale(0.5);
+  }
 }

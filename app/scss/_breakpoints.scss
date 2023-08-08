@@ -1,11 +1,7 @@
-@media only screen and (max-width: 800px) {
-    body {
-        margin: 0;
-        padding: 0;
-    }
-    main {
-        width: 95%;
-    }
+@media only screen
+    and (max-device-width: 535px)
+    and (-webkit-min-device-pixel-ratio: 3)
+    and (orientation: portrait) {
     .col1 {
         order: 2;
         flex-grow: 1;
@@ -19,5 +15,5 @@
         order: 3;
         flex-grow: 1;
         transform: scale(0.5);
-    }  
-} 
+    }
+}
