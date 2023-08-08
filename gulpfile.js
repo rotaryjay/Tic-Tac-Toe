@@ -66,8 +66,8 @@ async function updateIndex() {
     .pipe(revCollector({
       //replaceReved: true,
       dirReplacements: {
-        'css': '/dist/css',
-        '/js/': '/dist/js/'
+        'css': '/css',
+        '/js/': '/js/'
     }
     }))
     .pipe( gulp.dest('dist') );
