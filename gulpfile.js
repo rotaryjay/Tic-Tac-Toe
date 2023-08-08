@@ -35,6 +35,11 @@ function copyFavicon() {
   .pipe(gulp.dest('dist/img/favicon'))
 }
 
+function copyMusic() {
+  return gulp.src('app/music/*.*')
+  .pipe(gulp.dest('dist/music'))
+}
+
 function buildStyles() {
   return gulp.src('app/scss/style.scss')
     .pipe(sass().on('error', sass.logError))
@@ -64,11 +69,7 @@ async function updateIndex() {
   const rev = await getRev();
   return gulp.src(['dist/manifest.json', 'dist/index.html'])
     .pipe(revCollector({
-      //replaceReved: true,
-      dirReplacements: {
-        'css': '/css',
-        '/js/': '/js/'
-    }
+      replaceReved: true
     }))
     .pipe( gulp.dest('dist') );
 }
@@ -79,7 +80,7 @@ async function updateIndex() {
 
 
 // Define a task that encapsulates other tasks
-const build = gulp.series(copyIndex, copyJs, copyFavicon, copyPng, copyJpg, buildStyles, revCss, revJs, updateIndex /* Other tasks */);
+const build = gulp.series(copyIndex, copyJs, copyFavicon, copyPng, copyJpg, copyMusic, buildStyles, revCss, revJs, updateIndex /* Other tasks */);
 
 // Define default task
 exports.default = build;

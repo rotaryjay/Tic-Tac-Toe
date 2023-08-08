@@ -112,7 +112,7 @@ body .col3 {
   display: inline-block;
   margin: 0 10px 0 0;
 }
-.topBar .audioButtonWrapper {
+.topBar .siteMusicWrapper {
   top: 50%;
   transform: translateY(-50%);
   position: absolute;
@@ -120,23 +120,7 @@ body .col3 {
   width: 40px;
   right: 60px;
 }
-.topBar .audioButtonWrapper svg {
-  height: 40px;
-  width: 40px;
-  object-fit: cover;
-  color: rgba(0, 0, 0, 0.8);
-  transition: all 0.2s ease-in-out;
-}
-.topBar .audioButtonWrapper:hover svg {
-  transform: rotate(10deg);
-  color: black;
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
-}
-.topBar .audioButtonWrapper .siteMusicWrapper {
-  display: none;
-}
-.topBar .audioButtonWrapper .siteMusicWrapper audio {
+.topBar .siteMusicWrapper audio {
   transform: scale(0.7);
 }
 .topBar .gearButtonWrapper {
