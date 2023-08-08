@@ -541,6 +541,6 @@ document.querySelector('.tictactoe').addEventListener('mouseover', function() {
 });
 
 // Disable pinch zoom
-/*document.addEventListener('touchmove', function (event) {
+document.addEventListener('touchmove', function (event) {
     if (event.scale !== 1) { event.preventDefault(); }
-  }, false);*/
+  }, false);
