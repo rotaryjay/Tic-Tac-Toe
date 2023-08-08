@@ -84,4 +84,23 @@ main {
     order: 3;
     flex-grow: 1;
 }
-
+.currentPlayerArrowPlaceholder {
+    visibility: hidden;
+    height: 50px;
+    width: 50px;
+    margin: 20px auto;
+    transition: $hovertransition;
+    opacity: 0;
+    &.current {
+        visibility: visible;
+        transition: $hovertransition;
+        opacity: 1;
+    }
+    img {
+        height: 50px;
+        width: 50px;
+        &.white-arrow {
+            filter: invert(95%) sepia(5%) saturate(20%) hue-rotate(170deg) brightness(106%) contrast(102%);
+        }
+    }
+}

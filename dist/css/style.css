@@ -143,6 +143,27 @@ main {
   flex-grow: 1;
 }
 
+.currentPlayerArrowPlaceholder {
+  visibility: hidden;
+  height: 50px;
+  width: 50px;
+  margin: 20px auto;
+  transition: all 300ms ease-in-out;
+  opacity: 0;
+}
+.currentPlayerArrowPlaceholder.current {
+  visibility: visible;
+  transition: all 300ms ease-in-out;
+  opacity: 1;
+}
+.currentPlayerArrowPlaceholder img {
+  height: 50px;
+  width: 50px;
+}
+.currentPlayerArrowPlaceholder img.white-arrow {
+  filter: invert(95%) sepia(5%) saturate(20%) hue-rotate(170deg) brightness(106%) contrast(102%);
+}
+
 .thegrid {
   background-color: black;
   width: 300px;
