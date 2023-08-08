@@ -9,6 +9,9 @@
 }
 
 .playerOneOverlay {
+    &.hidden {
+        display: none;
+    }
     .playerOneInput {
         position: absolute;
         background-color: $white;
@@ -25,6 +28,9 @@
 } 
 
 .playerTwoOverlay {
+    &.hidden {
+        display: none;
+    }
     .playerTwoInput {
         position: absolute;
         background-color: $white;
@@ -40,6 +46,9 @@
     }
 }
 .winnerOverlay {
+    &.hidden {
+        display: none;
+    }
     .winnerWrapper {
         position: absolute;
         background-color: $white;
@@ -52,10 +61,122 @@
         text-align: center;
         font-size: 1em;
         font-family: 'REM', sans-serif;
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            height: 25px;
+            width: 25px;
+            svg {
+                color: rgba($black,0.8);
+                height: 25px;
+                width: 25px;
+            }&:hover {
+                svg {
+                    color: rgba($black,1);
+                    transform: rotate(10deg);
+                    transition: all .2s ease-in-out;
+                }
+            }
+        } 
     }
 }
 .tiedOverlay {
+    &.hidden {
+        display: none;
+    }
     .tiedWrapper {
-        font-size: 0.5em;
+        position: absolute;
+        background-color: $white;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 50px;
+        box-shadow: 0 0 100px rgba($black,.3);
+        border-radius: 10px;
+        text-align: center;
+        font-size: 1em;
+        font-family: 'REM', sans-serif;
+        .closeNoWinner {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            height: 25px;
+            width: 25px;
+            svg {
+                color: rgba($black,1);
+                height: 25px;
+                width: 25px;
+            }&:hover {
+                svg {
+                    color: rgba($black,1);
+                    transform: rotate(10deg);
+                    transition: all .2s ease-in-out;
+                }
+            }
+        }
+    }
+}
+.settingsOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $white;
+    transition: all .2s ease-in-out;
+    transform: scale(1);
+    transform-origin: 100% 0;
+    opacity: 1;
+    z-index: 1000000;
+    &.hidden {
+        z-index: 0;
+        visibility: hidden;
+        transition: all .2s ease-in-out;
+        transform: scale(0);
+        transform-origin: 100% 0;
+        opacity: 0;
+    }
+    .closeSettingsOverlay {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        height: 40px;
+        width: 40px;
+        svg {
+            height: 40px;
+            width: 40px;
+            color: rgba($black,0.8);
+        }
+        &:hover {
+            svg {
+                transform: rotate(10deg);
+                color: rgba($black,1);
+                transition: all .2s ease-in-out;
+            }
+        }
+    }
+    .settingsTitle {
+        font-family: "Preahvihear", sans-serif;
+        color: grey;
+        font-size: 4em;
+        display: block;
+        text-align: center;
+        margin: 20px;
+        .blackText {
+            color: $black;
+        }
+        img {
+            height: 40px;
+            width: 40px;
+            display: inline-block;
+            margin: 0 20px 0 0;
+        }
+    }
+    .settingsAuthor {
+        font-family: 'REM', sans-serif;
+        display: block;
+        text-align: center;
     }
 }

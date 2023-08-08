@@ -1,0 +1,53 @@
+.topBar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: $white;
+    height: 50px;
+    box-shadow: $boxshadow;
+    position: relative;
+    .siteTitle {
+        font-family: "Preahvihear", sans-serif;
+        margin: 0 auto;
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        font-size: 2em;
+        color: grey;
+        .blackText {
+            color: $black;
+        }
+        img {
+            height: 20px;
+            width: 20px;
+            display: inline-block;
+            margin: 0 10px 0 0;
+        }
+    }
+    .gearButtonWrapper {
+        top: 50%;
+        transform: translateY(-50%);
+        position: absolute;
+        height: 40px;
+        width: 40px;
+        right: 10px;
+        svg {
+            height: 40px;
+            width: 40px;
+            object-fit: cover;
+            color: rgba($black,0.8);
+            transition: all .2s ease-in-out;
+        }
+        &:hover {
+            svg {
+                transform: rotate(10deg);
+                color: rgba($black,1);
+                transition: all .2s ease-in-out;
+                cursor: pointer;
+            }
+        }
+    }
+}

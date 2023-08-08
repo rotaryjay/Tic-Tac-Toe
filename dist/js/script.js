@@ -96,6 +96,16 @@ function playerTwoIsTheWinner() {
     document.querySelector('.winner').textContent = playerTwoName;
     currentGameWinner = playerTwoName;
 }
+// Settings Overlay Toggle
+const gear = document.querySelector('.gearButtonWrapper');
+const settings = document.querySelector('.settingsOverlay');
+const closeSettings = document.querySelector('.closeSettingsOverlay');
+gear.addEventListener('click', function() {
+    settings.classList.remove('hidden')
+});
+closeSettings.addEventListener('click', function() {
+    settings.classList.add('hidden')
+});
 // When the game is won by any of the players
 document.querySelector('.close').addEventListener('click', function () {
     // Sets all of the boxes to unlocked
@@ -111,8 +121,16 @@ document.querySelector('.close').addEventListener('click', function () {
     // Adds "1" to the winner's Total Wins
     if (currentGameWinner == playerOneName) {
         playerOneTotalWins++;
+        currentPlayer = 0;
+        document.querySelector('.playerOneCurrent').classList.remove('current');
+        document.querySelector('.playerTwoCurrent').classList.remove('current');
+        document.querySelector('.playerOneCurrent').classList.add('current');
     } else if (currentGameWinner == playerTwoName) {
         playerTwoTotalWins++;
+        currentPlayer = 1;
+        document.querySelector('.playerOneCurrent').classList.remove('current');
+        document.querySelector('.playerTwoCurrent').classList.remove('current');
+        document.querySelector('.playerTwoCurrent').classList.add('current');
     }
     // Hides the Winner overlay
     document.querySelector('.winnerOverlay').classList.add('hidden');
@@ -126,10 +144,6 @@ document.querySelector('.close').addEventListener('click', function () {
     clearBoxSeven();
     clearBoxEight();
     clearBoxNine();
-    currentPlayer = 0;
-    document.querySelector('.playerOneCurrent').classList.remove('current');
-    document.querySelector('.playerTwoCurrent').classList.remove('current');
-    document.querySelector('.playerOneCurrent').classList.add('current');
 });
 // When the game is tied
 document.querySelector('.closeNoWinner').addEventListener('click', function () {
@@ -188,6 +202,8 @@ document.querySelector('.resetButton').addEventListener('click', function () {
     // Resets the Total Wins for both players back to zero
     playerOneTotalWins = 0;
     playerTwoTotalWins = 0;
+    document.querySelector('.playerOneTotalWins').textContent = playerOneTotalWins;
+    document.querySelector('.playerTwoTotalWins').textContent = playerTwoTotalWins;
 });
 
 // Player One name input
@@ -419,7 +435,7 @@ box9.addEventListener('click', function() {
     }
 });
 // This section listens for Three In A Row and attributes that to the winner
-document.querySelector('.thegrid').addEventListener('mouseover', function() {
+function findWinner() {
     if (box1lockedto === 0 && box2lockedto === 0 && box3lockedto === 0) {
         playerOneIsTheWinner();
     } else if (box1lockedto === 1 && box2lockedto === 1 && box3lockedto === 1) {
@@ -453,9 +469,51 @@ document.querySelector('.thegrid').addEventListener('mouseover', function() {
     } else if (box7lockedto === 1 && box5lockedto === 1 && box3lockedto === 1) {
         playerTwoIsTheWinner();
     }
+}
+document.querySelector('.thegrid').addEventListener('mouseover', function() {
+    findWinner();
     document.querySelector('.playerOneTotalWins').textContent = playerOneTotalWins;
     document.querySelector('.playerTwoTotalWins').textContent = playerTwoTotalWins;
+
+});
+// If all boxes are filled but there is no match
+document.querySelector('.tictactoe').addEventListener('mouseover', function() {
     if (box1Locked === true && box2Locked === true && box3Locked === true && box4Locked === true && box5Locked === true && box6Locked === true && box7Locked === true && box8Locked === true && box9Locked === true) {
-        document.querySelector('.tiedOverlay').classList.remove('hidden');
+        if (box1lockedto === 0 && box2lockedto === 0 && box3lockedto === 0) {
+            playerOneIsTheWinner();
+        } else if (box1lockedto === 1 && box2lockedto === 1 && box3lockedto === 1) {
+            playerTwoIsTheWinner();
+        } else if (box1lockedto === 0 && box4lockedto === 0 && box7lockedto === 0) {
+            playerOneIsTheWinner();
+        } else if (box1lockedto === 1 && box4lockedto === 1 && box7lockedto === 1) {
+            playerTwoIsTheWinner();
+        } else if (box1lockedto === 0 && box5lockedto === 0 && box9lockedto === 0) {
+            playerOneIsTheWinner();
+        } else if (box1lockedto === 1 && box5lockedto === 1 && box9lockedto === 1) {
+            playerTwoIsTheWinner();
+        } else if (box4lockedto === 0 && box5lockedto === 0 && box6lockedto === 0) {
+            playerOneIsTheWinner();
+        } else if (box4lockedto === 1 && box5lockedto === 1 && box6lockedto === 1) {
+            playerTwoIsTheWinner();
+        } else if (box7lockedto === 0 && box8lockedto === 0 && box9lockedto === 0) {
+            playerOneIsTheWinner();
+        } else if (box7lockedto === 1 && box8lockedto === 1 && box9lockedto === 1) {
+            playerTwoIsTheWinner();
+        } else if (box2lockedto === 0 && box5lockedto === 0 && box8lockedto === 0) {
+            playerOneIsTheWinner();
+        } else if (box2lockedto === 1 && box5lockedto === 1 && box8lockedto === 1) {
+            playerTwoIsTheWinner();
+        } else if (box3lockedto === 0 && box6lockedto === 0 && box9lockedto === 0) {
+            playerOneIsTheWinner();
+        } else if (box3lockedto === 1 && box6lockedto === 1 && box9lockedto === 1) {
+            playerTwoIsTheWinner();
+        } else if (box7lockedto === 0 && box5lockedto === 0 && box3lockedto === 0) {
+            playerOneIsTheWinner();
+        } else if (box7lockedto === 1 && box5lockedto === 1 && box3lockedto === 1) {
+            playerTwoIsTheWinner();
+        } else {
+            document.querySelector('.tiedOverlay').classList.remove('hidden');
+            currentPlayer = 0;
+        }
     }
 });

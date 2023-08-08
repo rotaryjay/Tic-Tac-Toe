@@ -7,9 +7,9 @@
     margin: 10px;
     border-radius: 5px;
     border: 1px solid $black;
-    box-shadow: $boxshadow;
     &:hover {
         background-color: $lightgrey;
-        transition: $hovertransition;
+        transition: $transition;
+        transform: scale(1.2);
     }
 }
