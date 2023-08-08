@@ -1,3 +1,28 @@
 body {
     background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url(../img/background.jpg);
+    main { 
+        display: flex; 
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    .col1, .col2, .col3 {
+        padding-top: 25px;
+        text-align: center;
+        font-family: 'REM', sans-serif;
+        color: $white;
+    }
+    .col1 {
+        order: 1;
+        flex-grow: 1;
+    }
+    .col2 {
+        order: 2;
+        flex-grow: 2;
+    }
+    .col3 {
+        order: 3;
+        flex-grow: 1;
+    }
 }

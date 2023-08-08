@@ -7,7 +7,6 @@ const box6 = document.querySelector('.box6');
 const box7 = document.querySelector('.box7');
 const box8 = document.querySelector('.box8');
 const box9 = document.querySelector('.box9');
-let playerMode = twoPlayer;
 let box1Locked = false;
 let box2Locked = false;
 let box3Locked = false;
@@ -97,6 +96,19 @@ function playerTwoIsTheWinner() {
     document.querySelector('.winner').textContent = playerTwoName;
     currentGameWinner = playerTwoName;
 }
+
+// Player Mode select
+document.querySelector('.onePlayerModeButton').addEventListener('click', function () {
+    document.querySelector('.playerModeOverlay').classList.add('hidden');
+    document.querySelector('.playerOneOverlay').classList.remove('hidden');
+    document.getElementById('playerOneNameInput').focus();
+});
+document.querySelector('.twoPlayerModeButton').addEventListener('click', function () {
+    document.querySelector('.playerModeOverlay').classList.add('hidden');
+    document.querySelector('.playerOneOverlay').classList.remove('hidden');
+    document.getElementById('playerOneNameInput').focus();
+});
+
 // Settings Overlay Toggle
 const gear = document.querySelector('.gearButtonWrapper');
 const settings = document.querySelector('.settingsOverlay');
@@ -205,6 +217,7 @@ document.querySelector('.resetButton').addEventListener('click', function () {
     playerTwoTotalWins = 0;
     document.querySelector('.playerOneTotalWins').textContent = playerOneTotalWins;
     document.querySelector('.playerTwoTotalWins').textContent = playerTwoTotalWins;
+    document.querySelector('.settingsOverlay').classList.add('hidden');
 });
 
 // Player One name input
@@ -471,7 +484,7 @@ function findWinner() {
         playerTwoIsTheWinner();
     }
 }
-document.querySelector('.thegrid').addEventListener('mouseover', function() {
+document.querySelector('.tictactoe').addEventListener('mouseover', function() {
     findWinner();
     document.querySelector('.playerOneTotalWins').textContent = playerOneTotalWins;
     document.querySelector('.playerTwoTotalWins').textContent = playerTwoTotalWins;

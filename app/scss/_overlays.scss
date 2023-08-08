@@ -5,9 +5,37 @@
     left: 0;
     right: 0;
     background-color: rgba($white,0.9);
-    z-index: 10000;
+    z-index: 1000000;
 }
-
+.playerModeOverlay {
+    background-color: rgba($white,1);
+    &.hidden {
+        display: none;
+    }
+    .playerModerOverlayContent {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        .playerModeTitle {
+            font-family: "Preahvihear", sans-serif;
+            color: grey;
+            font-size: 4em;
+            display: block;
+            text-align: center;
+            margin: 20px;
+            .blackText {
+                color: $black;
+            }
+            svg {
+                height: 40px;
+                width: 40px;
+                display: inline-block;
+                margin: 0 20px 0 0;
+            }
+        }
+    }
+}
 .playerOneOverlay {
     &.hidden {
         display: none;
@@ -167,7 +195,7 @@
         .blackText {
             color: $black;
         }
-        img {
+        svg {
             height: 40px;
             width: 40px;
             display: inline-block;
