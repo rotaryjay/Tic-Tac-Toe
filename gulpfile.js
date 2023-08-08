@@ -37,6 +37,11 @@ function copyJpg() {
     .pipe(gulp.dest('dist/img'));
 }
 
+function copySvg() {
+  return gulp.src('app/img/*.svg')
+    .pipe(gulp.dest('dist/img'));
+}
+
 function copyFavicon() {
   return gulp.src('app/img/favicon/*')
     .pipe(gulp.dest('dist/img/favicon'));
@@ -48,4 +53,4 @@ function copyJs() {
 }
 
 // Define a default task that runs all the tasks in parallel
-exports.default = gulp.parallel(revCss, buildStyles, copyIndex, copyPng, copyJpg, copyFavicon, copyJs);
+exports.default = gulp.parallel(revCss, buildStyles, copyIndex, copyPng, copyJpg, copySvg, copyFavicon, copyJs);
