@@ -8,4 +8,5 @@ $red: red;
 $lightgrey: rgba(242,242,242,1);
 $hovertransition: all 300ms ease-in-out;
 $transition: all .2s ease-in-out;
-$overlaybackground: linear-gradient(rgba($white,1),rgba($white,1));
+$overlaybackgroundopaque: linear-gradient(rgba($white,1),rgba($white,1));
+$overlaybackgroundtranslucent: linear-gradient(rgba($white,.9),rgba($white,.9));

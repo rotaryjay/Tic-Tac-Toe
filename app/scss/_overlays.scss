@@ -4,11 +4,11 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: $overlaybackground;
+    background: $overlaybackgroundtranslucent;
     z-index: 1000000;
 }
 .playerModeOverlay {
-    background: $overlaybackground;
+    background: $overlaybackgroundopaque;
     &.hidden {
         display: none;
     }
@@ -50,8 +50,9 @@
         box-shadow: 0 0 100px rgba($black,.3);
         border-radius: 10px;
         text-align: center;
-        font-size: 3em;
-        font-family: 'REM', sans-serif
+        font-size: 2em;
+        font-family: 'REM', sans-serif;
+        max-width: 100%;
     }
 } 
 
@@ -69,8 +70,9 @@
         box-shadow: 0 0 100px rgba($black,.3);
         border-radius: 10px;
         text-align: center;
-        font-size: 3em;
+        font-size: 2em;
         font-family: 'REM', sans-serif;
+        max-width: 100%;
     }
 }
 .winnerOverlay {
@@ -151,7 +153,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: $overlaybackground;
+    background: $overlaybackgroundopaque;
     transition: all .2s ease-in-out;
     transform: scale(1);
     transform-origin: 100% 0;
@@ -206,5 +208,19 @@
         font-family: 'REM', sans-serif;
         display: block;
         text-align: center;
+    }
+    .selectBackground {
+        text-align: center;
+        .backgroundThumbnail {
+            width: 150px;
+            height: 100px;
+            border: 2px solid $black;
+            transition: $hovertransition;
+            cursor: pointer;
+            &:hover {
+                box-shadow: $buttonhovershadow;
+                transition: $hovertransition;
+            }
+        }
     }
 }

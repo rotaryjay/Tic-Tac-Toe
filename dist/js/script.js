@@ -129,6 +129,18 @@ gear.addEventListener('click', function() {
 closeSettings.addEventListener('click', function() {
     settings.classList.add('hidden')
 });
+
+// Background select
+document.getElementById('backgroundThumbnail1').addEventListener('click', function() {
+    document.querySelector(".tictactoe").style.background="fixed no-repeat center/cover url('img/background.jpg')"; 
+});
+document.getElementById('backgroundThumbnail2').addEventListener('click', function() {
+    document.querySelector(".tictactoe").style.background="fixed no-repeat center/cover url('img/kowshik-roy-sagor-JhDHKezS6O8-unsplash.jpg')"; 
+});
+document.getElementById('backgroundThumbnail3').addEventListener('click', function() {
+    document.querySelector(".tictactoe").style.background="fixed no-repeat center/cover url('img/ryunosuke-kikuno-nX0NgrGEwEc-unsplash.jpg')"; 
+});
+
 // When the game is won by any of the players
 document.querySelector('.close').addEventListener('click', function () {
     // Sets all of the boxes to unlocked
