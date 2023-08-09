@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -12,89 +13,57 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <link rel="apple-touch-icon" href="img/iTunesArtwork@2x.png" />
     <title>Tic Tac Toe</title>
-    <link rel="stylesheet" href="css/style-cbf797c5e1.css">
+    <link rel="stylesheet" href="css/style-126943d480.css">
     <link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=REM:wght@200&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Preahvihear&display=swap" rel="stylesheet">
-  </head>
-  <body class="tictactoe">
+</head>
+
+<body class="tictactoe" style="background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url(img/backgrounds/background01.jpg);">
     <div class="topBar">
-        <div class="siteTitle"><svg fill="#000000" height="20px" width="20px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-            viewBox="0 0 455.896 455.896" xml:space="preserve">
-            <g>
-                <path d="M432.458,330.806c8.794,0,15.926-7.132,15.926-15.926c0-8.794-7.132-15.926-15.926-15.926H331.599V155.62h100.859
+        <div class="siteTitle"><svg fill="#000000" height="20px" width="20px" version="1.1" id="Capa_1"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 455.896 455.896" xml:space="preserve">
+                <g>
+                    <path
+                        d="M432.458,330.806c8.794,0,15.926-7.132,15.926-15.926c0-8.794-7.132-15.926-15.926-15.926H331.599V155.62h100.859
                     c8.794,0,15.926-7.132,15.926-15.926c0-8.794-7.132-15.926-15.926-15.926H331.599V22.909c0-8.796-7.132-15.926-15.926-15.926
                     c-8.796,0-15.926,7.13-15.926,15.926v100.859H156.414V22.902c0-8.794-7.132-15.926-15.926-15.926
                     c-8.796,0-15.926,7.132-15.926,15.926v100.867H23.695c-8.794,0-15.926,7.132-15.926,15.926c0,8.794,7.132,15.926,15.926,15.926
                     h100.867v143.333H23.695c-8.794,0-15.926,7.132-15.926,15.926c0,8.794,7.132,15.926,15.926,15.926h100.867v100.859
                     c0,8.796,7.13,15.926,15.926,15.926c8.794,0,15.926-7.13,15.926-15.926V330.806h143.333v100.867c0,8.794,7.13,15.926,15.926,15.926
-                    c8.794,0,15.926-7.132,15.926-15.926V330.806H432.458z M156.414,298.954V155.62h143.333v143.333H156.414z"/>
-                <path d="M27.652,106.497l25.235-25.241l25.235,25.241c3.11,3.11,7.184,4.666,11.26,4.666c4.075,0,8.149-1.556,11.26-4.666
+                    c8.794,0,15.926-7.132,15.926-15.926V330.806H432.458z M156.414,298.954V155.62h143.333v143.333H156.414z" />
+                    <path d="M27.652,106.497l25.235-25.241l25.235,25.241c3.11,3.11,7.184,4.666,11.26,4.666c4.075,0,8.149-1.556,11.26-4.666
                     c6.222-6.213,6.222-16.299,0-22.519L75.408,58.735l25.233-25.243c6.222-6.221,6.222-16.306,0-22.519
                     c-6.221-6.221-16.299-6.221-22.519,0L52.887,36.214L27.652,10.973c-6.221-6.221-16.299-6.221-22.519,0
                     c-6.222,6.213-6.222,16.299,0,22.519l25.233,25.243L5.133,83.977c-6.222,6.221-6.222,16.307,0,22.519
-                    c3.11,3.11,7.184,4.666,11.26,4.666C20.468,111.163,24.542,109.607,27.652,106.497z"/>
-                <path d="M250.596,227.287l25.235-25.243c6.221-6.221,6.221-16.307,0-22.519c-6.222-6.222-16.3-6.222-22.521,0l-25.235,25.241
+                    c3.11,3.11,7.184,4.666,11.26,4.666C20.468,111.163,24.542,109.607,27.652,106.497z" />
+                    <path d="M250.596,227.287l25.235-25.243c6.221-6.221,6.221-16.307,0-22.519c-6.222-6.222-16.3-6.222-22.521,0l-25.235,25.241
                     l-25.235-25.241c-6.221-6.222-16.299-6.222-22.519,0c-6.221,6.213-6.221,16.299,0,22.519l25.235,25.243l-25.235,25.243
                     c-6.221,6.221-6.221,16.307,0,22.519c3.11,3.11,7.186,4.666,11.26,4.666c4.075,0,8.149-1.556,11.26-4.666l25.235-25.241
                     l25.235,25.241c3.11,3.11,7.186,4.666,11.26,4.666c4.076,0,8.149-1.556,11.261-4.666c6.221-6.213,6.221-16.299,0-22.519
-                    L250.596,227.287z"/>
-                <path d="M228.072,117.47c32.389,0,58.735-26.346,58.735-58.735C286.807,26.346,260.461,0,228.072,0
+                    L250.596,227.287z" />
+                    <path d="M228.072,117.47c32.389,0,58.735-26.346,58.735-58.735C286.807,26.346,260.461,0,228.072,0
                     c-32.389,0-58.735,26.346-58.735,58.735C169.337,91.123,195.684,117.47,228.072,117.47z M228.072,31.852
                     c14.822,0,26.883,12.061,26.883,26.883c0,14.822-12.061,26.883-26.883,26.883c-14.822,0-26.883-12.061-26.883-26.883
-                    C201.189,43.913,213.25,31.852,228.072,31.852z"/>
-                <path d="M396.695,338.426c-32.389,0-58.735,26.346-58.735,58.735s26.346,58.735,58.735,58.735
+                    C201.189,43.913,213.25,31.852,228.072,31.852z" />
+                    <path
+                        d="M396.695,338.426c-32.389,0-58.735,26.346-58.735,58.735s26.346,58.735,58.735,58.735
                     c32.388,0,58.735-26.346,58.735-58.735S429.083,338.426,396.695,338.426z M396.695,424.044c-14.822,0-26.883-12.061-26.883-26.883
-                    s12.061-26.883,26.883-26.883c14.822,0,26.883,12.061,26.883,26.883S411.517,424.044,396.695,424.044z"/>
-            </g>
+                    s12.061-26.883,26.883-26.883c14.822,0,26.883,12.061,26.883,26.883S411.517,424.044,396.695,424.044z" />
+                </g>
             </svg>tic<span class="blackText">tac</span>toe</div>
-        <div class="audioButtonWrapper">
-            <svg
-            xmlns:dc="http://purl.org/dc/elements/1.1/"
-            xmlns:cc="http://web.resource.org/cc/"
-            xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-            xmlns:svg="http://www.w3.org/2000/svg"
-            xmlns="http://www.w3.org/2000/svg"
-            xml:space="preserve"
-            version="1.0"
-            id="layer1"
-            width="40px" height="40px"
-            viewBox="0 0 75 75"><metadata
-            id="metadata1"><rdf:RDF><cc:Work
-            rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-            rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><g
-            id="g1"><polygon
-            id="polygon1"
-            points="39.389,13.769 22.235,28.606 6,28.606 6,47.699 21.989,47.699 39.389,62.75 39.389,13.769"
-            style="stroke:currentColor;stroke-width:5;stroke-linejoin:round;fill:currentcolor;"
-            /><path id="path1"
-            d="M 48.128,49.03 C 50.057,45.934 51.19,42.291 51.19,38.377 C 51.19,34.399 50.026,30.703 48.043,27.577"
-            style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round"/>
-            <path id="path2"
-            d="M 55.082,20.537 C 58.777,25.523 60.966,31.694 60.966,38.377 C 60.966,44.998 58.815,51.115 55.178,56.076"
-            style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round"/>
-            <path id="path1"
-            d="M 61.71,62.611 C 66.977,55.945 70.128,47.531 70.128,38.378 C 70.128,29.161 66.936,20.696 61.609,14.01"
-            style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round"/>
-            </g>
-            </svg>
-            <!-- <audio autoplay controls loop>
-                <source src="music/elevator-music-bossa-nova-background-music-version-60s-10900.mp3" type="audio/mpeg">
-              Your browser does not support the audio element.
-              </audio> -->
-        </div>
         <div class="gearButtonWrapper">
-            <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-            width="1278.000000pt" height="1280.000000pt" viewBox="0 0 1278.000000 1280.000000"
-            preserveAspectRatio="xMidYMid meet">
-            <metadata>
-            Created by potrace 1.15, written by Peter Selinger 2001-2017
-            </metadata>
-            <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)"
-            fill="currentcolor" stroke="none">
-            <path d="M5911 12790 c-409 -52 -565 -233 -603 -696 -11 -142 -7 -279 22 -754
+            <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="1278.000000pt" height="1280.000000pt"
+                viewBox="0 0 1278.000000 1280.000000" preserveAspectRatio="xMidYMid meet">
+                <metadata>
+                    Created by potrace 1.15, written by Peter Selinger 2001-2017
+                </metadata>
+                <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)" fill="currentcolor"
+                    stroke="none">
+                    <path d="M5911 12790 c-409 -52 -565 -233 -603 -696 -11 -142 -7 -279 22 -754
             14 -210 0 -279 -67 -342 -45 -43 -108 -65 -278 -99 -208 -41 -259 -58 -530
             -184 -303 -140 -521 -232 -602 -253 l-65 -17 -35 40 c-20 22 -117 135 -217
             250 -368 427 -594 616 -802 670 -235 61 -449 -40 -738 -348 -441 -472 -472
@@ -128,43 +97,47 @@
             -152 30 -456 5 -608 -59 -374 -204 -662 -458 -912 -143 -141 -259 -223 -457
             -322 -589 -296 -1396 -273 -1965 55 -192 110 -390 284 -509 444 -212 288 -317
             628 -317 1028 1 376 89 683 276 959 84 124 157 207 264 301 311 272 720 432
-            1195 466 88 6 337 -5 438 -20z"/>
-            </g>
+            1195 466 88 6 337 -5 438 -20z" />
+                </g>
             </svg>
         </div>
     </div>
     <div class="playerModeOverlay overlay">
         <div class="playerModerOverlayContent">
             <div class="playerModeTitle">
-            <svg fill="#000000" height="40px" width="40px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-            viewBox="0 0 455.896 455.896" xml:space="preserve">
-            <g>
-                <path d="M432.458,330.806c8.794,0,15.926-7.132,15.926-15.926c0-8.794-7.132-15.926-15.926-15.926H331.599V155.62h100.859
+                <svg fill="#000000" height="40px" width="40px" version="1.1" id="Capa_1"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 0 455.896 455.896" xml:space="preserve">
+                    <g>
+                        <path
+                            d="M432.458,330.806c8.794,0,15.926-7.132,15.926-15.926c0-8.794-7.132-15.926-15.926-15.926H331.599V155.62h100.859
                     c8.794,0,15.926-7.132,15.926-15.926c0-8.794-7.132-15.926-15.926-15.926H331.599V22.909c0-8.796-7.132-15.926-15.926-15.926
                     c-8.796,0-15.926,7.13-15.926,15.926v100.859H156.414V22.902c0-8.794-7.132-15.926-15.926-15.926
                     c-8.796,0-15.926,7.132-15.926,15.926v100.867H23.695c-8.794,0-15.926,7.132-15.926,15.926c0,8.794,7.132,15.926,15.926,15.926
                     h100.867v143.333H23.695c-8.794,0-15.926,7.132-15.926,15.926c0,8.794,7.132,15.926,15.926,15.926h100.867v100.859
                     c0,8.796,7.13,15.926,15.926,15.926c8.794,0,15.926-7.13,15.926-15.926V330.806h143.333v100.867c0,8.794,7.13,15.926,15.926,15.926
-                    c8.794,0,15.926-7.132,15.926-15.926V330.806H432.458z M156.414,298.954V155.62h143.333v143.333H156.414z"/>
-                <path d="M27.652,106.497l25.235-25.241l25.235,25.241c3.11,3.11,7.184,4.666,11.26,4.666c4.075,0,8.149-1.556,11.26-4.666
+                    c8.794,0,15.926-7.132,15.926-15.926V330.806H432.458z M156.414,298.954V155.62h143.333v143.333H156.414z" />
+                        <path d="M27.652,106.497l25.235-25.241l25.235,25.241c3.11,3.11,7.184,4.666,11.26,4.666c4.075,0,8.149-1.556,11.26-4.666
                     c6.222-6.213,6.222-16.299,0-22.519L75.408,58.735l25.233-25.243c6.222-6.221,6.222-16.306,0-22.519
                     c-6.221-6.221-16.299-6.221-22.519,0L52.887,36.214L27.652,10.973c-6.221-6.221-16.299-6.221-22.519,0
                     c-6.222,6.213-6.222,16.299,0,22.519l25.233,25.243L5.133,83.977c-6.222,6.221-6.222,16.307,0,22.519
-                    c3.11,3.11,7.184,4.666,11.26,4.666C20.468,111.163,24.542,109.607,27.652,106.497z"/>
-                <path d="M250.596,227.287l25.235-25.243c6.221-6.221,6.221-16.307,0-22.519c-6.222-6.222-16.3-6.222-22.521,0l-25.235,25.241
+                    c3.11,3.11,7.184,4.666,11.26,4.666C20.468,111.163,24.542,109.607,27.652,106.497z" />
+                        <path d="M250.596,227.287l25.235-25.243c6.221-6.221,6.221-16.307,0-22.519c-6.222-6.222-16.3-6.222-22.521,0l-25.235,25.241
                     l-25.235-25.241c-6.221-6.222-16.299-6.222-22.519,0c-6.221,6.213-6.221,16.299,0,22.519l25.235,25.243l-25.235,25.243
                     c-6.221,6.221-6.221,16.307,0,22.519c3.11,3.11,7.186,4.666,11.26,4.666c4.075,0,8.149-1.556,11.26-4.666l25.235-25.241
                     l25.235,25.241c3.11,3.11,7.186,4.666,11.26,4.666c4.076,0,8.149-1.556,11.261-4.666c6.221-6.213,6.221-16.299,0-22.519
-                    L250.596,227.287z"/>
-                <path d="M228.072,117.47c32.389,0,58.735-26.346,58.735-58.735C286.807,26.346,260.461,0,228.072,0
+                    L250.596,227.287z" />
+                        <path d="M228.072,117.47c32.389,0,58.735-26.346,58.735-58.735C286.807,26.346,260.461,0,228.072,0
                     c-32.389,0-58.735,26.346-58.735,58.735C169.337,91.123,195.684,117.47,228.072,117.47z M228.072,31.852
                     c14.822,0,26.883,12.061,26.883,26.883c0,14.822-12.061,26.883-26.883,26.883c-14.822,0-26.883-12.061-26.883-26.883
-                    C201.189,43.913,213.25,31.852,228.072,31.852z"/>
-                <path d="M396.695,338.426c-32.389,0-58.735,26.346-58.735,58.735s26.346,58.735,58.735,58.735
+                    C201.189,43.913,213.25,31.852,228.072,31.852z" />
+                        <path
+                            d="M396.695,338.426c-32.389,0-58.735,26.346-58.735,58.735s26.346,58.735,58.735,58.735
                     c32.388,0,58.735-26.346,58.735-58.735S429.083,338.426,396.695,338.426z M396.695,424.044c-14.822,0-26.883-12.061-26.883-26.883
-                    s12.061-26.883,26.883-26.883c14.822,0,26.883,12.061,26.883,26.883S411.517,424.044,396.695,424.044z"/>
-            </g>
-            </svg>tic<span class="blackText">tac</span>toe</div>
+                    s12.061-26.883,26.883-26.883c14.822,0,26.883,12.061,26.883,26.883S411.517,424.044,396.695,424.044z" />
+                    </g>
+                </svg>tic<span class="blackText">tac</span>toe
+            </div>
             <div class="playerModeButtons">
                 <div class="onePlayerModeButton button disabled">1 Player</div>
                 <div class="twoPlayerModeButton button">2 Players</div>
@@ -173,44 +146,63 @@
     </div>
     <div class="settingsOverlay hidden">
         <div class="closeSettingsOverlay">
-            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="100px" height="100px"><path fill="currentcolor" d="M 9.15625 6.3125 L 6.3125 9.15625 L 22.15625 25 L 6.21875 40.96875 L 9.03125 43.78125 L 25 27.84375 L 40.9375 43.78125 L 43.78125 40.9375 L 27.84375 25 L 43.6875 9.15625 L 40.84375 6.3125 L 25 22.15625 Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="100px" height="100px">
+                <path fill="currentcolor"
+                    d="M 9.15625 6.3125 L 6.3125 9.15625 L 22.15625 25 L 6.21875 40.96875 L 9.03125 43.78125 L 25 27.84375 L 40.9375 43.78125 L 43.78125 40.9375 L 27.84375 25 L 43.6875 9.15625 L 40.84375 6.3125 L 25 22.15625 Z" />
+            </svg>
         </div>
         <div class="settingsTitle">
-            <svg fill="#000000" height="40px" width="40px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-            viewBox="0 0 455.896 455.896" xml:space="preserve">
-            <g>
-                <path d="M432.458,330.806c8.794,0,15.926-7.132,15.926-15.926c0-8.794-7.132-15.926-15.926-15.926H331.599V155.62h100.859
+            <svg fill="#000000" height="40px" width="40px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 455.896 455.896" xml:space="preserve">
+                <g>
+                    <path
+                        d="M432.458,330.806c8.794,0,15.926-7.132,15.926-15.926c0-8.794-7.132-15.926-15.926-15.926H331.599V155.62h100.859
                     c8.794,0,15.926-7.132,15.926-15.926c0-8.794-7.132-15.926-15.926-15.926H331.599V22.909c0-8.796-7.132-15.926-15.926-15.926
                     c-8.796,0-15.926,7.13-15.926,15.926v100.859H156.414V22.902c0-8.794-7.132-15.926-15.926-15.926
                     c-8.796,0-15.926,7.132-15.926,15.926v100.867H23.695c-8.794,0-15.926,7.132-15.926,15.926c0,8.794,7.132,15.926,15.926,15.926
                     h100.867v143.333H23.695c-8.794,0-15.926,7.132-15.926,15.926c0,8.794,7.132,15.926,15.926,15.926h100.867v100.859
                     c0,8.796,7.13,15.926,15.926,15.926c8.794,0,15.926-7.13,15.926-15.926V330.806h143.333v100.867c0,8.794,7.13,15.926,15.926,15.926
-                    c8.794,0,15.926-7.132,15.926-15.926V330.806H432.458z M156.414,298.954V155.62h143.333v143.333H156.414z"/>
-                <path d="M27.652,106.497l25.235-25.241l25.235,25.241c3.11,3.11,7.184,4.666,11.26,4.666c4.075,0,8.149-1.556,11.26-4.666
+                    c8.794,0,15.926-7.132,15.926-15.926V330.806H432.458z M156.414,298.954V155.62h143.333v143.333H156.414z" />
+                    <path d="M27.652,106.497l25.235-25.241l25.235,25.241c3.11,3.11,7.184,4.666,11.26,4.666c4.075,0,8.149-1.556,11.26-4.666
                     c6.222-6.213,6.222-16.299,0-22.519L75.408,58.735l25.233-25.243c6.222-6.221,6.222-16.306,0-22.519
                     c-6.221-6.221-16.299-6.221-22.519,0L52.887,36.214L27.652,10.973c-6.221-6.221-16.299-6.221-22.519,0
                     c-6.222,6.213-6.222,16.299,0,22.519l25.233,25.243L5.133,83.977c-6.222,6.221-6.222,16.307,0,22.519
-                    c3.11,3.11,7.184,4.666,11.26,4.666C20.468,111.163,24.542,109.607,27.652,106.497z"/>
-                <path d="M250.596,227.287l25.235-25.243c6.221-6.221,6.221-16.307,0-22.519c-6.222-6.222-16.3-6.222-22.521,0l-25.235,25.241
+                    c3.11,3.11,7.184,4.666,11.26,4.666C20.468,111.163,24.542,109.607,27.652,106.497z" />
+                    <path d="M250.596,227.287l25.235-25.243c6.221-6.221,6.221-16.307,0-22.519c-6.222-6.222-16.3-6.222-22.521,0l-25.235,25.241
                     l-25.235-25.241c-6.221-6.222-16.299-6.222-22.519,0c-6.221,6.213-6.221,16.299,0,22.519l25.235,25.243l-25.235,25.243
                     c-6.221,6.221-6.221,16.307,0,22.519c3.11,3.11,7.186,4.666,11.26,4.666c4.075,0,8.149-1.556,11.26-4.666l25.235-25.241
                     l25.235,25.241c3.11,3.11,7.186,4.666,11.26,4.666c4.076,0,8.149-1.556,11.261-4.666c6.221-6.213,6.221-16.299,0-22.519
-                    L250.596,227.287z"/>
-                <path d="M228.072,117.47c32.389,0,58.735-26.346,58.735-58.735C286.807,26.346,260.461,0,228.072,0
+                    L250.596,227.287z" />
+                    <path d="M228.072,117.47c32.389,0,58.735-26.346,58.735-58.735C286.807,26.346,260.461,0,228.072,0
                     c-32.389,0-58.735,26.346-58.735,58.735C169.337,91.123,195.684,117.47,228.072,117.47z M228.072,31.852
                     c14.822,0,26.883,12.061,26.883,26.883c0,14.822-12.061,26.883-26.883,26.883c-14.822,0-26.883-12.061-26.883-26.883
-                    C201.189,43.913,213.25,31.852,228.072,31.852z"/>
-                <path d="M396.695,338.426c-32.389,0-58.735,26.346-58.735,58.735s26.346,58.735,58.735,58.735
+                    C201.189,43.913,213.25,31.852,228.072,31.852z" />
+                    <path
+                        d="M396.695,338.426c-32.389,0-58.735,26.346-58.735,58.735s26.346,58.735,58.735,58.735
                     c32.388,0,58.735-26.346,58.735-58.735S429.083,338.426,396.695,338.426z M396.695,424.044c-14.822,0-26.883-12.061-26.883-26.883
-                    s12.061-26.883,26.883-26.883c14.822,0,26.883,12.061,26.883,26.883S411.517,424.044,396.695,424.044z"/>
-            </g>
-            </svg>tic<span class="blackText">tac</span>toe</div>
+                    s12.061-26.883,26.883-26.883c14.822,0,26.883,12.061,26.883,26.883S411.517,424.044,396.695,424.044z" />
+                </g>
+            </svg>tic<span class="blackText">tac</span>toe
+        </div>
         <div class="settingsAuthor">by Jason Wiles</div>
         <div class="resetButton">Reset</div>
         <div class="selectBackground">
-            <img src="img/background.jpg" class="backgroundThumbnail" id="backgroundThumbnail1"/>
-            <img src="img/kowshik-roy-sagor-JhDHKezS6O8-unsplash.jpg" class="backgroundThumbnail" id="backgroundThumbnail2"/>
-            <img src="img/ryunosuke-kikuno-nX0NgrGEwEc-unsplash.jpg" class="backgroundThumbnail" id="backgroundThumbnail3"/>
+            <div class="selectBackgroundHeader">Select a background:</div>
+            <br>
+            <img src="img/backgrounds/background01.jpg" class="backgroundThumbnail selected" id="backgroundThumbnail01" />
+            <img src="img/backgrounds/background02.jpg" class="backgroundThumbnail" id="backgroundThumbnail02" />
+            <img src="img/backgrounds/background03.jpg" class="backgroundThumbnail" id="backgroundThumbnail03" />
+            <img src="img/backgrounds/background04.jpg" class="backgroundThumbnail" id="backgroundThumbnail04" />
+            <img src="img/backgrounds/background05.jpg" class="backgroundThumbnail" id="backgroundThumbnail05" />
+            <img src="img/backgrounds/background06.jpg" class="backgroundThumbnail" id="backgroundThumbnail06" />
+            <img src="img/backgrounds/background07.jpg" class="backgroundThumbnail" id="backgroundThumbnail07" />
+            <img src="img/backgrounds/background08.jpg" class="backgroundThumbnail" id="backgroundThumbnail08" />
+            <img src="img/backgrounds/background09.jpg" class="backgroundThumbnail" id="backgroundThumbnail09" />
+            <img src="img/backgrounds/background10.jpg" class="backgroundThumbnail" id="backgroundThumbnail10" />
+            <img src="img/backgrounds/background11.jpg" class="backgroundThumbnail" id="backgroundThumbnail11" />
+            <img src="img/backgrounds/background12.jpg" class="backgroundThumbnail" id="backgroundThumbnail12" />
+            <img src="img/backgrounds/background13.jpg" class="backgroundThumbnail" id="backgroundThumbnail13" />
+            <img src="img/backgrounds/background14.jpg" class="backgroundThumbnail" id="backgroundThumbnail14" />
         </div>
     </div>
     <div class="playerOneOverlay overlay hidden">
@@ -231,7 +223,10 @@
         <div class="winnerWrapper">
             <h1><span class="winner">Winner</span> is the winner!</h1>
             <div class="close">
-                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="100px" height="100px"><path fill="currentcolor" d="M 9.15625 6.3125 L 6.3125 9.15625 L 22.15625 25 L 6.21875 40.96875 L 9.03125 43.78125 L 25 27.84375 L 40.9375 43.78125 L 43.78125 40.9375 L 27.84375 25 L 43.6875 9.15625 L 40.84375 6.3125 L 25 22.15625 Z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="100px" height="100px">
+                    <path fill="currentcolor"
+                        d="M 9.15625 6.3125 L 6.3125 9.15625 L 22.15625 25 L 6.21875 40.96875 L 9.03125 43.78125 L 25 27.84375 L 40.9375 43.78125 L 43.78125 40.9375 L 27.84375 25 L 43.6875 9.15625 L 40.84375 6.3125 L 25 22.15625 Z" />
+                </svg>
             </div>
         </div>
     </div>
@@ -239,27 +234,50 @@
         <div class="tiedWrapper">
             <h1>There is no winner!</h1>
             <div class="closeNoWinner">
-                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="100px" height="100px"><path fill="currentcolor" d="M 9.15625 6.3125 L 6.3125 9.15625 L 22.15625 25 L 6.21875 40.96875 L 9.03125 43.78125 L 25 27.84375 L 40.9375 43.78125 L 43.78125 40.9375 L 27.84375 25 L 43.6875 9.15625 L 40.84375 6.3125 L 25 22.15625 Z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="100px" height="100px">
+                    <path fill="currentcolor"
+                        d="M 9.15625 6.3125 L 6.3125 9.15625 L 22.15625 25 L 6.21875 40.96875 L 9.03125 43.78125 L 25 27.84375 L 40.9375 43.78125 L 43.78125 40.9375 L 27.84375 25 L 43.6875 9.15625 L 40.84375 6.3125 L 25 22.15625 Z" />
+                </svg>
             </div>
         </div>
     </div>
     <main>
         <div class="col1">
-            <div class="currentPlayerArrowPlaceholder playerOneCurrent current">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentcolor">
-                    <g>
-                        <path d="M12,2A10,10,0,1,0,22,12,10.011,10.011,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.009,8.009,0,0,1,12,20Z"/>
-                        <polygon points="13 13.586 13 8 11 8 11 13.586 8.707 11.293 7.293 12.707 12 17.414 16.707 12.707 15.293 11.293 13 13.586"/>
-                    </g>
-                </svg>
+            <div class="playerInfoWrapper">
+                <div class="currentPlayerArrowPlaceholder playerOneCurrent current">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentcolor">
+                        <g>
+                            <path
+                                d="M12,2A10,10,0,1,0,22,12,10.011,10.011,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.009,8.009,0,0,1,12,20Z" />
+                            <polygon
+                                points="13 13.586 13 8 11 8 11 13.586 8.707 11.293 7.293 12.707 12 17.414 16.707 12.707 15.293 11.293 13 13.586" />
+                        </g>
+                    </svg>
+                </div>
+                <span>Player 1 (X)</span>
+                <h1 class="playerOne">Player 1</h1>
+                <span>Total wins</span>
+                <h1 class="playerOneTotalWins">0</h1>
             </div>
-            <span>Player 1 (X)</span>
-            <h1 class="playerOne">Player 1</h1>
-            <span>Total wins</span>
-            <h1 class="playerOneTotalWins">0</h1>
+            <div class="playerInfoWrapper">
+                <div class="currentPlayerArrowPlaceholder playerTwoCurrent">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentcolor">
+                        <g>
+                            <path
+                                d="M12,2A10,10,0,1,0,22,12,10.011,10.011,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.009,8.009,0,0,1,12,20Z" />
+                            <polygon
+                                points="13 13.586 13 8 11 8 11 13.586 8.707 11.293 7.293 12.707 12 17.414 16.707 12.707 15.293 11.293 13 13.586" />
+                        </g>
+                    </svg>
+                </div>
+                <span>Player 2 (O)</span>
+                <h1 class="playerTwo">Player 2</h1>
+                <span>Total wins</span>
+                <h1 class="playerTwoTotalWins">0</h1>
+            </div>
         </div>
         <div class="col2">
-            <div class="thegrid"> 
+            <div class="thegrid">
                 <div class="square box1"></div>
                 <div class="square box2"></div>
                 <div class="square box3"></div>
@@ -270,23 +288,8 @@
                 <div class="square box8"></div>
                 <div class="square box9"></div>
             </div>
-            
-        </div>
-        <div class="col3">
-            <div class="currentPlayerArrowPlaceholder playerTwoCurrent">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentcolor">
-                    <g>
-                        <path d="M12,2A10,10,0,1,0,22,12,10.011,10.011,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.009,8.009,0,0,1,12,20Z"/>
-                        <polygon points="13 13.586 13 8 11 8 11 13.586 8.707 11.293 7.293 12.707 12 17.414 16.707 12.707 15.293 11.293 13 13.586"/>
-                    </g>
-                </svg>
-            </div>
-            <span>Player 2 (O)</span>
-            <h1 class="playerTwo">Player 2</h1>
-            <span>Total wins</span>
-            <h1 class="playerTwoTotalWins">0</h1>
         </div>
     </main>
-	<script src="js/script-b105dd06bc.js"></script>
-  </body>
+    <script src="js/script-86f5373ce0.js"></script>
+</body>
 </html>

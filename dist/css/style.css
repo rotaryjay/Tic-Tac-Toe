@@ -54,7 +54,6 @@ table {
 
 /*html, body {touch-action: none;}*/
 body {
-  background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), fixed no-repeat center/cover url(../img/background.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -63,34 +62,43 @@ body main {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: center;
+  /*align-items: center;*/
   justify-content: center;
+  max-width: 1100px;
+  margin: 0 auto;
 }
-body .col1, body .col2, body .col3 {
-  padding-top: 25px;
+body main > * {
+  flex: 1;
+}
+body .col1, body .col2 {
+  width: max-content;
+  padding: 25px;
   text-align: center;
   font-family: "REM", sans-serif;
   color: white;
+  flex-grow: 1;
+  /*max-width: 350px;
+  min-width: 300px;*/
+}
+body .col1 .playerInfoWrapper, body .col2 .playerInfoWrapper {
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 10px;
+  box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.5);
+  border: 1px solid black;
+  /*max-width: 300px;
+  margin: 0 auto;
+  width: 250px;*/
+  float: left;
+  width: 45%;
+  margin: 0 10px;
 }
 body .col1 {
-  order: 1;
   flex-grow: 1;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-  box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.5);
-  border: 1px solid black;
+  /*flex: 50%;*/
 }
 body .col2 {
-  order: 2;
   flex-grow: 1;
-}
-body .col3 {
-  order: 3;
-  flex-grow: 1;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-  box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.5);
-  border: 1px solid black;
+  /*flex: 100%;*/
 }
 
 .topBar {
@@ -122,33 +130,6 @@ body .col3 {
   width: 20px;
   display: inline-block;
   margin: 0 10px 0 0;
-}
-.topBar .audioButtonWrapper {
-  top: 50%;
-  transform: translateY(-50%);
-  position: absolute;
-  height: 40px;
-  width: 40px;
-  right: 60px;
-}
-.topBar .audioButtonWrapper svg {
-  height: 40px;
-  width: 40px;
-  object-fit: cover;
-  color: rgba(0, 0, 0, 0.8);
-  transition: all 0.2s ease-in-out;
-}
-.topBar .audioButtonWrapper:hover svg {
-  transform: rotate(10deg);
-  color: black;
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
-}
-.topBar .audioButtonWrapper .siteMusicWrapper {
-  display: none;
-}
-.topBar .audioButtonWrapper .siteMusicWrapper audio {
-  transform: scale(0.7);
 }
 .topBar .gearButtonWrapper {
   top: 50%;
@@ -380,9 +361,14 @@ body .col3 {
 .settingsOverlay .selectBackground {
   text-align: center;
 }
+.settingsOverlay .selectBackground .selectBackgroundHeader {
+  font-family: "REM", sans-serif;
+  display: block;
+  text-align: center;
+}
 .settingsOverlay .selectBackground .backgroundThumbnail {
-  width: 150px;
-  height: 100px;
+  width: 100px;
+  height: 75px;
   border: 2px solid black;
   transition: all 300ms ease-in-out;
   cursor: pointer;
@@ -390,6 +376,9 @@ body .col3 {
 .settingsOverlay .selectBackground .backgroundThumbnail:hover {
   box-shadow: 0 0 20px -2px rgba(0, 0, 0, 0.3);
   transition: all 300ms ease-in-out;
+}
+.settingsOverlay .selectBackground .backgroundThumbnail.selected {
+  border: 2px solid red;
 }
 
 .playerOneNameInput, .playerTwoNameInput {
@@ -518,26 +507,26 @@ body .col3 {
   display: inline-block;
 }
 
-@media only screen and (max-device-width: 787px) {
+@media only screen and (max-device-width: 1100px) {
+  .col1, .col2 {
+    margin: 0;
+    /*padding: 0 !important;*/
+  }
+  .col1 .playerInfoWrapper, .col2 .playerInfoWrapper {
+    float: left;
+    width: 100% !important;
+    margin: 20px !important;
+  }
   .col1 {
-    order: 1 !important;
     flex-grow: 1;
     transform: scale(0.5);
-    margin: 0;
-    padding: 0;
+    transform-origin: top;
+    transition: all 0.2s ease-in-out;
   }
   .col2 {
-    order: 3 !important;
-    flex-grow: 2;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  .col3 {
-    order: 2 !important;
     flex-grow: 1;
-    transform: scale(0.5);
-    margin: 0;
-    padding: 0;
+    width: 100%;
+    transform-origin: top;
+    transition: all 0.2s ease-in-out;
   }
 }

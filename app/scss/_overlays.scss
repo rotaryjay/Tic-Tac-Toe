@@ -211,15 +211,23 @@
     }
     .selectBackground {
         text-align: center;
+        .selectBackgroundHeader {
+            font-family: 'REM', sans-serif;
+            display: block;
+            text-align: center;
+        }
         .backgroundThumbnail {
-            width: 150px;
-            height: 100px;
+            width: 100px;
+            height: 75px;
             border: 2px solid $black;
             transition: $hovertransition;
             cursor: pointer;
             &:hover {
                 box-shadow: $buttonhovershadow;
                 transition: $hovertransition;
+            }
+            &.selected {
+                border: 2px solid $red;
             }
         }
     }

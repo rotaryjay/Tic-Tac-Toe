@@ -30,15 +30,16 @@ function copyJpg() {
   .pipe(gulp.dest('dist/img'))
 }
 
+function copyBackgrounds() {
+  return gulp.src('app/img/backgrounds/*.jpg')
+  .pipe(gulp.dest('dist/img/backgrounds'))
+}
+
 function copyFavicon() {
   return gulp.src('app/img/favicon/*.*')
   .pipe(gulp.dest('dist/img/favicon'))
 }
 
-function copyMusic() {
-  return gulp.src('app/music/*.*')
-  .pipe(gulp.dest('dist/music'))
-}
 
 function buildStyles() {
   return gulp.src('app/scss/style.scss')
@@ -57,24 +58,6 @@ async function gulpRev() {
     .pipe(gulp.dest('app/manifest'))
 }
 
-/*async function revCss() {
-  const rev = await getRev();
-  return gulp.src('app/css/*.css')
-    .pipe(rev())
-    .pipe(gulp.dest('dist/css'))
-    .pipe(rev.manifest({ path: 'manifest.json' }))
-    .pipe(gulp.dest('dist'))
-}
-
-async function revJs() {
-  const rev = await getRev();
-  return gulp.src('app/js/*.js')
-    .pipe(rev())
-    .pipe(gulp.dest('dist/js'))
-    .pipe(rev.manifest({ path: 'manifest.json' }))
-    .pipe(gulp.dest('dist'))
-}*/
-
 async function updateIndex() {
   const rev = await getRev();
   return gulp.src(['app/manifest/rev-manifest.json', 'dist/index.html'])
@@ -90,7 +73,7 @@ async function updateIndex() {
 
 
 // Define a task that encapsulates other tasks
-const build = gulp.series(copyIndex, copyJs, copyFavicon, copyPng, copyJpg, copyMusic, buildStyles, gulpRev, updateIndex /* Other tasks */);
+const build = gulp.series(copyIndex, copyJs, copyFavicon, copyPng, copyJpg, copyBackgrounds, buildStyles, gulpRev, updateIndex);
 
 // Define default task
 exports.default = build;

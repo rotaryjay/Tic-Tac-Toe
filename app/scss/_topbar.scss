@@ -27,36 +27,6 @@
             margin: 0 10px 0 0;
         }
     }
-    .audioButtonWrapper {
-        top: 50%;
-        transform: translateY(-50%);
-        position: absolute;
-        height: 40px;
-        width: 40px;
-        right: 60px;
-        svg {
-            height: 40px;
-            width: 40px;
-            object-fit: cover;
-            color: rgba($black,0.8);
-            transition: all .2s ease-in-out;
-        }
-        &:hover {
-            svg {
-                transform: rotate(10deg);
-                color: rgba($black,1);
-                transition: all .2s ease-in-out;
-                cursor: pointer;
-            }
-        }
-        .siteMusicWrapper {
-            display: none;
-            audio {
-                transform: scale(0.7);
-            }
-        }
-    }
-    
     .gearButtonWrapper {
         top: 50%;
         transform: translateY(-50%);
