@@ -81,16 +81,15 @@ body .col1, body .col2 {
   min-width: 300px;*/
 }
 body .col1 .playerInfoWrapper, body .col2 .playerInfoWrapper {
-  background-color: rgba(0, 0, 0, 0.75);
+  background: linear-gradient(153deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.6) 81%);
   border-radius: 10px;
   box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.5);
   border: 1px solid black;
-  /*max-width: 300px;
-  margin: 0 auto;
-  width: 250px;*/
   float: left;
   width: 45%;
   margin: 0 10px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 body .col1 {
   flex-grow: 1;
@@ -395,9 +394,12 @@ body .col2 {
   font-family: "REM", sans-serif;
   text-align: center;
   font-size: 3em;
-  text-shadow: 0px 0px 20px black;
   color: white;
-  margin: 0 0 20px 0;
+  margin: 0 0 10px 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0 10px;
 }
 
 .currentPlayerArrowPlaceholder {
@@ -510,23 +512,34 @@ body .col2 {
 @media only screen and (max-device-width: 1100px) {
   .col1, .col2 {
     margin: 0;
-    /*padding: 0 !important;*/
+    padding: 0 !important;
   }
   .col1 .playerInfoWrapper, .col2 .playerInfoWrapper {
+    width: 40% !important;
+    margin: 10px !important;
+    font-size: 0.5em;
+  }
+  .col1 .playerInfoWrapper .currentPlayerArrowPlaceholder, .col2 .playerInfoWrapper .currentPlayerArrowPlaceholder {
+    height: 20px;
+    width: 20px;
+    margin: 8px auto;
+  }
+  .col1 .playerInfoWrapper .currentPlayerArrowPlaceholder svg, .col2 .playerInfoWrapper .currentPlayerArrowPlaceholder svg {
+    height: 20px;
+    width: 20px;
+  }
+  .col1 .playerInfoWrapper.playerOneWrapper, .col2 .playerInfoWrapper.playerOneWrapper {
     float: left;
-    width: 100% !important;
-    margin: 20px !important;
+  }
+  .col1 .playerInfoWrapper.playerTwoWrapper, .col2 .playerInfoWrapper.playerTwoWrapper {
+    float: right;
   }
   .col1 {
     flex-grow: 1;
-    transform: scale(0.5);
-    transform-origin: top;
     transition: all 0.2s ease-in-out;
   }
   .col2 {
     flex-grow: 1;
     width: 100%;
-    transform-origin: top;
-    transition: all 0.2s ease-in-out;
   }
 }

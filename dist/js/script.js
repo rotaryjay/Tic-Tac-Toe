@@ -35,6 +35,25 @@ document.addEventListener('DOMContentLoaded', function () {
     let playerTwoTotalWins = 0;
     let currentGameWinner = 'none';
 
+    /*let test1 = 1;
+    let test2 = 1;
+    let test3 = 1;
+    let test4 = 1;
+    let test5 = 1;
+    let test6 = 1;
+    let test7 = 1;
+    let test8 = 1;
+    let test9 = 1;
+
+    // Build an array of boxes for use throughout this solution
+    const boxesArray = [1,2,3,4,5,6,7,8,9];
+    let i = 0;
+    while (i < boxesArray.length) {
+        console.log(boxesArray[i]);
+        test`${boxesArray[i]}` = boxesArray[i];
+        i++;
+    }*/
+
     function clearBoxOne() {
         box1.classList.remove('x');
         box1.classList.remove('o');
