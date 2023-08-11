@@ -52,7 +52,10 @@ table {
   border-spacing: 0;
 }
 
-/*html, body {touch-action: none;}*/
+html, body {
+  touch-action: none;
+}
+
 body {
   background-size: cover;
   background-repeat: no-repeat;
@@ -60,12 +63,15 @@ body {
 }
 body main {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: repeat(2, 1fr);
+  /*grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, 1fr);*/
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: 1;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   max-width: 1100px;
-  margin: 0 auto;
+  margin: 20px auto;
+  align-items: center;
 }
 body main .playerOneWrapper, body main .playerTwoWrapper {
   font-family: "REM", sans-serif;
@@ -107,7 +113,7 @@ body main .col2 {
   grid-area: 1/2/2/3;
 }
 body main .gameWrapper {
-  grid-area: 2/1/3/3;
+  grid-area: 1/3/2/4;
 }
 
 .topBar {
@@ -485,25 +491,18 @@ body main .gameWrapper {
 }
 
 @media only screen and (max-width: 992px) {
-  main .playerOneWrapper, main .playerTwoWrapper {
+  body main {
+    margin: 15px auto;
+    /*grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: 1;*/
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, 1fr);
+  }
+  body main .playerOneWrapper, body main .playerTwoWrapper {
     font-size: 0.6em;
   }
-  main .col1, main .col2 {
+  body main .col1, body main .col2 {
     padding: 16px;
-  }
-}
-@media only screen and (max-width: 768px) {
-  main .playerOneWrapper, main .playerTwoWrapper {
-    font-size: 0.5em;
-  }
-  main .col1, main .col2 {
-    padding: 8px;
-  }
-}
-@media (orientation: landscape) {
-  body main {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    grid-template-rows: 1;
   }
   body main .col1 {
     grid-area: 1/1/2/2;
@@ -512,6 +511,24 @@ body main .gameWrapper {
     grid-area: 1/2/2/3;
   }
   body main .gameWrapper {
-    grid-area: 1/3/2/4;
+    grid-area: 2/1/3/3;
   }
 }
+@media only screen and (max-width: 768px) {
+  body main {
+    margin: 10px auto;
+  }
+  body main .playerOneWrapper, body main .playerTwoWrapper {
+    padding: 5px;
+  }
+  body main .col1, body main .col2 {
+    padding: 5px;
+  }
+}
+/*@media (orientation: landscape) {
+    body {
+        main { 
+            margin: 6px auto;
+        }
+    }
+}*/

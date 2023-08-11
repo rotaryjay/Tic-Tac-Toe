@@ -1,3 +1,4 @@
+document.body.addEventListener('touchstart', function(e) {});
 document.addEventListener('DOMContentLoaded', function () {
     const box1 = document.querySelector('.box1');
     const box2 = document.querySelector('.box2');
@@ -8,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const box7 = document.querySelector('.box7');
     const box8 = document.querySelector('.box8');
     const box9 = document.querySelector('.box9');
+    const playerOneWrapper = document.querySelector('.playerOneWrapper');
+    const playerTwoWrapper = document.querySelector('.playerTwoWrapper');
     let onePlayer = false;
     let twoPlayer = true;
     let box1Locked = false;
@@ -34,25 +37,6 @@ document.addEventListener('DOMContentLoaded', function () {
     let playerOneTotalWins = 0;
     let playerTwoTotalWins = 0;
     let currentGameWinner = 'none';
-
-    /*let test1 = 1;
-    let test2 = 1;
-    let test3 = 1;
-    let test4 = 1;
-    let test5 = 1;
-    let test6 = 1;
-    let test7 = 1;
-    let test8 = 1;
-    let test9 = 1;
-
-    // Build an array of boxes for use throughout this solution
-    const boxesArray = [1,2,3,4,5,6,7,8,9];
-    let i = 0;
-    while (i < boxesArray.length) {
-        console.log(boxesArray[i]);
-        test`${boxesArray[i]}` = boxesArray[i];
-        i++;
-    }*/
 
     function clearBoxOne() {
         box1.classList.remove('x');
@@ -108,15 +92,57 @@ document.addEventListener('DOMContentLoaded', function () {
         box9.classList.remove('locked');
         box9Locked = false;
     }
+
     function playerOneIsTheWinner() {
+        playerOneTotalWins++;
         document.querySelector('.winnerOverlay').classList.remove('hidden');
         document.querySelector('.winner').textContent = playerOneName;
+        box1lockedto = open;
+        box2lockedto = open;
+        box3lockedto = open;
+        box4lockedto = open;
+        box5lockedto = open;
+        box6lockedto = open;
+        box7lockedto = open;
+        box8lockedto = open;
+        box9lockedto = open;
+        clearBoxOne();
+        clearBoxTwo();
+        clearBoxThree();
+        clearBoxFour();
+        clearBoxFive();
+        clearBoxSix();
+        clearBoxSeven();
+        clearBoxEight();
+        clearBoxNine();
         currentGameWinner = playerOneName;
+        currentPlayer = 0;
     }
     function playerTwoIsTheWinner() {
+        playerTwoTotalWins++;
         document.querySelector('.winnerOverlay').classList.remove('hidden');
         document.querySelector('.winner').textContent = playerTwoName;
+        box1lockedto = open;
+        box2lockedto = open;
+        box3lockedto = open;
+        box4lockedto = open;
+        box5lockedto = open;
+        box6lockedto = open;
+        box7lockedto = open;
+        box8lockedto = open;
+        box9lockedto = open;
+        clearBoxOne();
+        clearBoxTwo();
+        clearBoxThree();
+        clearBoxFour();
+        clearBoxFive();
+        clearBoxSix();
+        clearBoxSeven();
+        clearBoxEight();
+        clearBoxNine();
         currentGameWinner = playerTwoName;
+        currentPlayer = 1;
+        
     }
 
     // Player Mode select
@@ -186,7 +212,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     const randomNumber = getRandomNumber(1, 14);
-    
+
     const gameBackground = document.querySelector('.tictactoe');
 
     if (randomNumber === 1) {
@@ -336,7 +362,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // When the game is won by any of the players
     document.querySelector('.close').addEventListener('click', function () {
         // Sets all of the boxes to unlocked
-        box1lockedto = open;
+        /*box1lockedto = open;
         box2lockedto = open;
         box3lockedto = open;
         box4lockedto = open;
@@ -344,25 +370,25 @@ document.addEventListener('DOMContentLoaded', function () {
         box6lockedto = open;
         box7lockedto = open;
         box8lockedto = open;
-        box9lockedto = open;
+        box9lockedto = open;*/
         // Adds "1" to the winner's Total Wins
-        if (currentGameWinner == playerOneName) {
-            playerOneTotalWins++;
-            currentPlayer = 0;
+        /*if (currentGameWinner == playerOneName) {
+            //playerOneTotalWins++;
+            //currentPlayer = 0;
             document.querySelector('.playerOneWrapper').classList.remove('current');
             document.querySelector('.playerTwoWrapper').classList.remove('current');
             document.querySelector('.playerOneWrapper').classList.add('current');
         } else if (currentGameWinner == playerTwoName) {
-            playerTwoTotalWins++;
-            currentPlayer = 1;
+            //playerTwoTotalWins++;
+            //currentPlayer = 1;
             document.querySelector('.playerOneWrapper').classList.remove('current');
             document.querySelector('.playerTwoWrapper').classList.remove('current');
             document.querySelector('.playerTwoWrapper').classList.add('current');
-        }
+        }*/
         // Hides the Winner overlay
         document.querySelector('.winnerOverlay').classList.add('hidden');
         // Removes all of the x's and o's from all 9 boxes and removes the "locked" class
-        clearBoxOne();
+        /*clearBoxOne();
         clearBoxTwo();
         clearBoxThree();
         clearBoxFour();
@@ -370,7 +396,7 @@ document.addEventListener('DOMContentLoaded', function () {
         clearBoxSix();
         clearBoxSeven();
         clearBoxEight();
-        clearBoxNine();
+        clearBoxNine();*/
     });
     // When the game is tied
     document.querySelector('.closeNoWinner').addEventListener('click', function () {
@@ -399,6 +425,8 @@ document.addEventListener('DOMContentLoaded', function () {
         // Hides the "There is no winner" dialogue
         document.querySelector('.tiedOverlay').classList.add('hidden');
     });
+
+
     // When the Reset button is clicked
     document.querySelector('.resetButton').addEventListener('click', function () {
         // Sets all of the boxes to unlocked
@@ -452,8 +480,9 @@ document.addEventListener('DOMContentLoaded', function () {
             document.querySelector('.playerTwoOverlay').classList.add('hidden');
         }
     });
+
     // If box has already been selected
-    box1.addEventListener('click', function () {
+    /*box1.addEventListener('click', function () {
         if (box1Locked) {
             alert("This box is locked!");
         } else {
@@ -463,18 +492,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 currentPlayer = 1;
                 box1Locked = true;
                 box1lockedto = 0;
-                document.querySelector('.playerOneWrapper').classList.remove('current');
-                document.querySelector('.playerTwoWrapper').classList.add('current');
+                playerOneWrapper.classList.remove('current');
+                playerTwoWrapper.classList.add('current');
             } else {
                 box1.classList.add('o');
                 box1.classList.add('locked');
                 currentPlayer = 0;
                 box1Locked = true;
                 box1lockedto = 1;
-                document.querySelector('.playerOneWrapper').classList.add('current');
-                document.querySelector('.playerTwoWrapper').classList.remove('current');
+                playerOneWrapper.classList.add('current');
+                playerTwoWrapper.classList.remove('current');
             }
         }
+        findWinner();
     });
     box2.addEventListener('click', function () {
         if (box2Locked) {
@@ -486,18 +516,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 currentPlayer = 1;
                 box2Locked = true;
                 box2lockedto = 0;
-                document.querySelector('.playerOneWrapper').classList.remove('current');
-                document.querySelector('.playerTwoWrapper').classList.add('current');
+                playerOneWrapper.classList.remove('current');
+                playerTwoWrapper.classList.add('current');
             } else {
                 box2.classList.add('o');
                 box2.classList.add('locked');
                 currentPlayer = 0;
                 box2Locked = true;
                 box2lockedto = 1;
-                document.querySelector('.playerOneWrapper').classList.add('current');
-                document.querySelector('.playerTwoWrapper').classList.remove('current');
+                playerOneWrapper.classList.add('current');
+                playerTwoWrapper.classList.remove('current');
             }
         }
+        findWinner();
     });
     box3.addEventListener('click', function () {
         if (box3Locked) {
@@ -509,18 +540,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 currentPlayer = 1;
                 box3Locked = true;
                 box3lockedto = 0;
-                document.querySelector('.playerOneWrapper').classList.remove('current');
-                document.querySelector('.playerTwoWrapper').classList.add('current');
+                playerOneWrapper.classList.remove('current');
+                playerTwoWrapper.classList.add('current');
             } else {
                 box3.classList.add('o');
                 box3.classList.add('locked');
                 currentPlayer = 0;
                 box3Locked = true;
                 box3lockedto = 1;
-                document.querySelector('.playerOneWrapper').classList.add('current');
-                document.querySelector('.playerTwoWrapper').classList.remove('current');
+                playerOneWrapper.classList.add('current');
+                playerTwoWrapper.classList.remove('current');
             }
         }
+        findWinner();
     });
     box4.addEventListener('click', function () {
         if (box4Locked) {
@@ -532,18 +564,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 currentPlayer = 1;
                 box4Locked = true;
                 box4lockedto = 0;
-                document.querySelector('.playerOneWrapper').classList.remove('current');
-                document.querySelector('.playerTwoWrapper').classList.add('current');
+                playerOneWrapper.classList.remove('current');
+                playerTwoWrapper.classList.add('current');
             } else {
                 box4.classList.add('o');
                 box4.classList.add('locked');
                 currentPlayer = 0;
                 box4Locked = true;
                 box4lockedto = 1;
-                document.querySelector('.playerOneWrapper').classList.add('current');
-                document.querySelector('.playerTwoWrapper').classList.remove('current');
+                playerOneWrapper.classList.add('current');
+                playerTwoWrapper.classList.remove('current');
             }
         }
+        findWinner();
     });
     box5.addEventListener('click', function () {
         if (box5Locked) {
@@ -555,18 +588,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 currentPlayer = 1;
                 box5Locked = true;
                 box5lockedto = 0;
-                document.querySelector('.playerOneWrapper').classList.remove('current');
-                document.querySelector('.playerTwoWrapper').classList.add('current');
+                playerOneWrapper.classList.remove('current');
+                playerTwoWrapper.classList.add('current');
             } else {
                 box5.classList.add('o');
                 box5.classList.add('locked');
                 currentPlayer = 0;
                 box5Locked = true;
                 box5lockedto = 1;
-                document.querySelector('.playerOneWrapper').classList.add('current');
-                document.querySelector('.playerTwoWrapper').classList.remove('current');
+                playerOneWrapper.classList.add('current');
+                playerTwoWrapper.classList.remove('current');
             }
         }
+        findWinner();
     });
     box6.addEventListener('click', function () {
         if (box6Locked) {
@@ -578,18 +612,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 currentPlayer = 1;
                 box6Locked = true;
                 box6lockedto = 0;
-                document.querySelector('.playerOneWrapper').classList.remove('current');
-                document.querySelector('.playerTwoWrapper').classList.add('current');
+                playerOneWrapper.classList.remove('current');
+                playerTwoWrapper.classList.add('current');
             } else {
                 box6.classList.add('o');
                 box6.classList.add('locked');
                 currentPlayer = 0;
                 box6Locked = true;
                 box6lockedto = 1;
-                document.querySelector('.playerOneWrapper').classList.add('current');
-                document.querySelector('.playerTwoWrapper').classList.remove('current');
+                playerOneWrapper.classList.add('current');
+                playerTwoWrapper.classList.remove('current');
             }
         }
+        findWinner();
     });
     box7.addEventListener('click', function () {
         if (box7Locked) {
@@ -601,18 +636,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 currentPlayer = 1;
                 box7Locked = true;
                 box7lockedto = 0;
-                document.querySelector('.playerOneWrapper').classList.remove('current');
-                document.querySelector('.playerTwoWrapper').classList.add('current');
+                playerOneWrapper.classList.remove('current');
+                playerTwoWrapper.classList.add('current');
             } else {
                 box7.classList.add('o');
                 box7.classList.add('locked');
                 currentPlayer = 0;
                 box7Locked = true;
                 box7lockedto = 1;
-                document.querySelector('.playerOneWrapper').classList.add('current');
-                document.querySelector('.playerTwoWrapper').classList.remove('current');
+                playerOneWrapper.classList.add('current');
+                playerTwoWrapper.classList.remove('current');
             }
         }
+        findWinner();
     });
     box8.addEventListener('click', function () {
         if (box8Locked) {
@@ -624,18 +660,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 currentPlayer = 1;
                 box8Locked = true;
                 box8lockedto = 0;
-                document.querySelector('.playerOneWrapper').classList.remove('current');
-                document.querySelector('.playerTwoWrapper').classList.add('current');
+                playerOneWrapper.classList.remove('current');
+                playerTwoWrapper.classList.add('current');
             } else {
                 box8.classList.add('o');
                 box8.classList.add('locked');
                 currentPlayer = 0;
                 box8Locked = true;
                 box8lockedto = 1;
-                document.querySelector('.playerOneWrapper').classList.add('current');
-                document.querySelector('.playerTwoWrapper').classList.remove('current');
+                playerOneWrapper.classList.add('current');
+                playerTwoWrapper.classList.remove('current');
             }
         }
+        findWinner();
     });
     box9.addEventListener('click', function () {
         if (box9Locked) {
@@ -647,20 +684,23 @@ document.addEventListener('DOMContentLoaded', function () {
                 currentPlayer = 1;
                 box9Locked = true;
                 box9lockedto = 0;
-                document.querySelector('.playerOneWrapper').classList.remove('current');
-                document.querySelector('.playerTwoWrapper').classList.add('current');
+                playerOneWrapper.classList.remove('current');
+                playerTwoWrapper.classList.add('current');
             } else {
                 box9.classList.add('o');
                 box9.classList.add('locked');
                 currentPlayer = 0;
                 box9Locked = true;
                 box9lockedto = 1;
-                document.querySelector('.playerOneWrapper').classList.add('current');
-                document.querySelector('.playerTwoWrapper').classList.remove('current');
+                playerOneWrapper.classList.add('current');
+                playerTwoWrapper.classList.remove('current');
             }
         }
-    });
-    // This section listens for Three In A Row and attributes that to the winner
+        findWinner();
+    });*/
+
+
+    // Start listening for Three In A Row and attributes that to the winner
     function findWinner() {
         if (box1lockedto === 0 && box2lockedto === 0 && box3lockedto === 0) {
             playerOneIsTheWinner();
@@ -696,14 +736,266 @@ document.addEventListener('DOMContentLoaded', function () {
             playerTwoIsTheWinner();
         }
     }
-    document.querySelector('.tictactoe').addEventListener('mouseover', function () {
+    /*document.querySelector('.tictactoe').addEventListener('mouseover', function () {
         findWinner();
         document.querySelector('.playerOneTotalWins').textContent = playerOneTotalWins;
         document.querySelector('.playerTwoTotalWins').textContent = playerTwoTotalWins;
+    });*/
 
+    // Start Touch
+    let boxOneTouchRegion = box1;
+    let boxTwoTouchRegion = box2;
+    let boxThreeTouchRegion = box3;
+    let boxFourTouchRegion = box4;
+    let boxFiveTouchRegion = box5;
+    let boxSixTouchRegion = box6;
+    let boxSevenTouchRegion = box7;
+    let boxEightTouchRegion = box8;
+    let boxNineTouchRegion = box9;
+
+    boxOneTouchRegion.addEventListener('touchstart', function(e) {
+        if (box1Locked) {
+            alert("This box is locked!");
+        } else {
+            if (currentPlayer == 0) {
+                box1.classList.add('x');
+                box1.classList.add('locked');
+                currentPlayer = 1;
+                box1Locked = true;
+                box1lockedto = 0;
+                playerOneWrapper.classList.remove('current');
+                playerTwoWrapper.classList.add('current');
+            } else {
+                box1.classList.add('o');
+                box1.classList.add('locked');
+                currentPlayer = 0;
+                box1Locked = true;
+                box1lockedto = 1;
+                playerOneWrapper.classList.add('current');
+                playerTwoWrapper.classList.remove('current');
+            }
+        }
+        findWinner();
     });
+    boxTwoTouchRegion.addEventListener('touchstart', function(e) {
+        if (box2Locked) {
+            alert("This box is locked!");
+        } else {
+            if (currentPlayer == 0) {
+                box2.classList.add('x');
+                box2.classList.add('locked');
+                currentPlayer = 1;
+                box2Locked = true;
+                box2lockedto = 0;
+                playerOneWrapper.classList.remove('current');
+                playerTwoWrapper.classList.add('current');
+            } else {
+                box2.classList.add('o');
+                box2.classList.add('locked');
+                currentPlayer = 0;
+                box2Locked = true;
+                box2lockedto = 1;
+                playerOneWrapper.classList.add('current');
+                playerTwoWrapper.classList.remove('current');
+            }
+        }
+        findWinner();
+    });
+    boxThreeTouchRegion.addEventListener('touchstart', function(e) {
+        if (box3Locked) {
+            alert("This box is locked!");
+        } else {
+            if (currentPlayer == 0) {
+                box3.classList.add('x');
+                box3.classList.add('locked');
+                currentPlayer = 1;
+                box3Locked = true;
+                box3lockedto = 0;
+                playerOneWrapper.classList.remove('current');
+                playerTwoWrapper.classList.add('current');
+            } else {
+                box3.classList.add('o');
+                box3.classList.add('locked');
+                currentPlayer = 0;
+                box3Locked = true;
+                box3lockedto = 1;
+                playerOneWrapper.classList.add('current');
+                playerTwoWrapper.classList.remove('current');
+            }
+        }
+        findWinner();
+    });
+    boxFourTouchRegion.addEventListener('touchstart', function(e) {
+        if (box4Locked) {
+            alert("This box is locked!");
+        } else {
+            if (currentPlayer == 0) {
+                box4.classList.add('x');
+                box4.classList.add('locked');
+                currentPlayer = 1;
+                box4Locked = true;
+                box4lockedto = 0;
+                playerOneWrapper.classList.remove('current');
+                playerTwoWrapper.classList.add('current');
+            } else {
+                box4.classList.add('o');
+                box4.classList.add('locked');
+                currentPlayer = 0;
+                box4Locked = true;
+                box4lockedto = 1;
+                playerOneWrapper.classList.add('current');
+                playerTwoWrapper.classList.remove('current');
+            }
+        }
+        findWinner();
+    });
+    boxFiveTouchRegion.addEventListener('touchstart', function(e) {
+        if (box5Locked) {
+            alert("This box is locked!");
+        } else {
+            if (currentPlayer == 0) {
+                box5.classList.add('x');
+                box5.classList.add('locked');
+                currentPlayer = 1;
+                box5Locked = true;
+                box5lockedto = 0;
+                playerOneWrapper.classList.remove('current');
+                playerTwoWrapper.classList.add('current');
+            } else {
+                box5.classList.add('o');
+                box5.classList.add('locked');
+                currentPlayer = 0;
+                box5Locked = true;
+                box5lockedto = 1;
+                playerOneWrapper.classList.add('current');
+                playerTwoWrapper.classList.remove('current');
+            }
+        }
+        findWinner();
+    });
+    boxSixTouchRegion.addEventListener('touchstart', function(e) {
+        if (box6Locked) {
+            alert("This box is locked!");
+        } else {
+            if (currentPlayer == 0) {
+                box6.classList.add('x');
+                box6.classList.add('locked');
+                currentPlayer = 1;
+                box6Locked = true;
+                box6lockedto = 0;
+                playerOneWrapper.classList.remove('current');
+                playerTwoWrapper.classList.add('current');
+            } else {
+                box6.classList.add('o');
+                box6.classList.add('locked');
+                currentPlayer = 0;
+                box6Locked = true;
+                box6lockedto = 1;
+                playerOneWrapper.classList.add('current');
+                playerTwoWrapper.classList.remove('current');
+            }
+        }
+        findWinner();
+    });
+    boxSevenTouchRegion.addEventListener('touchstart', function(e) {
+        if (box7Locked) {
+            alert("This box is locked!");
+        } else {
+            if (currentPlayer == 0) {
+                box7.classList.add('x');
+                box7.classList.add('locked');
+                currentPlayer = 1;
+                box7Locked = true;
+                box7lockedto = 0;
+                playerOneWrapper.classList.remove('current');
+                playerTwoWrapper.classList.add('current');
+            } else {
+                box7.classList.add('o');
+                box7.classList.add('locked');
+                currentPlayer = 0;
+                box7Locked = true;
+                box7lockedto = 1;
+                playerOneWrapper.classList.add('current');
+                playerTwoWrapper.classList.remove('current');
+            }
+        }
+        findWinner();
+    });
+    boxEightTouchRegion.addEventListener('touchstart', function(e) {
+        if (box8Locked) {
+            alert("This box is locked!");
+        } else {
+            if (currentPlayer == 0) {
+                box8.classList.add('x');
+                box8.classList.add('locked');
+                currentPlayer = 1;
+                box8Locked = true;
+                box8lockedto = 0;
+                playerOneWrapper.classList.remove('current');
+                playerTwoWrapper.classList.add('current');
+            } else {
+                box8.classList.add('o');
+                box8.classList.add('locked');
+                currentPlayer = 0;
+                box8Locked = true;
+                box8lockedto = 1;
+                playerOneWrapper.classList.add('current');
+                playerTwoWrapper.classList.remove('current');
+            }
+        }
+        findWinner();
+    });
+    boxNineTouchRegion.addEventListener('touchstart', function(e) {
+        if (box9Locked) {
+            alert("This box is locked!");
+        } else {
+            if (currentPlayer == 0) {
+                box9.classList.add('x');
+                box9.classList.add('locked');
+                currentPlayer = 1;
+                box9Locked = true;
+                box9lockedto = 0;
+                playerOneWrapper.classList.remove('current');
+                playerTwoWrapper.classList.add('current');
+            } else {
+                box9.classList.add('o');
+                box9.classList.add('locked');
+                currentPlayer = 0;
+                box9Locked = true;
+                box9lockedto = 1;
+                playerOneWrapper.classList.add('current');
+                playerTwoWrapper.classList.remove('current');
+            }
+        }
+        findWinner();
+    });
+
+    /*touchRegionElement.addEventListener('touchend', function(e) {
+        outputElement.innerHTML = 'Touch ends';
+    });*/
+
+    /*function touch() {
+        const boxOneTouched = box1;
+        const boxTwoTouched = box2;
+        boxOneTouched.addEventListener("touchstart", alert("Box 1 Touched!"));
+        boxTwoTouched.addEventListener("touchstart", alert("Box 2 Touched!"));    
+    }
+    document.addEventListener("DOMContentLoaded", touch);*/
+
+    /*box1.addEventListener('touchstart', findWinner());
+    box2.addEventListener('touchstart', findWinner());
+    box3.addEventListener('touchstart', findWinner());
+    box4.addEventListener('touchstart', findWinner());
+    box5.addEventListener('touchstart', findWinner());
+    box6.addEventListener('touchstart', findWinner());
+    box7.addEventListener('touchstart', findWinner());
+    box8.addEventListener('touchstart', findWinner());
+    box9.addEventListener('touchstart', findWinner());*/
+
+    // End listening for Three In A Row and attributes that to the winner
+
     // If all boxes are filled but there is no match
-    document.querySelector('.tictactoe').addEventListener('mouseover', function () {
+    /*document.querySelector('.tictactoe').addEventListener('mouseover', function () {
         if (box1Locked === true && box2Locked === true && box3Locked === true && box4Locked === true && box5Locked === true && box6Locked === true && box7Locked === true && box8Locked === true && box9Locked === true) {
             if (box1lockedto === 0 && box2lockedto === 0 && box3lockedto === 0) {
                 playerOneIsTheWinner();
@@ -742,7 +1034,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 currentPlayer = 0;
             }
         }
-    });
+    });*/
 
     // Disable pinch zoom
     document.addEventListener('touchmove', function (event) {

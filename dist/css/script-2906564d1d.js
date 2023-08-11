@@ -704,36 +704,68 @@ document.addEventListener('DOMContentLoaded', function () {
     function findWinner() {
         if (box1lockedto === 0 && box2lockedto === 0 && box3lockedto === 0) {
             playerOneIsTheWinner();
+            document.querySelector('.playerOneTotalWins').textContent = playerOneTotalWins;
+            document.querySelector('.playerTwoTotalWins').textContent = playerTwoTotalWins;
         } else if (box1lockedto === 1 && box2lockedto === 1 && box3lockedto === 1) {
             playerTwoIsTheWinner();
+            document.querySelector('.playerOneTotalWins').textContent = playerOneTotalWins;
+            document.querySelector('.playerTwoTotalWins').textContent = playerTwoTotalWins;
         } else if (box1lockedto === 0 && box4lockedto === 0 && box7lockedto === 0) {
             playerOneIsTheWinner();
+            document.querySelector('.playerOneTotalWins').textContent = playerOneTotalWins;
+            document.querySelector('.playerTwoTotalWins').textContent = playerTwoTotalWins;
         } else if (box1lockedto === 1 && box4lockedto === 1 && box7lockedto === 1) {
             playerTwoIsTheWinner();
+            document.querySelector('.playerOneTotalWins').textContent = playerOneTotalWins;
+            document.querySelector('.playerTwoTotalWins').textContent = playerTwoTotalWins;
         } else if (box1lockedto === 0 && box5lockedto === 0 && box9lockedto === 0) {
             playerOneIsTheWinner();
+            document.querySelector('.playerOneTotalWins').textContent = playerOneTotalWins;
+            document.querySelector('.playerTwoTotalWins').textContent = playerTwoTotalWins;
         } else if (box1lockedto === 1 && box5lockedto === 1 && box9lockedto === 1) {
             playerTwoIsTheWinner();
+            document.querySelector('.playerOneTotalWins').textContent = playerOneTotalWins;
+            document.querySelector('.playerTwoTotalWins').textContent = playerTwoTotalWins;
         } else if (box4lockedto === 0 && box5lockedto === 0 && box6lockedto === 0) {
             playerOneIsTheWinner();
+            document.querySelector('.playerOneTotalWins').textContent = playerOneTotalWins;
+            document.querySelector('.playerTwoTotalWins').textContent = playerTwoTotalWins;
         } else if (box4lockedto === 1 && box5lockedto === 1 && box6lockedto === 1) {
             playerTwoIsTheWinner();
+            document.querySelector('.playerOneTotalWins').textContent = playerOneTotalWins;
+            document.querySelector('.playerTwoTotalWins').textContent = playerTwoTotalWins;
         } else if (box7lockedto === 0 && box8lockedto === 0 && box9lockedto === 0) {
             playerOneIsTheWinner();
+            document.querySelector('.playerOneTotalWins').textContent = playerOneTotalWins;
+            document.querySelector('.playerTwoTotalWins').textContent = playerTwoTotalWins;
         } else if (box7lockedto === 1 && box8lockedto === 1 && box9lockedto === 1) {
             playerTwoIsTheWinner();
+            document.querySelector('.playerOneTotalWins').textContent = playerOneTotalWins;
+            document.querySelector('.playerTwoTotalWins').textContent = playerTwoTotalWins;
         } else if (box2lockedto === 0 && box5lockedto === 0 && box8lockedto === 0) {
             playerOneIsTheWinner();
+            document.querySelector('.playerOneTotalWins').textContent = playerOneTotalWins;
+            document.querySelector('.playerTwoTotalWins').textContent = playerTwoTotalWins;
         } else if (box2lockedto === 1 && box5lockedto === 1 && box8lockedto === 1) {
             playerTwoIsTheWinner();
+            document.querySelector('.playerOneTotalWins').textContent = playerOneTotalWins;
+            document.querySelector('.playerTwoTotalWins').textContent = playerTwoTotalWins;
         } else if (box3lockedto === 0 && box6lockedto === 0 && box9lockedto === 0) {
             playerOneIsTheWinner();
+            document.querySelector('.playerOneTotalWins').textContent = playerOneTotalWins;
+            document.querySelector('.playerTwoTotalWins').textContent = playerTwoTotalWins;
         } else if (box3lockedto === 1 && box6lockedto === 1 && box9lockedto === 1) {
             playerTwoIsTheWinner();
+            document.querySelector('.playerOneTotalWins').textContent = playerOneTotalWins;
+            document.querySelector('.playerTwoTotalWins').textContent = playerTwoTotalWins;
         } else if (box7lockedto === 0 && box5lockedto === 0 && box3lockedto === 0) {
             playerOneIsTheWinner();
+            document.querySelector('.playerOneTotalWins').textContent = playerOneTotalWins;
+            document.querySelector('.playerTwoTotalWins').textContent = playerTwoTotalWins;
         } else if (box7lockedto === 1 && box5lockedto === 1 && box3lockedto === 1) {
             playerTwoIsTheWinner();
+            document.querySelector('.playerOneTotalWins').textContent = playerOneTotalWins;
+            document.querySelector('.playerTwoTotalWins').textContent = playerTwoTotalWins;
         }
     }
     /*document.querySelector('.tictactoe').addEventListener('mouseover', function () {
