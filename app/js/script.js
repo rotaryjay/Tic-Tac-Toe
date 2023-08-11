@@ -349,15 +349,15 @@ document.addEventListener('DOMContentLoaded', function () {
         if (currentGameWinner == playerOneName) {
             playerOneTotalWins++;
             currentPlayer = 0;
-            document.querySelector('.playerOneCurrent').classList.remove('current');
-            document.querySelector('.playerTwoCurrent').classList.remove('current');
-            document.querySelector('.playerOneCurrent').classList.add('current');
+            document.querySelector('.playerOneWrapper').classList.remove('current');
+            document.querySelector('.playerTwoWrapper').classList.remove('current');
+            document.querySelector('.playerOneWrapper').classList.add('current');
         } else if (currentGameWinner == playerTwoName) {
             playerTwoTotalWins++;
             currentPlayer = 1;
-            document.querySelector('.playerOneCurrent').classList.remove('current');
-            document.querySelector('.playerTwoCurrent').classList.remove('current');
-            document.querySelector('.playerTwoCurrent').classList.add('current');
+            document.querySelector('.playerOneWrapper').classList.remove('current');
+            document.querySelector('.playerTwoWrapper').classList.remove('current');
+            document.querySelector('.playerTwoWrapper').classList.add('current');
         }
         // Hides the Winner overlay
         document.querySelector('.winnerOverlay').classList.add('hidden');
@@ -395,7 +395,7 @@ document.addEventListener('DOMContentLoaded', function () {
         clearBoxEight();
         clearBoxNine();
         // Sets current player to Player 1
-        currentPlayer = 0;
+        //currentPlayer = 0;
         // Hides the "There is no winner" dialogue
         document.querySelector('.tiedOverlay').classList.add('hidden');
     });
@@ -463,16 +463,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 currentPlayer = 1;
                 box1Locked = true;
                 box1lockedto = 0;
-                document.querySelector('.playerOneCurrent').classList.remove('current');
-                document.querySelector('.playerTwoCurrent').classList.add('current');
+                document.querySelector('.playerOneWrapper').classList.remove('current');
+                document.querySelector('.playerTwoWrapper').classList.add('current');
             } else {
                 box1.classList.add('o');
                 box1.classList.add('locked');
                 currentPlayer = 0;
                 box1Locked = true;
                 box1lockedto = 1;
-                document.querySelector('.playerOneCurrent').classList.add('current');
-                document.querySelector('.playerTwoCurrent').classList.remove('current');
+                document.querySelector('.playerOneWrapper').classList.add('current');
+                document.querySelector('.playerTwoWrapper').classList.remove('current');
             }
         }
     });
@@ -486,16 +486,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 currentPlayer = 1;
                 box2Locked = true;
                 box2lockedto = 0;
-                document.querySelector('.playerOneCurrent').classList.remove('current');
-                document.querySelector('.playerTwoCurrent').classList.add('current');
+                document.querySelector('.playerOneWrapper').classList.remove('current');
+                document.querySelector('.playerTwoWrapper').classList.add('current');
             } else {
                 box2.classList.add('o');
                 box2.classList.add('locked');
                 currentPlayer = 0;
                 box2Locked = true;
                 box2lockedto = 1;
-                document.querySelector('.playerOneCurrent').classList.add('current');
-                document.querySelector('.playerTwoCurrent').classList.remove('current');
+                document.querySelector('.playerOneWrapper').classList.add('current');
+                document.querySelector('.playerTwoWrapper').classList.remove('current');
             }
         }
     });
@@ -509,16 +509,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 currentPlayer = 1;
                 box3Locked = true;
                 box3lockedto = 0;
-                document.querySelector('.playerOneCurrent').classList.remove('current');
-                document.querySelector('.playerTwoCurrent').classList.add('current');
+                document.querySelector('.playerOneWrapper').classList.remove('current');
+                document.querySelector('.playerTwoWrapper').classList.add('current');
             } else {
                 box3.classList.add('o');
                 box3.classList.add('locked');
                 currentPlayer = 0;
                 box3Locked = true;
                 box3lockedto = 1;
-                document.querySelector('.playerOneCurrent').classList.add('current');
-                document.querySelector('.playerTwoCurrent').classList.remove('current');
+                document.querySelector('.playerOneWrapper').classList.add('current');
+                document.querySelector('.playerTwoWrapper').classList.remove('current');
             }
         }
     });
@@ -532,16 +532,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 currentPlayer = 1;
                 box4Locked = true;
                 box4lockedto = 0;
-                document.querySelector('.playerOneCurrent').classList.remove('current');
-                document.querySelector('.playerTwoCurrent').classList.add('current');
+                document.querySelector('.playerOneWrapper').classList.remove('current');
+                document.querySelector('.playerTwoWrapper').classList.add('current');
             } else {
                 box4.classList.add('o');
                 box4.classList.add('locked');
                 currentPlayer = 0;
                 box4Locked = true;
                 box4lockedto = 1;
-                document.querySelector('.playerOneCurrent').classList.add('current');
-                document.querySelector('.playerTwoCurrent').classList.remove('current');
+                document.querySelector('.playerOneWrapper').classList.add('current');
+                document.querySelector('.playerTwoWrapper').classList.remove('current');
             }
         }
     });
@@ -555,16 +555,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 currentPlayer = 1;
                 box5Locked = true;
                 box5lockedto = 0;
-                document.querySelector('.playerOneCurrent').classList.remove('current');
-                document.querySelector('.playerTwoCurrent').classList.add('current');
+                document.querySelector('.playerOneWrapper').classList.remove('current');
+                document.querySelector('.playerTwoWrapper').classList.add('current');
             } else {
                 box5.classList.add('o');
                 box5.classList.add('locked');
                 currentPlayer = 0;
                 box5Locked = true;
                 box5lockedto = 1;
-                document.querySelector('.playerOneCurrent').classList.add('current');
-                document.querySelector('.playerTwoCurrent').classList.remove('current');
+                document.querySelector('.playerOneWrapper').classList.add('current');
+                document.querySelector('.playerTwoWrapper').classList.remove('current');
             }
         }
     });
@@ -578,16 +578,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 currentPlayer = 1;
                 box6Locked = true;
                 box6lockedto = 0;
-                document.querySelector('.playerOneCurrent').classList.remove('current');
-                document.querySelector('.playerTwoCurrent').classList.add('current');
+                document.querySelector('.playerOneWrapper').classList.remove('current');
+                document.querySelector('.playerTwoWrapper').classList.add('current');
             } else {
                 box6.classList.add('o');
                 box6.classList.add('locked');
                 currentPlayer = 0;
                 box6Locked = true;
                 box6lockedto = 1;
-                document.querySelector('.playerOneCurrent').classList.add('current');
-                document.querySelector('.playerTwoCurrent').classList.remove('current');
+                document.querySelector('.playerOneWrapper').classList.add('current');
+                document.querySelector('.playerTwoWrapper').classList.remove('current');
             }
         }
     });
@@ -601,16 +601,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 currentPlayer = 1;
                 box7Locked = true;
                 box7lockedto = 0;
-                document.querySelector('.playerOneCurrent').classList.remove('current');
-                document.querySelector('.playerTwoCurrent').classList.add('current');
+                document.querySelector('.playerOneWrapper').classList.remove('current');
+                document.querySelector('.playerTwoWrapper').classList.add('current');
             } else {
                 box7.classList.add('o');
                 box7.classList.add('locked');
                 currentPlayer = 0;
                 box7Locked = true;
                 box7lockedto = 1;
-                document.querySelector('.playerOneCurrent').classList.add('current');
-                document.querySelector('.playerTwoCurrent').classList.remove('current');
+                document.querySelector('.playerOneWrapper').classList.add('current');
+                document.querySelector('.playerTwoWrapper').classList.remove('current');
             }
         }
     });
@@ -624,16 +624,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 currentPlayer = 1;
                 box8Locked = true;
                 box8lockedto = 0;
-                document.querySelector('.playerOneCurrent').classList.remove('current');
-                document.querySelector('.playerTwoCurrent').classList.add('current');
+                document.querySelector('.playerOneWrapper').classList.remove('current');
+                document.querySelector('.playerTwoWrapper').classList.add('current');
             } else {
                 box8.classList.add('o');
                 box8.classList.add('locked');
                 currentPlayer = 0;
                 box8Locked = true;
                 box8lockedto = 1;
-                document.querySelector('.playerOneCurrent').classList.add('current');
-                document.querySelector('.playerTwoCurrent').classList.remove('current');
+                document.querySelector('.playerOneWrapper').classList.add('current');
+                document.querySelector('.playerTwoWrapper').classList.remove('current');
             }
         }
     });
@@ -647,16 +647,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 currentPlayer = 1;
                 box9Locked = true;
                 box9lockedto = 0;
-                document.querySelector('.playerOneCurrent').classList.remove('current');
-                document.querySelector('.playerTwoCurrent').classList.add('current');
+                document.querySelector('.playerOneWrapper').classList.remove('current');
+                document.querySelector('.playerTwoWrapper').classList.add('current');
             } else {
                 box9.classList.add('o');
                 box9.classList.add('locked');
                 currentPlayer = 0;
                 box9Locked = true;
                 box9lockedto = 1;
-                document.querySelector('.playerOneCurrent').classList.add('current');
-                document.querySelector('.playerTwoCurrent').classList.remove('current');
+                document.querySelector('.playerOneWrapper').classList.add('current');
+                document.querySelector('.playerTwoWrapper').classList.remove('current');
             }
         }
     });
