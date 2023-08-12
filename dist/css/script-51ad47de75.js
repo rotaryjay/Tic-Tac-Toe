@@ -1,5 +1,6 @@
 document.body.addEventListener('touchstart', function(e) {});
 document.addEventListener('DOMContentLoaded', function () {
+    // Sets variables for the boxes
     const box1 = document.querySelector('.box1');
     const box2 = document.querySelector('.box2');
     const box3 = document.querySelector('.box3');
@@ -9,10 +10,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const box7 = document.querySelector('.box7');
     const box8 = document.querySelector('.box8');
     const box9 = document.querySelector('.box9');
+
     const playerOneWrapper = document.querySelector('.playerOneWrapper');
     const playerTwoWrapper = document.querySelector('.playerTwoWrapper');
+    // Variables for game state: 1 Player or 2 Player
     let onePlayer = false;
     let twoPlayer = true;
+    // Variables to control whether the boxes are locked or not
     let box1Locked = false;
     let box2Locked = false;
     let box3Locked = false;
@@ -22,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let box7Locked = false;
     let box8Locked = false;
     let box9Locked = false;
+    // Sets who the boxes are locked to 
     let box1lockedto = open;
     let box2lockedto = open;
     let box3lockedto = open;
@@ -31,15 +36,25 @@ document.addEventListener('DOMContentLoaded', function () {
     let box7lockedto = open;
     let box8lockedto = open;
     let box9lockedto = open;
+    // 
+    const onePlayerModeButton = document.querySelector('.onePlayerModeButton');
+    const twoPlayerModeButton = document.querySelector('.twoPlayerModeButton');
+    // Current player variable
     let currentPlayer = 0;
+    // Player name variables
     let playerOneName = 'Player One';
     let playerTwoName = 'Player Two';
+    const playerOneTotalWinsDiv = document.querySelector('.playerOneTotalWins');
+    const playerTwoTotalWinsDiv = document.querySelector('.playerTwoTotalWins');
+    // Keeps score of total wins
     let playerOneTotalWins = 0;
     let playerTwoTotalWins = 0;
+    //Sets the current game winner variable
     let currentGameWinner = 'none';
     const winnerOverlay = document.querySelector('.winnerOverlay');
     const winner = document.querySelector('.winner');
 
+    /* Start Box Clearing */
     function clearBoxOne() {
         box1.classList.remove('x');
         box1.classList.remove('o');
@@ -94,7 +109,9 @@ document.addEventListener('DOMContentLoaded', function () {
         box9.classList.remove('locked');
         box9Locked = false;
     }
+    /* End Box Clearing */
 
+    /* Start functions that dictate steps after a player wins */
     function playerOneIsTheWinner() {
         playerOneTotalWins++;
         winnerOverlay.classList.remove('hidden');
@@ -119,6 +136,10 @@ document.addEventListener('DOMContentLoaded', function () {
         clearBoxNine();
         currentGameWinner = playerOneName;
         currentPlayer = 0;
+        playerOneWrapper.classList.remove('current');
+        playerTwoWrapper.classList.remove('current');
+        playerOneWrapper.classList.add('current');
+        playerOneTotalWinsDiv.textContent = playerOneTotalWins;
     }
     function playerTwoIsTheWinner() {
         playerTwoTotalWins++;
@@ -144,8 +165,13 @@ document.addEventListener('DOMContentLoaded', function () {
         clearBoxNine();
         currentGameWinner = playerTwoName;
         currentPlayer = 1;
-        
+        playerOneWrapper.classList.remove('current');
+        playerTwoWrapper.classList.remove('current');
+        playerTwoWrapper.classList.add('current');
+        playerTwoTotalWinsDiv.textContent = playerTwoTotalWins;
     }
+    /* End functions that dictate steps after a player wins */
+
 
     // Player Mode select
     /*document.querySelector('.onePlayerModeButton').addEventListener('click', function () {
@@ -155,8 +181,9 @@ document.addEventListener('DOMContentLoaded', function () {
         onePlayer = true;
         twoPlayer = false;
     });*/
-    document.querySelector('.twoPlayerModeButton').addEventListener('click', activateTwoPlayerMode);
-    document.querySelector('.twoPlayerModeButton').addEventListener('touchstart', activateTwoPlayerMode);
+
+    twoPlayerModeButton.addEventListener('click', activateTwoPlayerMode);
+    // twoPlayerModeButton.addEventListener('touchstart', activateTwoPlayerMode);
 
     function activateTwoPlayerMode() {
         document.querySelector('.playerModeOverlay').classList.add('hidden');
@@ -167,7 +194,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    // Settings Overlay Toggle
+    /* Start Settings Overlay Toggle */
     const gear = document.querySelector('.gearButtonWrapper');
     const settings = document.querySelector('.settingsOverlay');
     const closeSettings = document.querySelector('.closeSettingsOverlay');
@@ -177,6 +204,9 @@ document.addEventListener('DOMContentLoaded', function () {
     closeSettings.addEventListener('click', function () {
         settings.classList.add('hidden')
     });
+    /* End Settings Overlay Toggle */
+
+    /* Start background selection */
     const backgroundThumbnail01 = document.getElementById('backgroundThumbnail01');
     const backgroundThumbnail02 = document.getElementById('backgroundThumbnail02');
     const backgroundThumbnail03 = document.getElementById('backgroundThumbnail03');
@@ -208,74 +238,6 @@ document.addEventListener('DOMContentLoaded', function () {
         backgroundThumbnail14.classList.remove('selected');
     };
 
-    // Randomize background
-    function getRandomNumber(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-
-    const randomNumber = getRandomNumber(1, 14);
-
-    const gameBackground = document.querySelector('.tictactoe');
-
-    if (randomNumber === 1) {
-        gameBackground.style.background = "linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url('img/backgrounds/background01.jpg')";
-        removeSelected();
-        backgroundThumbnail01.classList.add('selected');
-    } else if (randomNumber === 2) {
-        gameBackground.style.background = "linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url('img/backgrounds/background02.jpg')";
-        removeSelected();
-        backgroundThumbnail02.classList.add('selected');
-    } else if (randomNumber === 3) {
-        gameBackground.style.background = "linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url('img/backgrounds/background03.jpg')";
-        removeSelected();
-        backgroundThumbnail03.classList.add('selected');
-    } else if (randomNumber === 4) {
-        gameBackground.style.background = "linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url('img/backgrounds/background04.jpg')";
-        removeSelected();
-        backgroundThumbnail04.classList.add('selected');
-    } else if (randomNumber === 5) {
-        gameBackground.style.background = "linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url('img/backgrounds/background05.jpg')";
-        removeSelected();
-        backgroundThumbnail05.classList.add('selected');
-    } else if (randomNumber === 6) {
-        gameBackground.style.background = "linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url('img/backgrounds/background06.jpg')";
-        removeSelected();
-        backgroundThumbnail06.classList.add('selected');
-    } else if (randomNumber === 7) {
-        gameBackground.style.background = "linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url('img/backgrounds/background07.jpg')";
-        removeSelected();
-        backgroundThumbnail07.classList.add('selected');
-    } else if (randomNumber === 8) {
-        gameBackground.style.background = "linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url('img/backgrounds/background08.jpg')";
-        removeSelected();
-        backgroundThumbnail08.classList.add('selected');
-    } else if (randomNumber === 9) {
-        gameBackground.style.background = "linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url('img/backgrounds/background09.jpg')";
-        removeSelected();
-        backgroundThumbnail09.classList.add('selected');
-    } else if (randomNumber === 10) {
-        gameBackground.style.background = "linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url('img/backgrounds/background10.jpg')";
-        removeSelected();
-        backgroundThumbnail10.classList.add('selected');
-    } else if (randomNumber === 11) {
-        gameBackground.style.background = "linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url('img/backgrounds/background11.jpg')";
-        removeSelected();
-        backgroundThumbnail11.classList.add('selected');
-    } else if (randomNumber === 12) {
-        gameBackground.style.background = "linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url('img/backgrounds/background12.jpg')";
-        removeSelected();
-        backgroundThumbnail12.classList.add('selected');
-    } else if (randomNumber === 13) {
-        gameBackground.style.background = "linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url('img/backgrounds/background13.jpg')";
-        removeSelected();
-        backgroundThumbnail13.classList.add('selected');
-    } else if (randomNumber === 14) {
-        gameBackground.style.background = "linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url('img/backgrounds/background14.jpg')";
-        removeSelected();
-        backgroundThumbnail14.classList.add('selected');
-    }
-
-    // Background select
     backgroundThumbnail01.addEventListener('click', function () {
         gameBackground.style.background = "linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url('img/backgrounds/background01.jpg')";
         settings.classList.add('hidden');
@@ -361,47 +323,85 @@ document.addEventListener('DOMContentLoaded', function () {
         backgroundThumbnail14.classList.add('selected');
     });
 
-    // When the game is won by any of the players
+    /* End background selection */
+
+    /* Start randomize background */
+    function getRandomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    const randomNumber = getRandomNumber(1, 14);
+    const gameBackground = document.querySelector('.tictactoe');
+
+    if (randomNumber === 1) {
+        gameBackground.style.background = "linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url('img/backgrounds/background01.jpg')";
+        removeSelected();
+        backgroundThumbnail01.classList.add('selected');
+    } else if (randomNumber === 2) {
+        gameBackground.style.background = "linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url('img/backgrounds/background02.jpg')";
+        removeSelected();
+        backgroundThumbnail02.classList.add('selected');
+    } else if (randomNumber === 3) {
+        gameBackground.style.background = "linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url('img/backgrounds/background03.jpg')";
+        removeSelected();
+        backgroundThumbnail03.classList.add('selected');
+    } else if (randomNumber === 4) {
+        gameBackground.style.background = "linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url('img/backgrounds/background04.jpg')";
+        removeSelected();
+        backgroundThumbnail04.classList.add('selected');
+    } else if (randomNumber === 5) {
+        gameBackground.style.background = "linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url('img/backgrounds/background05.jpg')";
+        removeSelected();
+        backgroundThumbnail05.classList.add('selected');
+    } else if (randomNumber === 6) {
+        gameBackground.style.background = "linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url('img/backgrounds/background06.jpg')";
+        removeSelected();
+        backgroundThumbnail06.classList.add('selected');
+    } else if (randomNumber === 7) {
+        gameBackground.style.background = "linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url('img/backgrounds/background07.jpg')";
+        removeSelected();
+        backgroundThumbnail07.classList.add('selected');
+    } else if (randomNumber === 8) {
+        gameBackground.style.background = "linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url('img/backgrounds/background08.jpg')";
+        removeSelected();
+        backgroundThumbnail08.classList.add('selected');
+    } else if (randomNumber === 9) {
+        gameBackground.style.background = "linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url('img/backgrounds/background09.jpg')";
+        removeSelected();
+        backgroundThumbnail09.classList.add('selected');
+    } else if (randomNumber === 10) {
+        gameBackground.style.background = "linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url('img/backgrounds/background10.jpg')";
+        removeSelected();
+        backgroundThumbnail10.classList.add('selected');
+    } else if (randomNumber === 11) {
+        gameBackground.style.background = "linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url('img/backgrounds/background11.jpg')";
+        removeSelected();
+        backgroundThumbnail11.classList.add('selected');
+    } else if (randomNumber === 12) {
+        gameBackground.style.background = "linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url('img/backgrounds/background12.jpg')";
+        removeSelected();
+        backgroundThumbnail12.classList.add('selected');
+    } else if (randomNumber === 13) {
+        gameBackground.style.background = "linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url('img/backgrounds/background13.jpg')";
+        removeSelected();
+        backgroundThumbnail13.classList.add('selected');
+    } else if (randomNumber === 14) {
+        gameBackground.style.background = "linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url('img/backgrounds/background14.jpg')";
+        removeSelected();
+        backgroundThumbnail14.classList.add('selected');
+    }
+    /* End randomize background */
+
+
+    /* Start close the winner dialogue */
     document.querySelector('.close').addEventListener('click', function () {
-        // Sets all of the boxes to unlocked
-        /*box1lockedto = open;
-        box2lockedto = open;
-        box3lockedto = open;
-        box4lockedto = open;
-        box5lockedto = open;
-        box6lockedto = open;
-        box7lockedto = open;
-        box8lockedto = open;
-        box9lockedto = open;*/
-        // Adds "1" to the winner's Total Wins
-        /*if (currentGameWinner == playerOneName) {
-            //playerOneTotalWins++;
-            //currentPlayer = 0;
-            document.querySelector('.playerOneWrapper').classList.remove('current');
-            document.querySelector('.playerTwoWrapper').classList.remove('current');
-            document.querySelector('.playerOneWrapper').classList.add('current');
-        } else if (currentGameWinner == playerTwoName) {
-            //playerTwoTotalWins++;
-            //currentPlayer = 1;
-            document.querySelector('.playerOneWrapper').classList.remove('current');
-            document.querySelector('.playerTwoWrapper').classList.remove('current');
-            document.querySelector('.playerTwoWrapper').classList.add('current');
-        }*/
         // Hides the Winner overlay
         document.querySelector('.winnerOverlay').classList.add('hidden');
-        // Removes all of the x's and o's from all 9 boxes and removes the "locked" class
-        /*clearBoxOne();
-        clearBoxTwo();
-        clearBoxThree();
-        clearBoxFour();
-        clearBoxFive();
-        clearBoxSix();
-        clearBoxSeven();
-        clearBoxEight();
-        clearBoxNine();*/
     });
+    /* End close the winner dialogue */
+
     // When the game is tied
-    document.querySelector('.closeNoWinner').addEventListener('click', function () {
+    document.querySelector('.closeNoWinner').addEventListener('touchstart', function () {
         // Sets all of the boxes to unlocked
         box1lockedto = open;
         box2lockedto = open;
@@ -430,7 +430,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // When the Reset button is clicked
-    document.querySelector('.resetButton').addEventListener('click', function () {
+    document.querySelector('.resetButton').addEventListener('touchstart', function () {
         // Sets all of the boxes to unlocked
         box1lockedto = open;
         box2lockedto = open;
@@ -456,8 +456,8 @@ document.addEventListener('DOMContentLoaded', function () {
         // Resets the Total Wins for both players back to zero
         playerOneTotalWins = 0;
         playerTwoTotalWins = 0;
-        document.querySelector('.playerOneTotalWins').textContent = playerOneTotalWins;
-        document.querySelector('.playerTwoTotalWins').textContent = playerTwoTotalWins;
+        playerOneTotalWinsDiv.textContent = playerOneTotalWins;
+        playerTwoTotalWinsDiv.textContent = playerTwoTotalWins;
         document.querySelector('.playerModeOverlay').classList.remove('hidden');
         document.querySelector('.settingsOverlay').classList.add('hidden');
     });

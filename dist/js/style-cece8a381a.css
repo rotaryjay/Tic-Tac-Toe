@@ -500,6 +500,7 @@ body main .gameWrapper {
   }
   body main .playerOneWrapper, body main .playerTwoWrapper {
     font-size: 0.6em;
+    margin: 10px;
   }
   body main .col1, body main .col2 {
     padding: 16px;
