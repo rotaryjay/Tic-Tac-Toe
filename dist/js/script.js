@@ -37,6 +37,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let playerOneTotalWins = 0;
     let playerTwoTotalWins = 0;
     let currentGameWinner = 'none';
+    const winnerOverlay = document.querySelector('.winnerOverlay');
+    const winner = document.querySelector('.winner');
 
     function clearBoxOne() {
         box1.classList.remove('x');
@@ -95,8 +97,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function playerOneIsTheWinner() {
         playerOneTotalWins++;
-        document.querySelector('.winnerOverlay').classList.remove('hidden');
-        document.querySelector('.winner').textContent = playerOneName;
+        winnerOverlay.classList.remove('hidden');
+        winner.textContent = playerOneName;
         box1lockedto = open;
         box2lockedto = open;
         box3lockedto = open;
