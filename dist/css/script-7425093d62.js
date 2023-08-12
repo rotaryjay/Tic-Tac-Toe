@@ -182,8 +182,18 @@ document.addEventListener('DOMContentLoaded', function () {
         twoPlayer = false;
     });*/
 
+    onePlayerModeButton.addEventListener('click', activateOnePlayerMode);
     twoPlayerModeButton.addEventListener('click', activateTwoPlayerMode);
     // twoPlayerModeButton.addEventListener('touchstart', activateTwoPlayerMode);
+
+    function activateOnePlayerMode() {
+        document.querySelector('.playerModeOverlay').classList.add('hidden');
+        document.querySelector('.playerOneOverlay').classList.remove('hidden');
+        document.getElementById('playerOneNameInput').focus();
+        onePlayer = true;
+        twoPlayer = false;
+        playerModes();
+    }
 
     function activateTwoPlayerMode() {
         document.querySelector('.playerModeOverlay').classList.add('hidden');
@@ -191,15 +201,8 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('playerOneNameInput').focus();
         onePlayer = false;
         twoPlayer = true;
-        if (twoPlayer) {
-            alert('Two Player Mode');
-        } else if (onePlayer) {
-            alert('One Player Mode');
-        } else {
-            
-        }    
+        playerModes();
     }
-
 
     /* Start Settings Overlay Toggle */
     const gear = document.querySelector('.gearButtonWrapper');
@@ -1046,7 +1049,15 @@ document.addEventListener('DOMContentLoaded', function () {
     });*/
 
 
-
+    function playerModes() {
+        if (twoPlayer) {
+            alert('Two Player Mode');
+        } else if (onePlayer) {
+            alert('One Player Mode');
+        } else {
+            
+        }    
+    }
 
 
     // Disable pinch zoom
