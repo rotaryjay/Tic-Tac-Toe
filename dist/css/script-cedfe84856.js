@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const playerTwoWrapper = document.querySelector('.playerTwoWrapper');
     // Variables for game state: 1 Player or 2 Player
     let onePlayer = false;
-    let twoPlayer = true;
+    let twoPlayer = false;
     // Variables to control whether the boxes are locked or not
     let box1Locked = false;
     let box2Locked = false;
@@ -191,6 +191,13 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('playerOneNameInput').focus();
         onePlayer = false;
         twoPlayer = true;
+        if (twoPlayer) {
+            alert('Two Player Mode');
+        } else if (onePlayer) {
+            alert('One Player Mode');
+        } else {
+            
+        }    
     }
 
 
@@ -1037,6 +1044,10 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     });*/
+
+
+
+
 
     // Disable pinch zoom
     document.addEventListener('touchmove', function (event) {
