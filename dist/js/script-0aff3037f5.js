@@ -620,6 +620,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function playerModes() {
         if (twoPlayer) {
+        
             // Player One name input
             document.querySelector('.playerOneNameInput').addEventListener('keypress', function (e) {
                 // If enter key is pressed
@@ -858,47 +859,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 findWinner();
             });
         } else if (onePlayer) {
-            let randomBoxChooser = Math.floor(Math.random() * 9)+1;
-            //alert(randomBoxChooser);
-            playerTwoName = 'AI';
-            document.querySelector('.playerTwo').textContent = playerTwoName;
-            // Player One name input
-            document.querySelector('.playerOneNameInput').addEventListener('keypress', function (e) {
-                // If enter key is pressed
-                if (e.key === 'Enter') {
-                    playerOneName = document.querySelector('.playerOneNameInput').value;
-                    document.querySelector('.playerOne').textContent = playerOneName;
-                    document.querySelector('.playerOneOverlay').classList.add('hidden');
-                    // document.querySelector('.playerTwoOverlay').classList.remove('hidden');
-                    // document.getElementById('playerTwoNameInput').focus();
-                }
-            });
-            boxOneTouchRegion.addEventListener('touchstart', function(e) {
-                if (box1Locked) {
-                    alert("This box is locked!");
-                } else {
-                    box1.classList.add('x');
-                    box1.classList.add('locked');
-                    currentPlayer = 1;
-                    box1Locked = true;
-                    box1lockedto = 0;
-                    playerOneWrapper.classList.remove('current');
-                    playerTwoWrapper.classList.add('current');
-                    // alert(randomBoxChooser);
-                    if (box5Locked) {
-
-                    } else {
-                        box5.classList.add('0');
-                        box5.classList.add('locked');
-                        currentPlayer = 0;
-                        box5Locked = true;
-                        box5lockedto = 1;
-                        playerOneWrapper.classList.add('current');
-                        playerTwoWrapper.classList.remove('current');
-                    }
-                }
-                findWinner();
-            });
+            // alert('One player.')
         }  
     }
 
