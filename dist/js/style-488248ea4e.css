@@ -92,12 +92,15 @@ body main .playerOneWrapper.current, body main .playerTwoWrapper.current {
   transition: all 0.2s ease-in-out;
   border: 1px solid green;
 }
-body main .playerOneWrapper .playerOne, body main .playerOneWrapper .playerTwo, body main .playerOneWrapper .playerOneTotalWins, body main .playerOneWrapper .playerTwoTotalWins, body main .playerTwoWrapper .playerOne, body main .playerTwoWrapper .playerTwo, body main .playerTwoWrapper .playerOneTotalWins, body main .playerTwoWrapper .playerTwoTotalWins {
-  font-family: "REM", sans-serif;
-  text-align: center;
+body main .playerOneWrapper h1, body main .playerTwoWrapper h1 {
   font-size: 3em;
-  color: white;
-  margin: 10px;
+}
+body main .playerOneWrapper h2.playerOne, body main .playerOneWrapper h2.playerTwo, body main .playerOneWrapper h2.playerOneTotalWins, body main .playerOneWrapper h2.playerTwoTotalWins, body main .playerTwoWrapper h2.playerOne, body main .playerTwoWrapper h2.playerTwo, body main .playerTwoWrapper h2.playerOneTotalWins, body main .playerTwoWrapper h2.playerTwoTotalWins {
+  /*font-family: 'REM', sans-serif;*/
+  /*text-align: center;*/
+  font-size: 2em;
+  /*color: $white;*/
+  /*margin: 10px;*/
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;

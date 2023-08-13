@@ -911,7 +911,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         playerTwoWrapper.classList.remove('current');
                         delete openBoxes[4];
                         //alert(openBoxes);
-                        alert(openBoxes);
+                        alert(openBoxes());
                     }
                 }
                 findWinner();

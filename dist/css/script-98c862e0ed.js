@@ -861,8 +861,9 @@ document.addEventListener('DOMContentLoaded', function () {
             let openBoxes = [1,2,3,4,5,6,7,8,9]
             //let randomBoxChooser = Math.floor(Math.random() * 9)+1;
             //alert(randomBoxChooser);
-            
-
+            function getRandomRemainingBoxes() {
+                openBoxes[(Math.floor(Math.random() * openBoxes.length))]
+            };
             playerTwoName = 'AI';
             document.querySelector('.playerTwo').textContent = playerTwoName;
             // Player One name input
@@ -911,7 +912,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         playerTwoWrapper.classList.remove('current');
                         delete openBoxes[4];
                         //alert(openBoxes);
-                        alert(openBoxes);
+                        alert(getRandomRemainingBoxes());
                     }
                 }
                 findWinner();

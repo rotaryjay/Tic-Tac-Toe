@@ -32,17 +32,25 @@ body {
                 transition: $transition;
                 border: 1px solid $green;
             }
-            .playerOne, .playerTwo, .playerOneTotalWins, .playerTwoTotalWins {
-                font-family: 'REM', sans-serif;
-                text-align: center;
+            h1 {
                 font-size: 3em;
-                color: $white;
-                margin: 10px;
-                text-overflow: ellipsis;
-                overflow: hidden;
-                white-space: nowrap;
-                padding: 10px;
-            }            
+            }
+            h2 {
+                &.playerOne,
+                &.playerTwo,
+                &.playerOneTotalWins,
+                &.playerTwoTotalWins {
+                    /*font-family: 'REM', sans-serif;*/
+                    /*text-align: center;*/
+                    font-size: 2em;
+                    /*color: $white;*/
+                    /*margin: 10px;*/
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    padding: 10px;
+                }    
+            }
         }
         .col1, .col2 {
             padding: 32px;

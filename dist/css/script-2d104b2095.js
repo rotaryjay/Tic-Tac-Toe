@@ -472,6 +472,7 @@ document.addEventListener('DOMContentLoaded', function () {
     /* ------------------------------------------------------------------------------------------ */
 
 
+    const randomBoxChooser = Math.floor(Math.random() * 11)+1;
 
 
 
@@ -858,11 +859,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 findWinner();
             });
         } else if (onePlayer) {
-            let openBoxes = [1,2,3,4,5,6,7,8,9]
-            //let randomBoxChooser = Math.floor(Math.random() * 9)+1;
-            //alert(randomBoxChooser);
-            
-
+            alert('One Player Mode!!');
             playerTwoName = 'AI';
             document.querySelector('.playerTwo').textContent = playerTwoName;
             // Player One name input
@@ -887,71 +884,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     box1lockedto = 0;
                     playerOneWrapper.classList.remove('current');
                     playerTwoWrapper.classList.add('current');
-                    delete openBoxes[0]
-                    if (box5Locked) {
-                        // Take the first box
-                        /*box1.classList.add('o');
-                        box1.classList.add('locked');
-                        currentPlayer = 0;
-                        box1Locked = true;
-                        box1lockedto = 1;
-                        playerOneWrapper.classList.add('current');
-                        playerTwoWrapper.classList.remove('current');
-                        delete openBoxes[0];
-                        alert(openBoxes);*/
-
-                    } else {
-                        //await delay(2000);
-                        box5.classList.add('o');
-                        box5.classList.add('locked');
-                        currentPlayer = 0;
-                        box5Locked = true;
-                        box5lockedto = 1;
-                        playerOneWrapper.classList.add('current');
-                        playerTwoWrapper.classList.remove('current');
-                        delete openBoxes[4];
-                        //alert(openBoxes);
-                        alert(openBoxes);
-                    }
-                }
-                findWinner();
-            });
-            boxFiveTouchRegion.addEventListener('touchstart', function(e) {
-                if (box5Locked) {
-                    alert("This box is locked!");
-                } else {
-                    box5.classList.add('x');
-                    box5.classList.add('locked');
-                    currentPlayer = 1;
-                    box5Locked = true;
-                    box5lockedto = 0;
-                    playerOneWrapper.classList.remove('current');
-                    playerTwoWrapper.classList.add('current');
-                    delete openBoxes[4]
-                    if (box1Locked) {
-
-                        // box`${randomBoxChooser}`
-                        /*box5.classList.add('o');
-                        box5.classList.add('locked');
-                        currentPlayer = 0;
-                        box5Locked = true;
-                        box5ockedto = 1;
-                        playerOneWrapper.classList.add('current');
-                        playerTwoWrapper.classList.remove('current');
-                        delete openBoxes[0];
-                        alert(openBoxes);*/
-                    } else {
-                        //await delay(2000);
-                        box1.classList.add('o');
-                        box1.classList.add('locked');
-                        currentPlayer = 0;
-                        box1Locked = true;
-                        box1lockedto = 1;
-                        playerOneWrapper.classList.add('current');
-                        playerTwoWrapper.classList.remove('current');
-                        delete openBoxes[0];
-                        //alert(openBoxes);
-                    }
+                    alert(randomBoxChooser());
                 }
                 findWinner();
             });
