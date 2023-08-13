@@ -859,7 +859,109 @@ document.addEventListener('DOMContentLoaded', function () {
                 findWinner();
             });
         } else if (onePlayer) {
+            let openBoxes = [1,2,3,4,5,6,7,8,9];
+            let randomBoxPicker = Math.floor(Math.random() * openBoxes.length);
+            let selectedItem = openBoxes[randomBoxPicker]; // Get the selected item
+
             // alert('One player.')
+            playerTwoName = 'A.I.';
+            // Player One name input
+            document.querySelector('.playerOneNameInput').addEventListener('keypress', function (e) {
+                // If enter key is pressed
+                if (e.key === 'Enter') {
+                    playerOneName = document.querySelector('.playerOneNameInput').value;
+                    document.querySelector('.playerOne').textContent = playerOneName;
+                    document.querySelector('.playerOneOverlay').classList.add('hidden');
+                }
+            });
+            boxOneTouchRegion.addEventListener('touchstart', function(e) {
+                if (box1Locked) {
+                    alert("This box is locked!");
+                } else {
+                    if (currentPlayer == 0) {
+                        box1.classList.add('x');
+                        box1.classList.add('locked');
+                        currentPlayer = 1;
+                        box1Locked = true;
+                        box1lockedto = 0;
+                        playerOneWrapper.classList.remove('current');
+                        playerTwoWrapper.classList.add('current');
+                        openBoxes.splice(0, 1); // Remove the selected item from the array
+                        alert(openBoxes);
+                        if (box5Locked) {
+                            `box${selectedItem}`.classList.add('o');
+                            `box${selectedItem}`.classList.add('locked');
+                            openBoxes.splice(randomBoxPicker, 1); // Remove the selected item from the array
+                            alert(openBoxes);
+                        } else {
+                            box5.classList.add('o');
+                            box5.classList.add('locked');
+                            currentPlayer = 0;
+                            box5Locked = true;
+                            box5lockedto = 1;
+                            playerOneWrapper.classList.add('current');
+                            playerTwoWrapper.classList.remove('current');
+                            openBoxes.splice(4, 1); // Remove the selected item from the array
+                            alert(openBoxes);
+                        }
+                    } 
+                }
+                findWinner();
+            });
+            boxTwoTouchRegion.addEventListener('touchstart', function(e) {
+                if (box2Locked) {
+                    alert("This box is locked!");
+                } else {
+                    if (currentPlayer == 0) {
+                        box2.classList.add('x');
+                        box2.classList.add('locked');
+                        currentPlayer = 1;
+                        box2Locked = true;
+                        box2lockedto = 0;
+                        playerOneWrapper.classList.remove('current');
+                        playerTwoWrapper.classList.add('current');
+                        `box${selectedItem}`.classList.add('o');
+                        `box${selectedItem}`.classList.add('locked');
+                        openBoxes.splice(1, 1); // Remove the selected item from the array
+                        alert(openBoxes);
+                    } 
+                }
+                findWinner();
+            });
+            boxFiveTouchRegion.addEventListener('touchstart', function(e) {
+                if (box5Locked) {
+                    alert("This box is locked!");
+                } else {
+                    if (currentPlayer == 0) {
+                        box5.classList.add('x');
+                        box5.classList.add('locked');
+                        currentPlayer = 1;
+                        box5Locked = true;
+                        box5lockedto = 0;
+                        playerOneWrapper.classList.remove('current');
+                        playerTwoWrapper.classList.add('current');
+                        alert(openBoxes);
+                        openBoxes.splice(4, 1); // Remove the selected item from the array
+                        if (box1Locked) {
+                            `box${selectedItem}`.classList.add('o');
+                            `box${selectedItem}`.classList.add('locked');
+                            openBoxes.splice(randomBoxPicker, 1); // Remove the selected item from the array
+                            alert(openBoxes);
+                        } else {
+                            box1.classList.add('o');
+                            box1.classList.add('locked');
+                            currentPlayer = 0;
+                            box1Locked = true;
+                            box1lockedto = 1;
+                            playerOneWrapper.classList.add('current');
+                            playerTwoWrapper.classList.remove('current');
+                            openBoxes.splice(0, 1); // Remove the selected item from the array
+                            alert(openBoxes);
+                        }
+                    } 
+                }
+                findWinner();
+            });
         }  
     }
 

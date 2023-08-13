@@ -1,12 +1,8 @@
 let openBoxes = [1,2,3,4,5,6,7,8,9];
+let randomBoxPicker = Math.floor(Math.random() * openBoxes.length);
 
-let index = openBoxes.indexOf(1);
-if(index != -1) {
-    openBoxes.splice(index, 1); // remove 1 element from index 
-}
-console.log(openBoxes);
-index = openBoxes.indexOf(2);
-if(index != -1) {
-    openBoxes.splice(index, 1); // remove 1 element from index 
-}
-console.log(openBoxes);
+let selectedItem = openBoxes[randomBoxPicker]; // Get the selected item
+openBoxes.splice(randomBoxPicker, 1); // Remove the selected item from the array
+
+console.log("Selected Item:", selectedItem);
+console.log("Remaining Items:", openBoxes);
