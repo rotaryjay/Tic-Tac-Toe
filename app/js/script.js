@@ -1,4 +1,4 @@
-document.body.addEventListener('touchstart', function(e) {});
+//document.body.addEventListener('touchstart', function(e) {});
 document.addEventListener('DOMContentLoaded', function () {
 
     let openBoxes = ['1','2','3','4','5','6','7','8','9'];
