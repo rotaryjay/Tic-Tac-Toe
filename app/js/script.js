@@ -184,11 +184,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const winnerOverlay = document.querySelector('.winnerOverlay');
     const winner = document.querySelector('.winner');
 
-    // When player one wins
-    function playerOneIsTheWinner() {
-        playerOneTotalWins++;
-        winnerOverlay.classList.remove('hidden');
-        winner.textContent = playerOneName;
+    // Unlock boxes
+    function unlockBoxes() {
         box1lockedto = open;
         box2lockedto = open;
         box3lockedto = open;
@@ -198,6 +195,10 @@ document.addEventListener('DOMContentLoaded', function () {
         box7lockedto = open;
         box8lockedto = open;
         box9lockedto = open;
+    }
+
+    // Clear boxes
+    function clearBoxes() {
         clearBoxOne();
         clearBoxTwo();
         clearBoxThree();
@@ -207,6 +208,13 @@ document.addEventListener('DOMContentLoaded', function () {
         clearBoxSeven();
         clearBoxEight();
         clearBoxNine();
+    }
+
+    // When player one wins
+    function playerOneIsTheWinner() {
+        playerOneTotalWins++;
+        winnerOverlay.classList.remove('hidden');
+        winner.textContent = playerOneName;
         currentGameWinner = playerOneName;
         currentPlayer = 0;
         playerOneWrapper.classList.remove('current');
@@ -220,24 +228,6 @@ document.addEventListener('DOMContentLoaded', function () {
         playerTwoTotalWins++;
         document.querySelector('.winnerOverlay').classList.remove('hidden');
         document.querySelector('.winner').textContent = playerTwoName;
-        box1lockedto = open;
-        box2lockedto = open;
-        box3lockedto = open;
-        box4lockedto = open;
-        box5lockedto = open;
-        box6lockedto = open;
-        box7lockedto = open;
-        box8lockedto = open;
-        box9lockedto = open;
-        clearBoxOne();
-        clearBoxTwo();
-        clearBoxThree();
-        clearBoxFour();
-        clearBoxFive();
-        clearBoxSix();
-        clearBoxSeven();
-        clearBoxEight();
-        clearBoxNine();
         currentGameWinner = playerTwoName;
         currentPlayer = 1;
         playerOneWrapper.classList.remove('current');
@@ -248,50 +238,16 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     // No winner game reset
     function tiedGame() {
-        // Sets all of the boxes to unlocked
-        box1lockedto = open;
-        box2lockedto = open;
-        box3lockedto = open;
-        box4lockedto = open;
-        box5lockedto = open;
-        box6lockedto = open;
-        box7lockedto = open;
-        box8lockedto = open;
-        box9lockedto = open;
-        // Removes all of the x's and o's from all 9 boxes and removes the "locked" class
-        clearBoxOne();
-        clearBoxTwo();
-        clearBoxThree();
-        clearBoxFour();
-        clearBoxFive();
-        clearBoxSix();
-        clearBoxSeven();
-        clearBoxEight();
-        clearBoxNine();
+        unlockBoxes();
+        clearBoxes();
         document.querySelector('.tiedOverlay').classList.add('hidden');
         openBoxes = ['1','2','3','4','5','6','7','8','9'];
     }
     function gameReset() {
         // Sets all of the boxes to unlocked
-        box1lockedto = open;
-        box2lockedto = open;
-        box3lockedto = open;
-        box4lockedto = open;
-        box5lockedto = open;
-        box6lockedto = open;
-        box7lockedto = open;
-        box8lockedto = open;
-        box9lockedto = open;
+        unlockBoxes();
         // Removes all of the x's and o's from all 9 boxes and removes the "locked" class
-        clearBoxOne();
-        clearBoxTwo();
-        clearBoxThree();
-        clearBoxFour();
-        clearBoxFive();
-        clearBoxSix();
-        clearBoxSeven();
-        clearBoxEight();
-        clearBoxNine();
+        clearBoxes();
         // Sets current player to Player 1
         currentPlayer = 0;
         // Resets the Total Wins for both players back to zero
@@ -309,6 +265,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /* Start close the winner dialogue */
     document.querySelector('.close').addEventListener('click', function () {
+        unlockBoxes();
+        clearBoxes();
         // Hides the Winner overlay
         document.querySelector('.winnerOverlay').classList.add('hidden');
     });
@@ -712,7 +670,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function playerModes() {
         if (twoPlayer === true) {
-        
             // Player One name input
             document.querySelector('.playerOneNameInput').addEventListener('keypress', function (e) {
                 // If enter key is pressed
@@ -969,7 +926,6 @@ document.addEventListener('DOMContentLoaded', function () {
             // let itemToDelete = randomBoxPicker;
             //openBoxes.splice(randomBoxPicker, 1); // Remove the selected item from the array
 
-            // alert('One player.')
             playerTwoName = 'A.I.';
             document.querySelector('.playerTwo').textContent = playerTwoName;
             // Player One name input
@@ -986,9 +942,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 playerOneWrapper.classList.remove('current');
                 playerTwoWrapper.classList.add('current');
                 const currentPickedNumberIndex = randomBoxPicker();
-                const currentPickedNumber = openBoxes[currentPickedNumberIndex];
+                //const currentPickedNumber = openBoxes[currentPickedNumberIndex];
+                console.log("The array is: " + openBoxes);
+                console.log("The random number picked from the array is: " + currentPickedNumberIndex);
                 let currentBox = document.querySelector('.box' + openBoxes[`${currentPickedNumberIndex}`]);
+                //console.log(currentBox);
                 openBoxes.splice(openBoxes.indexOf('`${currentPickedNumber}`'), 1); // Remove the selected item from the array
+                console.log("The array is now: " + openBoxes);
+                console.log("And that number picked is: " + openBoxes[currentPickedNumberIndex]);
                 currentBox.classList.add('o');
                 currentBox.classList.add('locked');
                 currentPlayer = 0; // switch to player one
