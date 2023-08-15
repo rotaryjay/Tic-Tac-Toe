@@ -177,15 +177,20 @@ body main .gameWrapper {
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9));
   z-index: 1000000;
 }
 
 .playerModeOverlay {
-  background: linear-gradient(white, white);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  opacity: 1;
+  transition: all 0.2s ease-in-out;
 }
 .playerModeOverlay.hidden {
   display: none;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
 }
 .playerModeOverlay .playerModerOverlayContent {
   position: absolute;
@@ -211,6 +216,11 @@ body main .gameWrapper {
   margin: 0 20px 0 0;
 }
 
+.playerOneOverlay {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
 .playerOneOverlay.hidden {
   display: none;
 }
@@ -229,6 +239,11 @@ body main .gameWrapper {
   max-width: 100%;
 }
 
+.playerTwoOverlay {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
 .playerTwoOverlay.hidden {
   display: none;
 }
@@ -247,6 +262,11 @@ body main .gameWrapper {
   max-width: 100%;
 }
 
+.winnerOverlay {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
 .winnerOverlay.hidden {
   display: none;
 }
@@ -281,6 +301,11 @@ body main .gameWrapper {
   transition: all 0.2s ease-in-out;
 }
 
+.tiedOverlay {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
 .tiedOverlay.hidden {
   display: none;
 }
@@ -316,12 +341,14 @@ body main .gameWrapper {
 }
 
 .settingsOverlay {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(white, white);
   transition: all 0.2s ease-in-out;
   transform: scale(1);
   transform-origin: 100% 0;
@@ -424,14 +451,17 @@ body main .gameWrapper {
   float: left;
   border: 1px solid black;
   border-radius: 10px;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 .thegrid .x {
-  background: no-repeat center/contain url(../img/x.png);
+  background-image: url(../img/x.png);
   box-shadow: inset 0 0 17px 4px rgba(0, 0, 0, 0.3);
   transition: all 300ms ease-in-out;
 }
 .thegrid .o {
-  background: no-repeat center/contain url(../img/o.png);
+  background-image: url(../img/o.png);
   box-shadow: inset 0 0 17px 4px rgba(0, 0, 0, 0.3);
   transition: all 300ms ease-in-out;
 }

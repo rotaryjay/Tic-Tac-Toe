@@ -1,8 +1,10 @@
 //document.body.addEventListener('touchstart', function(e) {});
-document.addEventListener('DOMContentLoaded', function () {
 
-    let openBoxes = ['1','2','3','4','5','6','7','8','9'];
+//document.addEventListener('DOMContentLoaded', function () {
+
+    let openBoxes = [1,2,3,4,5,6,7,8,9];
     let gameOver = false;
+
     /* ------------------------------------------------------------------------------------------ */
     /* Start One or Two Player Mode Selection */
     /* ------------------------------------------------------------------------------------------ */
@@ -12,30 +14,36 @@ document.addEventListener('DOMContentLoaded', function () {
     let twoPlayer = false;
 
     // One or Two Player Modes 
-    const onePlayerModeButton = document.querySelector('.onePlayerModeButton');
-    const twoPlayerModeButton = document.querySelector('.twoPlayerModeButton');
-
-    onePlayerModeButton.addEventListener('click', activateOnePlayerMode);
-    twoPlayerModeButton.addEventListener('click', activateTwoPlayerMode);
+    document.querySelector('.onePlayerModeButton').addEventListener('click', function() {
+        activateOnePlayerMode();
+    });
     
+    document.querySelector('.twoPlayerModeButton').addEventListener('click', function() {
+        activateTwoPlayerMode();
+    });
+    //document.querySelector('.onePlayerModeButton').addEventListener('touchstart', activateOnePlayerMode());
+    //document.querySelector('.twoPlayerModeButton').addEventListener('touchstart', activateTwoPlayerMode());
 
     function activateOnePlayerMode() {
+        //alert("One Player");
         document.querySelector('.playerModeOverlay').classList.add('hidden');
         document.querySelector('.playerOneOverlay').classList.remove('hidden');
         document.getElementById('playerOneNameInput').focus();
         onePlayer = true;
         twoPlayer = false;
-
         playerModes();
+        gameOver = false;
     }
 
     function activateTwoPlayerMode() {
+        //alert("Two Player");
         document.querySelector('.playerModeOverlay').classList.add('hidden');
         document.querySelector('.playerOneOverlay').classList.remove('hidden');
         document.getElementById('playerOneNameInput').focus();
         onePlayer = false;
         twoPlayer = true;
         playerModes();
+        gameOver = false;
     }
 
     /* ------------------------------------------------------------------------------------------ */
@@ -113,26 +121,6 @@ document.addEventListener('DOMContentLoaded', function () {
         box8lockedto: 'open',
         box9lockedto: 'open'
     }
-    // Variables to control whether the boxes are locked or not
-    /*let box1Locked = false;
-    let box2Locked = false;
-    let box3Locked = false;
-    let box4Locked = false;
-    let box5Locked = false;
-    let box6Locked = false;
-    let box7Locked = false;
-    let box8Locked = false;
-    let box9Locked = false;*/
-    // Sets who the boxes are locked to 
-    /*let box1lockedto = open;
-    let box2lockedto = open;
-    let box3lockedto = open;
-    let box4lockedto = open;
-    let box5lockedto = open;
-    let box6lockedto = open;
-    let box7lockedto = open;
-    let box8lockedto = open;
-    let box9lockedto = open;*/
 
     // Box clearing when game is won or tied
     function clearBoxOne() {
@@ -206,17 +194,30 @@ document.addEventListener('DOMContentLoaded', function () {
     const winnerOverlay = document.querySelector('.winnerOverlay');
     const winner = document.querySelector('.winner');
 
-    // Unlock boxes
+    // Unlock box locks
+    function unlock() {
+        boxLocks[`box1Locked`] = false,
+        boxLocks[`box2Locked`] = false,
+        boxLocks[`box3Locked`] = false,
+        boxLocks[`box4Locked`] = false,
+        boxLocks[`box5Locked`] = false,
+        boxLocks[`box6Locked`] = false,
+        boxLocks[`box7Locked`] = false,
+        boxLocks[`box8Locked`] = false,
+        boxLocks[`box9Locked`] = false
+    }
+
+    // Unlock boxeslocked to
     function unlockBoxes() {
-        boxesLockedTo[`box1lockedto`] = open;
-        boxesLockedTo[`box2lockedto`] = open;
-        boxesLockedTo[`box3lockedto`] = open;
-        boxesLockedTo[`box4lockedto`] = open;
-        boxesLockedTo[`box5lockedto`] = open;
-        boxesLockedTo[`box6lockedto`] = open;
-        boxesLockedTo[`box7lockedto`] = open;
-        boxesLockedTo[`box8lockedto`] = open;
-        boxesLockedTo[`box9lockedto`] = open;
+        boxesLockedTo[`box1lockedto`] = 'open';
+        boxesLockedTo[`box2lockedto`] = 'open';
+        boxesLockedTo[`box3lockedto`] = 'open';
+        boxesLockedTo[`box4lockedto`] = 'open';
+        boxesLockedTo[`box5lockedto`] = 'open';
+        boxesLockedTo[`box6lockedto`] = 'open';
+        boxesLockedTo[`box7lockedto`] = 'open';
+        boxesLockedTo[`box8lockedto`] = 'open';
+        boxesLockedTo[`box9lockedto`] = 'open';
     }
 
     // Clear boxes
@@ -243,7 +244,7 @@ document.addEventListener('DOMContentLoaded', function () {
         playerTwoWrapper.classList.remove('current');
         playerOneWrapper.classList.add('current');
         playerOneTotalWinsDiv.textContent = playerOneTotalWins;
-        openBoxes = ['1','2','3','4','5','6','7','8','9'];
+        openBoxes = [1,2,3,4,5,6,7,8,9];
         gameOver = true;
     }
     // When player two wins
@@ -257,7 +258,7 @@ document.addEventListener('DOMContentLoaded', function () {
         playerTwoWrapper.classList.remove('current');
         playerTwoWrapper.classList.add('current');
         playerTwoTotalWinsDiv.textContent = playerTwoTotalWins;
-        openBoxes = ['1','2','3','4','5','6','7','8','9'];
+        openBoxes = [1,2,3,4,5,6,7,8,9];
         gameOver = true;
     }
     // No winner game reset
@@ -265,11 +266,14 @@ document.addEventListener('DOMContentLoaded', function () {
         unlockBoxes();
         clearBoxes();
         document.querySelector('.tiedOverlay').classList.add('hidden');
-        openBoxes = ['1','2','3','4','5','6','7','8','9'];
+        openBoxes = [1,2,3,4,5,6,7,8,9];
         gameOver = true;
     }
     function gameReset() {
+        location.reload();
+        /*
         // Sets all of the boxes to unlocked
+        unlock()
         unlockBoxes();
         // Removes all of the x's and o's from all 9 boxes and removes the "locked" class
         clearBoxes();
@@ -285,7 +289,7 @@ document.addEventListener('DOMContentLoaded', function () {
         playerOneWrapper.classList.add('current');
         onePlayer = false;
         twoPlayer = false;
-        openBoxes = ['1','2','3','4','5','6','7','8','9'];
+        openBoxes = [1,2,3,4,5,6,7,8,9];*/
     }
 
     /* Start close the winner dialogue */
@@ -694,7 +698,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let boxNineTouchRegion = box9;
 
     function playerModes() {
-        if (twoPlayer === true) {
+        if (twoPlayer == true) {
             // Player One name input
             document.querySelector('.playerOneNameInput').addEventListener('keypress', function (e) {
                 // If enter key is pressed
@@ -716,7 +720,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
 
-            boxOneTouchRegion.addEventListener('touchstart', function(e) {
+            boxOneTouchRegion.addEventListener('click', function(e) {
                 if (boxLocks[`box1Locked`] === true) {
                     alert("This box is locked!");
                 } else {
@@ -724,8 +728,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         box1.classList.add('x');
                         box1.classList.add('locked');
                         currentPlayer = 1;
-                        //box1Locked = true;
-                        //box1lockedto = 0;
                         boxLocks[`box1Locked`] = true;
                         boxesLockedTo[`box1lockedto`] = 0;
                         playerOneWrapper.classList.remove('current');
@@ -734,8 +736,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         box1.classList.add('o');
                         box1.classList.add('locked');
                         currentPlayer = 0;
-                        //box1Locked = true;
-                        //box1lockedto = 1;
                         boxLocks[`box1Locked`] = true;
                         boxesLockedTo[`box1lockedto`] = 1;
                         playerOneWrapper.classList.add('current');
@@ -745,7 +745,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 findWinner();
                 findTie();
             });
-            boxTwoTouchRegion.addEventListener('touchstart', function(e) {
+            boxTwoTouchRegion.addEventListener('click', function(e) {
                 if (boxLocks[`box2Locked`] === true) {
                     alert("This box is locked!");
                 } else {
@@ -753,8 +753,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         box2.classList.add('x');
                         box2.classList.add('locked');
                         currentPlayer = 1;
-                        //box2Locked = true;
-                        //box2lockedto = 0;
                         boxLocks[`box2Locked`] = true;
                         boxesLockedTo[`box2lockedto`] = 0;
                         playerOneWrapper.classList.remove('current');
@@ -763,8 +761,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         box2.classList.add('o');
                         box2.classList.add('locked');
                         currentPlayer = 0;
-                        //box2Locked = true;
-                        //box2lockedto = 1;
                         boxLocks[`box2Locked`] = true;
                         boxesLockedTo[`box2lockedto`] = 1;
                         playerOneWrapper.classList.add('current');
@@ -774,7 +770,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 findWinner();
                 findTie();
             });
-            boxThreeTouchRegion.addEventListener('touchstart', function(e) {
+            boxThreeTouchRegion.addEventListener('click', function(e) {
                 if (boxLocks[`box3Locked`] === true) {
                     alert("This box is locked!");
                 } else {
@@ -782,8 +778,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         box3.classList.add('x');
                         box3.classList.add('locked');
                         currentPlayer = 1;
-                        //box3Locked = true;
-                        //box3lockedto = 0;
                         boxLocks[`box3Locked`] = true;
                         boxesLockedTo[`box3lockedto`] = 0;
                         playerOneWrapper.classList.remove('current');
@@ -792,8 +786,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         box3.classList.add('o');
                         box3.classList.add('locked');
                         currentPlayer = 0;
-                        //box3Locked = true;
-                        //box3lockedto = 1;
                         boxLocks[`box3Locked`] = true;
                         boxesLockedTo[`box3lockedto`] = 1;
                         playerOneWrapper.classList.add('current');
@@ -803,7 +795,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 findWinner();
                 findTie();
             });
-            boxFourTouchRegion.addEventListener('touchstart', function(e) {
+            boxFourTouchRegion.addEventListener('click', function(e) {
                 if (boxLocks[`box4Locked`] === true) {
                     alert("This box is locked!");
                 } else {
@@ -811,8 +803,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         box4.classList.add('x');
                         box4.classList.add('locked');
                         currentPlayer = 1;
-                        //box4Locked = true;
-                        //box4lockedto = 0;
                         boxLocks[`box4Locked`] = true;
                         boxesLockedTo[`box4lockedto`] = 0;
                         playerOneWrapper.classList.remove('current');
@@ -821,8 +811,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         box4.classList.add('o');
                         box4.classList.add('locked');
                         currentPlayer = 0;
-                        //box4Locked = true;
-                        //box4lockedto = 1;
                         boxLocks[`box4Locked`] = true;
                         boxesLockedTo[`box4lockedto`] = 1;
                         playerOneWrapper.classList.add('current');
@@ -832,7 +820,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 findWinner();
                 findTie();
             });
-            boxFiveTouchRegion.addEventListener('touchstart', function(e) {
+            boxFiveTouchRegion.addEventListener('click', function(e) {
                 if (boxLocks[`box5Locked`] === true) {
                     alert("This box is locked!");
                 } else {
@@ -840,8 +828,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         box5.classList.add('x');
                         box5.classList.add('locked');
                         currentPlayer = 1;
-                        //box5Locked = true;
-                        //box5lockedto = 0;
                         boxLocks[`box5Locked`] = true;
                         boxesLockedTo[`box5lockedto`] = 0;
                         playerOneWrapper.classList.remove('current');
@@ -850,8 +836,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         box5.classList.add('o');
                         box5.classList.add('locked');
                         currentPlayer = 0;
-                        //box5Locked = true;
-                        //box5lockedto = 1;
                         boxLocks[`box5Locked`] = true;
                         boxesLockedTo[`box5lockedto`] = 1;
                         playerOneWrapper.classList.add('current');
@@ -861,7 +845,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 findWinner();
                 findTie();
             });
-            boxSixTouchRegion.addEventListener('touchstart', function(e) {
+            boxSixTouchRegion.addEventListener('click', function(e) {
                 if (boxLocks[`box6Locked`] === true) {
                     alert("This box is locked!");
                 } else {
@@ -869,8 +853,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         box6.classList.add('x');
                         box6.classList.add('locked');
                         currentPlayer = 1;
-                        //box6Locked = true;
-                        //box6lockedto = 0;
                         boxLocks[`box6Locked`] = true;
                         boxesLockedTo[`box6lockedto`] = 0;
                         playerOneWrapper.classList.remove('current');
@@ -879,8 +861,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         box6.classList.add('o');
                         box6.classList.add('locked');
                         currentPlayer = 0;
-                        //box6Locked = true;
-                        //box6lockedto = 1;
                         boxLocks[`box6Locked`] = true;
                         boxesLockedTo[`box6lockedto`] = 1;
                         playerOneWrapper.classList.add('current');
@@ -890,7 +870,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 findWinner();
                 findTie();
             });
-            boxSevenTouchRegion.addEventListener('touchstart', function(e) {
+            boxSevenTouchRegion.addEventListener('click', function(e) {
                 if (boxLocks[`box7Locked`] === true) {
                     alert("This box is locked!");
                 } else {
@@ -898,8 +878,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         box7.classList.add('x');
                         box7.classList.add('locked');
                         currentPlayer = 1;
-                        //box7Locked = true;
-                        //box7lockedto = 0;
                         boxLocks[`box7Locked`] = true;
                         boxesLockedTo[`box7lockedto`] = 0;
                         playerOneWrapper.classList.remove('current');
@@ -908,8 +886,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         box7.classList.add('o');
                         box7.classList.add('locked');
                         currentPlayer = 0;
-                        //box7Locked = true;
-                        //box7lockedto = 1;
                         boxLocks[`box7Locked`] = true;
                         boxesLockedTo[`box7lockedto`] = 1;
                         playerOneWrapper.classList.add('current');
@@ -919,7 +895,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 findWinner();
                 findTie();
             });
-            boxEightTouchRegion.addEventListener('touchstart', function(e) {
+            boxEightTouchRegion.addEventListener('click', function(e) {
                 if (boxLocks[`box8Locked`] === true) {
                     alert("This box is locked!");
                 } else {
@@ -927,8 +903,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         box8.classList.add('x');
                         box8.classList.add('locked');
                         currentPlayer = 1;
-                        //box8Locked = true;
-                        //box8lockedto = 0;
                         boxLocks[`box8Locked`] = true;
                         boxesLockedTo[`box8lockedto`] = 0;
                         playerOneWrapper.classList.remove('current');
@@ -937,8 +911,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         box8.classList.add('o');
                         box8.classList.add('locked');
                         currentPlayer = 0;
-                        //box8Locked = true;
-                        //box8lockedto = 1;
                         boxLocks[`box8Locked`] = true;
                         boxesLockedTo[`box8lockedto`] = 1;
                         playerOneWrapper.classList.add('current');
@@ -948,7 +920,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 findWinner();
                 findTie();
             });
-            boxNineTouchRegion.addEventListener('touchstart', function(e) {
+            boxNineTouchRegion.addEventListener('click', function(e) {
                 if (boxLocks[`box9Locked`] === true) {
                     alert("This box is locked!");
                 } else {
@@ -956,8 +928,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         box9.classList.add('x');
                         box9.classList.add('locked');
                         currentPlayer = 1;
-                        //box9Locked = true;
-                        //box9lockedto = 0;
                         boxLocks[`box9Locked`] = true;
                         boxesLockedTo[`box9lockedto`] = 0;
                         playerOneWrapper.classList.remove('current');
@@ -966,8 +936,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         box9.classList.add('o');
                         box9.classList.add('locked');
                         currentPlayer = 0;
-                        //box9Locked = true;
-                        //box9lockedto = 1;
                         boxLocks[`box9Locked`] = true;
                         boxesLockedTo[`box9lockedto`] = 0;
                         playerOneWrapper.classList.add('current');
@@ -977,15 +945,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 findWinner();
                 findTie();
             });
-        } else if (onePlayer === true) {
+        } else if (onePlayer == true) {
             function randomBoxPicker() {
                 return Math.floor(Math.random() * openBoxes.length);
             };
-            //alert(openBoxes.length);
-            //alert("The first random number is: " + randomBoxPicker());
-            //let selectedItem = openBoxes[randomBoxPicker]; // Get the selected item
-            // let itemToDelete = randomBoxPicker;
-            //openBoxes.splice(randomBoxPicker, 1); // Remove the selected item from the array
 
             playerTwoName = 'A.I.';
             document.querySelector('.playerTwo').textContent = playerTwoName;
@@ -1007,20 +970,21 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log("currentNumber variable is " + currentNumber);
                 console.log("The random INDEX number picked from the array for A.I. is: " + currentPickedNumberIndex);
                 let currentBox = document.querySelector('.box' + openBoxes[currentPickedNumberIndex]);
-                openBoxes.splice(currentNumber, 1); // Remove the selected item from the array
+                openBoxes.splice(openBoxes.indexOf(currentNumber), 1); // Remove the selected item from the array
                 console.log("The array AFTER A.I. selects a box is: " + openBoxes);
                 console.log(currentBox);
                 currentBox.classList.add('o');
                 currentBox.classList.add('locked');
                 boxLocks[`box${currentNumber}Locked`] = true;
                 boxesLockedTo[`box${currentNumber}lockedto`] = 1;
-                currentPlayer = 0; // switch to player one
                 playerOneWrapper.classList.add('current');
                 playerTwoWrapper.classList.remove('current');
                 findWinner();
+                currentPlayer = 0; // switch to player one
                 findTie();
+                //currentPlayer = 0; // switch to player one
             }
-            boxOneTouchRegion.addEventListener('touchstart', function(e) {
+            boxOneTouchRegion.addEventListener('click', function(e) {
                 if (boxLocks[`box1Locked`] === true) {
                     alert("This box is locked!");
                 } else {
@@ -1029,11 +993,10 @@ document.addEventListener('DOMContentLoaded', function () {
                         console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
                         box1.classList.add('x'); // Add an x
                         box1.classList.add('locked'); // Add locked class to box DIV
-                        //box1Locked = true; // Lock the box variable
-                        //box1lockedto = 0; // Set the variable of who clicked the box
                         boxLocks[`box1Locked`] = true;
                         boxesLockedTo[`box1lockedto`] = 0;
-                        openBoxes.splice(openBoxes.indexOf('1'), 1); // Remove the selected item from the array
+                        openBoxes.splice(openBoxes.indexOf(1), 1); // Remove the selected item from the array
+                        console.log("Player One selects Box 1");
                         console.log("The array AFTER Player One selects Box 1 is: " + openBoxes);
                         findWinner();
                         findTie();
@@ -1047,7 +1010,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 }
             });
-            boxTwoTouchRegion.addEventListener('touchstart', function(e) {
+            boxTwoTouchRegion.addEventListener('click', function(e) {
                 if (boxLocks[`box2Locked`] === true) {
                     alert("This box is locked!");
                 } else {
@@ -1056,11 +1019,11 @@ document.addEventListener('DOMContentLoaded', function () {
                         console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
                         box2.classList.add('x'); // Add an x
                         box2.classList.add('locked'); // Add locked class to box DIV
-                        //box2Locked = true; // Lock the box variable
-                        //box2lockedto = 0; // Set the variable of who clicked the box
                         boxLocks[`box2Locked`] = true;
                         boxesLockedTo[`box2lockedto`] = 0;
-                        openBoxes.splice(openBoxes.indexOf('2'), 1); // Remove the selected item from the array
+                        openBoxes.splice(openBoxes.indexOf(2), 1); // Remove the selected item from the array
+                        console.log("Player One selects Box 2");
+                        console.log("The array AFTER Player One selects Box 2 is: " + openBoxes);
                         findWinner();
                         findTie();
                         if (gameOver === true) {
@@ -1073,7 +1036,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     } 
                 }
             });
-            boxThreeTouchRegion.addEventListener('touchstart', function(e) {
+            boxThreeTouchRegion.addEventListener('click', function(e) {
                 if (boxLocks[`box3Locked`] === true) {
                     alert("This box is locked!");
                 } else {
@@ -1082,11 +1045,11 @@ document.addEventListener('DOMContentLoaded', function () {
                         console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
                         box3.classList.add('x'); // Add an x
                         box3.classList.add('locked'); // Add locked class to box DIV
-                        //box3Locked = true; // Lock the box variable
-                        //box3lockedto = 0; // Set the variable of who clicked the box
                         boxLocks[`box3Locked`] = true;
                         boxesLockedTo[`box3lockedto`] = 0;
-                        openBoxes.splice(openBoxes.indexOf('3'), 1); // Remove the selected item from the array
+                        openBoxes.splice(openBoxes.indexOf(3), 1); // Remove the selected item from the array
+                        console.log("Player One selects Box 3");
+                        console.log("The array AFTER Player One selects Box 3 is: " + openBoxes);
                         findWinner();
                         findTie();
                         if (gameOver === true) {
@@ -1099,7 +1062,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     } 
                 }
             });
-            boxFourTouchRegion.addEventListener('touchstart', function(e) {
+            boxFourTouchRegion.addEventListener('click', function(e) {
                 if (boxLocks[`box4Locked`] === true) {
                     alert("This box is locked!");
                 } else {
@@ -1108,11 +1071,11 @@ document.addEventListener('DOMContentLoaded', function () {
                         console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
                         box4.classList.add('x'); // Add an x
                         box4.classList.add('locked'); // Add locked class to box DIV
-                        //box4Locked = true; // Lock the box variable
-                        //box4lockedto = 0; // Set the variable of who clicked the box
                         boxLocks[`box4Locked`] = true;
                         boxesLockedTo[`box4lockedto`] = 0;
-                        openBoxes.splice(openBoxes.indexOf('4'), 1); // Remove the selected item from the array
+                        openBoxes.splice(openBoxes.indexOf(4), 1); // Remove the selected item from the array
+                        console.log("Player One selects Box 4");
+                        console.log("The array AFTER Player One selects Box 4 is: " + openBoxes);
                         findWinner();
                         findTie();
                         if (gameOver === true) {
@@ -1125,7 +1088,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     } 
                 }
             });
-            boxFiveTouchRegion.addEventListener('touchstart', function(e) {
+            boxFiveTouchRegion.addEventListener('click', function(e) {
                 if (boxLocks[`box5Locked`] === true) {
                     alert("This box is locked!");
                 } else {
@@ -1134,11 +1097,11 @@ document.addEventListener('DOMContentLoaded', function () {
                         console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
                         box5.classList.add('x'); // Add an x
                         box5.classList.add('locked'); // Add locked class to box DIV
-                        //box5Locked = true; // Lock the box variable
-                        //box5lockedto = 0; // Set the variable of who clicked the box
                         boxLocks[`box5Locked`] = true;
                         boxesLockedTo[`box5lockedto`] = 0;
-                        openBoxes.splice(openBoxes.indexOf('5'), 1); // Remove the selected item from the array
+                        openBoxes.splice(openBoxes.indexOf(5), 1); // Remove the selected item from the array
+                        console.log("Player One selects Box 5");
+                        console.log("The array AFTER Player One selects Box 5 is: " + openBoxes);
                         findWinner();
                         findTie();
                         if (gameOver === true) {
@@ -1151,7 +1114,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     } 
                 }
             });
-            boxSixTouchRegion.addEventListener('touchstart', function(e) {
+            boxSixTouchRegion.addEventListener('click', function(e) {
                 if (boxLocks[`box6Locked`] === true) {
                     alert("This box is locked!");
                 } else {
@@ -1160,11 +1123,11 @@ document.addEventListener('DOMContentLoaded', function () {
                         console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
                         box6.classList.add('x'); // Add an x
                         box6.classList.add('locked'); // Add locked class to box DIV
-                        //box6Locked = true; // Lock the box variable
-                        //box6lockedto = 0; // Set the variable of who clicked the box
                         boxLocks[`box6Locked`] = true;
                         boxesLockedTo[`box6lockedto`] = 0;
-                        openBoxes.splice(openBoxes.indexOf('6'), 1); // Remove the selected item from the array
+                        openBoxes.splice(openBoxes.indexOf(6), 1); // Remove the selected item from the array
+                        console.log("Player One selects Box 6");
+                        console.log("The array AFTER Player One selects Box 6 is: " + openBoxes);
                         findWinner();
                         findTie();
                         if (gameOver === true) {
@@ -1177,7 +1140,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     } 
                 }
             });
-            boxSevenTouchRegion.addEventListener('touchstart', function(e) {
+            boxSevenTouchRegion.addEventListener('click', function(e) {
                 if (boxLocks[`box7Locked`] === true) {
                     alert("This box is locked!");
                 } else {
@@ -1186,11 +1149,11 @@ document.addEventListener('DOMContentLoaded', function () {
                         console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
                         box7.classList.add('x'); // Add an x
                         box7.classList.add('locked'); // Add locked class to box DIV
-                        //box7Locked = true; // Lock the box variable
-                        //box7lockedto = 0; // Set the variable of who clicked the box
                         boxLocks[`box7Locked`] = true;
                         boxesLockedTo[`box7lockedto`] = 0;
-                        openBoxes.splice(openBoxes.indexOf('7'), 1); // Remove the selected item from the array
+                        openBoxes.splice(openBoxes.indexOf(7), 1); // Remove the selected item from the array
+                        console.log("Player One selects Box 7");
+                        console.log("The array AFTER Player One selects Box 7 is: " + openBoxes);
                         findWinner();
                         findTie();
                         if (gameOver === true) {
@@ -1203,7 +1166,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     } 
                 }
             });
-            boxEightTouchRegion.addEventListener('touchstart', function(e) {
+            boxEightTouchRegion.addEventListener('click', function(e) {
                 if (boxLocks[`box8Locked`] === true) {
                     alert("This box is locked!");
                 } else {
@@ -1212,11 +1175,11 @@ document.addEventListener('DOMContentLoaded', function () {
                         console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
                         box8.classList.add('x'); // Add an x
                         box8.classList.add('locked'); // Add locked class to box DIV
-                        //box8Locked = true; // Lock the box variable
-                        //box8lockedto = 0; // Set the variable of who clicked the box
                         boxLocks[`box8Locked`] = true;
                         boxesLockedTo[`box8lockedto`] = 0;
-                        openBoxes.splice(openBoxes.indexOf('8'), 1); // Remove the selected item from the array
+                        openBoxes.splice(openBoxes.indexOf(8), 1); // Remove the selected item from the array
+                        console.log("Player One selects Box 8");
+                        console.log("The array AFTER Player One selects Box 8 is: " + openBoxes);
                         findWinner();
                         findTie();
                         if (gameOver === true) {
@@ -1227,7 +1190,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     } 
                 }
             });
-            boxNineTouchRegion.addEventListener('touchstart', function(e) {
+            boxNineTouchRegion.addEventListener('click', function(e) {
                 if (boxLocks[`box9Locked`] === true) {
                     alert("This box is locked!");
                 } else {
@@ -1236,11 +1199,11 @@ document.addEventListener('DOMContentLoaded', function () {
                         console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
                         box9.classList.add('x'); // Add an x
                         box9.classList.add('locked'); // Add locked class to box DIV
-                        //box9Locked = true; // Lock the box variable
-                        //box9lockedto = 0; // Set the variable of who clicked the box
                         boxLocks[`box9Locked`] = true;
                         boxesLockedTo[`box9lockedto`] = 0;
-                        openBoxes.splice(openBoxes.indexOf('9'), 1); // Remove the selected item from the array
+                        openBoxes.splice(openBoxes.indexOf(9), 1); // Remove the selected item from the array
+                        console.log("Player One selects Box 9");
+                        console.log("The array AFTER Player One selects Box 9 is: " + openBoxes);
                         findWinner();
                         findTie();
                         if (gameOver === true) {
@@ -1267,279 +1230,4 @@ document.addEventListener('DOMContentLoaded', function () {
     document.addEventListener('touchmove', function (event) {
         if (event.scale !== 1) { event.preventDefault(); }
     }, false);
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ------------------------------------------------------------------------------------------ */
-/* Start old code I may reuse */
-/* ------------------------------------------------------------------------------------------ */
-
-    // If box has already been selected
-    /*box1.addEventListener('click', function () {
-        if (box1Locked) {
-            alert("This box is locked!");
-        } else {
-            if (currentPlayer == 0) {
-                box1.classList.add('x');
-                box1.classList.add('locked');
-                currentPlayer = 1;
-                box1Locked = true;
-                box1lockedto = 0;
-                playerOneWrapper.classList.remove('current');
-                playerTwoWrapper.classList.add('current');
-            } else {
-                box1.classList.add('o');
-                box1.classList.add('locked');
-                currentPlayer = 0;
-                box1Locked = true;
-                box1lockedto = 1;
-                playerOneWrapper.classList.add('current');
-                playerTwoWrapper.classList.remove('current');
-            }
-        }
-        findWinner();
-    });
-    box2.addEventListener('click', function () {
-        if (box2Locked) {
-            alert("This box is locked!");
-        } else {
-            if (currentPlayer == 0) {
-                box2.classList.add('x');
-                box2.classList.add('locked');
-                currentPlayer = 1;
-                box2Locked = true;
-                box2lockedto = 0;
-                playerOneWrapper.classList.remove('current');
-                playerTwoWrapper.classList.add('current');
-            } else {
-                box2.classList.add('o');
-                box2.classList.add('locked');
-                currentPlayer = 0;
-                box2Locked = true;
-                box2lockedto = 1;
-                playerOneWrapper.classList.add('current');
-                playerTwoWrapper.classList.remove('current');
-            }
-        }
-        findWinner();
-    });
-    box3.addEventListener('click', function () {
-        if (box3Locked) {
-            alert("This box is locked!");
-        } else {
-            if (currentPlayer == 0) {
-                box3.classList.add('x');
-                box3.classList.add('locked');
-                currentPlayer = 1;
-                box3Locked = true;
-                box3lockedto = 0;
-                playerOneWrapper.classList.remove('current');
-                playerTwoWrapper.classList.add('current');
-            } else {
-                box3.classList.add('o');
-                box3.classList.add('locked');
-                currentPlayer = 0;
-                box3Locked = true;
-                box3lockedto = 1;
-                playerOneWrapper.classList.add('current');
-                playerTwoWrapper.classList.remove('current');
-            }
-        }
-        findWinner();
-    });
-    box4.addEventListener('click', function () {
-        if (box4Locked) {
-            alert("This box is locked!");
-        } else {
-            if (currentPlayer == 0) {
-                box4.classList.add('x');
-                box4.classList.add('locked');
-                currentPlayer = 1;
-                box4Locked = true;
-                box4lockedto = 0;
-                playerOneWrapper.classList.remove('current');
-                playerTwoWrapper.classList.add('current');
-            } else {
-                box4.classList.add('o');
-                box4.classList.add('locked');
-                currentPlayer = 0;
-                box4Locked = true;
-                box4lockedto = 1;
-                playerOneWrapper.classList.add('current');
-                playerTwoWrapper.classList.remove('current');
-            }
-        }
-        findWinner();
-    });
-    box5.addEventListener('click', function () {
-        if (box5Locked) {
-            alert("This box is locked!");
-        } else {
-            if (currentPlayer == 0) {
-                box5.classList.add('x');
-                box5.classList.add('locked');
-                currentPlayer = 1;
-                box5Locked = true;
-                box5lockedto = 0;
-                playerOneWrapper.classList.remove('current');
-                playerTwoWrapper.classList.add('current');
-            } else {
-                box5.classList.add('o');
-                box5.classList.add('locked');
-                currentPlayer = 0;
-                box5Locked = true;
-                box5lockedto = 1;
-                playerOneWrapper.classList.add('current');
-                playerTwoWrapper.classList.remove('current');
-            }
-        }
-        findWinner();
-    });
-    box6.addEventListener('click', function () {
-        if (box6Locked) {
-            alert("This box is locked!");
-        } else {
-            if (currentPlayer == 0) {
-                box6.classList.add('x');
-                box6.classList.add('locked');
-                currentPlayer = 1;
-                box6Locked = true;
-                box6lockedto = 0;
-                playerOneWrapper.classList.remove('current');
-                playerTwoWrapper.classList.add('current');
-            } else {
-                box6.classList.add('o');
-                box6.classList.add('locked');
-                currentPlayer = 0;
-                box6Locked = true;
-                box6lockedto = 1;
-                playerOneWrapper.classList.add('current');
-                playerTwoWrapper.classList.remove('current');
-            }
-        }
-        findWinner();
-    });
-    box7.addEventListener('click', function () {
-        if (box7Locked) {
-            alert("This box is locked!");
-        } else {
-            if (currentPlayer == 0) {
-                box7.classList.add('x');
-                box7.classList.add('locked');
-                currentPlayer = 1;
-                box7Locked = true;
-                box7lockedto = 0;
-                playerOneWrapper.classList.remove('current');
-                playerTwoWrapper.classList.add('current');
-            } else {
-                box7.classList.add('o');
-                box7.classList.add('locked');
-                currentPlayer = 0;
-                box7Locked = true;
-                box7lockedto = 1;
-                playerOneWrapper.classList.add('current');
-                playerTwoWrapper.classList.remove('current');
-            }
-        }
-        findWinner();
-    });
-    box8.addEventListener('click', function () {
-        if (box8Locked) {
-            alert("This box is locked!");
-        } else {
-            if (currentPlayer == 0) {
-                box8.classList.add('x');
-                box8.classList.add('locked');
-                currentPlayer = 1;
-                box8Locked = true;
-                box8lockedto = 0;
-                playerOneWrapper.classList.remove('current');
-                playerTwoWrapper.classList.add('current');
-            } else {
-                box8.classList.add('o');
-                box8.classList.add('locked');
-                currentPlayer = 0;
-                box8Locked = true;
-                box8lockedto = 1;
-                playerOneWrapper.classList.add('current');
-                playerTwoWrapper.classList.remove('current');
-            }
-        }
-        findWinner();
-    });
-    box9.addEventListener('click', function () {
-        if (box9Locked) {
-            alert("This box is locked!");
-        } else {
-            if (currentPlayer == 0) {
-                box9.classList.add('x');
-                box9.classList.add('locked');
-                currentPlayer = 1;
-                box9Locked = true;
-                box9lockedto = 0;
-                playerOneWrapper.classList.remove('current');
-                playerTwoWrapper.classList.add('current');
-            } else {
-                box9.classList.add('o');
-                box9.classList.add('locked');
-                currentPlayer = 0;
-                box9Locked = true;
-                box9lockedto = 1;
-                playerOneWrapper.classList.add('current');
-                playerTwoWrapper.classList.remove('current');
-            }
-        }
-        findWinner();
-    });*/
-
-
-    /*document.querySelector('.tictactoe').addEventListener('mouseover', function () {
-        findWinner();
-        document.querySelector('.playerOneTotalWins').textContent = playerOneTotalWins;
-        document.querySelector('.playerTwoTotalWins').textContent = playerTwoTotalWins;
-    });*/
-
-
-        /*touchRegionElement.addEventListener('touchend', function(e) {
-        outputElement.innerHTML = 'Touch ends';
-    });*/
-
-    /*function touch() {
-        const boxOneTouched = box1;
-        const boxTwoTouched = box2;
-        boxOneTouched.addEventListener("touchstart", alert("Box 1 Touched!"));
-        boxTwoTouched.addEventListener("touchstart", alert("Box 2 Touched!"));    
-    }
-    document.addEventListener("DOMContentLoaded", touch);*/
-
-    /*box1.addEventListener('touchstart', findWinner());
-    box2.addEventListener('touchstart', findWinner());
-    box3.addEventListener('touchstart', findWinner());
-    box4.addEventListener('touchstart', findWinner());
-    box5.addEventListener('touchstart', findWinner());
-    box6.addEventListener('touchstart', findWinner());
-    box7.addEventListener('touchstart', findWinner());
-    box8.addEventListener('touchstart', findWinner());
-    box9.addEventListener('touchstart', findWinner());*/
-
-    // End listening for Three In A Row and attributes that to the winner
-
-    // If all boxes are filled but there is no match
-    
-
-
-
-/* ------------------------------------------------------------------------------------------ */
-/* End old code I may reuse */
-/* ------------------------------------------------------------------------------------------ */
+//});
