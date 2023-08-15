@@ -647,6 +647,22 @@
         gameBackground.style.background = "linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url('img/backgrounds/background14.jpg')";
         removeSelected();
         backgroundThumbnail14.classList.add('selected');
+    } else if (randomNumber === 15) {
+        gameBackground.style.background = "linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url('img/backgrounds/background15.jpg')";
+        removeSelected();
+        backgroundThumbnail15.classList.add('selected');
+    } else if (randomNumber === 16) {
+        gameBackground.style.background = "linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url('img/backgrounds/background16.jpg')";
+        removeSelected();
+        backgroundThumbnail16.classList.add('selected');
+    } else if (randomNumber === 17) {
+        gameBackground.style.background = "linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url('img/backgrounds/background17.jpg')";
+        removeSelected();
+        backgroundThumbnail17.classList.add('selected');
+    } else if (randomNumber === 18) {
+        gameBackground.style.background = "linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), fixed no-repeat center/cover url('img/backgrounds/background18.jpg')";
+        removeSelected();
+        backgroundThumbnail18.classList.add('selected');
     }
 
     /* ------------------------------------------------------------------------------------------ */
