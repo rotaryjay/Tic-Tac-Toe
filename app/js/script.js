@@ -941,7 +941,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 currentPlayer = 1; // switch to player two
                 playerOneWrapper.classList.remove('current');
                 playerTwoWrapper.classList.add('current');
-                const currentPickedNumberIndex = randomBoxPicker();
+                let currentPickedNumberIndex = randomBoxPicker();
                 //const currentPickedNumber = openBoxes[currentPickedNumberIndex];
                 console.log("The array is: " + openBoxes);
                 console.log("The random number picked from the array is: " + currentPickedNumberIndex);
