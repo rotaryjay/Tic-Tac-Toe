@@ -25,6 +25,26 @@
         }
     }
 }
+.goPlayerOneButton, .goPlayerTwoButton {
+    display: block;
+    cursor: pointer;
+    background-color: rgba($green, 0.8);
+    color: $white;
+    padding: 10px;
+    margin: 10px auto;
+    border-radius: 5px;
+    max-width: 150px;
+    border: 1px solid $black;
+    font-family: 'REM', sans-serif;
+    text-align: center;
+    font-size: 0.7em;
+    &:hover {
+        background-color: $green;
+        transition: $transition;
+        transform: scale(1.05);
+        box-shadow: $buttonhovershadow;
+    }
+}
 .resetButton {
     display: block;
     cursor: pointer;

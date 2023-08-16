@@ -249,6 +249,18 @@
         playerOneTotalWinsDiv.textContent = playerOneTotalWins;
         openBoxes = [1,2,3,4,5,6,7,8,9];
         gameOver = true;
+        if (ai) {
+            currentPlayer = 0;
+            playerOneWrapper.classList.remove('current');
+            playerTwoWrapper.classList.remove('current');
+            playerOneWrapper.classList.add('current');
+            //alert("A.I. Won. It should now flip back to Player One.")
+        } else {
+            currentPlayer = 1;
+            playerOneWrapper.classList.remove('current');
+            playerTwoWrapper.classList.remove('current');
+            playerTwoWrapper.classList.add('current');
+        }
     }
     // When player two wins
     function playerTwoIsTheWinner() {
@@ -265,7 +277,7 @@
             playerOneWrapper.classList.remove('current');
             playerTwoWrapper.classList.remove('current');
             playerOneWrapper.classList.add('current');
-            alert("A.I. Won. It should now flip back to Player One.")
+            //alert("A.I. Won. It should now flip back to Player One.")
         } else {
             currentPlayer = 1;
             playerOneWrapper.classList.remove('current');
@@ -280,6 +292,15 @@
         document.querySelector('.tiedOverlay').classList.add('hidden');
         openBoxes = [1,2,3,4,5,6,7,8,9];
         gameOver = true;
+        if (ai) {
+            currentPlayer = 0;
+            playerOneWrapper.classList.remove('current');
+            playerTwoWrapper.classList.remove('current');
+            playerOneWrapper.classList.add('current');
+            //alert("Game was tied with A.I. It should flip back to Player One.")
+        } else {
+
+        }
     }
     function gameReset() {
         location.reload();
@@ -728,6 +749,14 @@
     function playerModes() {
         if (twoPlayer == true) {
             // Player One name input
+            document.querySelector('.goPlayerOneButton').addEventListener('click', function(e) {
+                // If Go button pressed
+                playerOneName = document.querySelector('.playerOneNameInput').value;
+                document.querySelector('.playerOne').textContent = playerOneName;
+                document.querySelector('.playerOneOverlay').classList.add('hidden');
+                document.querySelector('.playerTwoOverlay').classList.remove('hidden');
+                document.getElementById('playerTwoNameInput').focus();
+            });
             document.querySelector('.playerOneNameInput').addEventListener('keypress', function (e) {
                 // If enter key is pressed
                 if (e.key === 'Enter') {
@@ -739,6 +768,13 @@
                 }
             });
             // Player Two name input
+            document.querySelector('.goPlayerTwoButton').addEventListener('click', function() {
+                // If Go button pressed
+                playerTwoName = document.querySelector('.playerTwoNameInput').value;
+                document.querySelector('.playerTwo').textContent = playerTwoName;
+                document.querySelector('.playerTwoOverlay').classList.add('hidden');
+            });
+
             document.querySelector('.playerTwoNameInput').addEventListener('keypress', function (e) {
                 // If enter key is pressed
                 if (e.key === 'Enter') {
@@ -981,6 +1017,13 @@
             playerTwoName = 'A.I.';
             document.querySelector('.playerTwo').textContent = playerTwoName;
             // Player One name input
+            document.querySelector('.goPlayerOneButton').addEventListener('click', function(e) {
+                // If Go button pressed
+                playerOneName = document.querySelector('.playerOneNameInput').value;
+                document.querySelector('.playerOne').textContent = playerOneName;
+                document.querySelector('.playerOneOverlay').classList.add('hidden');
+            });
+
             document.querySelector('.playerOneNameInput').addEventListener('keypress', function (e) {
                 // If enter key is pressed
                 if (e.key === 'Enter') {
@@ -1028,7 +1071,7 @@
                         console.log("The array AFTER Player One selects Box 1 is: " + openBoxes);
                         findWinner();
                         findTie();
-                        if (gameOver === true) {
+                        if (gameOver) {
                             gameOver = false;
                         } else {
                             playerOneWrapper.classList.remove('current');
@@ -1054,7 +1097,7 @@
                         console.log("The array AFTER Player One selects Box 2 is: " + openBoxes);
                         findWinner();
                         findTie();
-                        if (gameOver === true) {
+                        if (gameOver) {
                             gameOver = false;
                         } else {
                             playerOneWrapper.classList.remove('current');
@@ -1080,7 +1123,7 @@
                         console.log("The array AFTER Player One selects Box 3 is: " + openBoxes);
                         findWinner();
                         findTie();
-                        if (gameOver === true) {
+                        if (gameOver) {
                             gameOver = false;
                         } else {
                             playerOneWrapper.classList.remove('current');
@@ -1106,7 +1149,7 @@
                         console.log("The array AFTER Player One selects Box 4 is: " + openBoxes);
                         findWinner();
                         findTie();
-                        if (gameOver === true) {
+                        if (gameOver) {
                             gameOver = false;
                         } else {
                             playerOneWrapper.classList.remove('current');
@@ -1132,7 +1175,7 @@
                         console.log("The array AFTER Player One selects Box 5 is: " + openBoxes);
                         findWinner();
                         findTie();
-                        if (gameOver === true) {
+                        if (gameOver) {
                             gameOver = false;
                         } else {
                             playerOneWrapper.classList.remove('current');
@@ -1158,7 +1201,7 @@
                         console.log("The array AFTER Player One selects Box 6 is: " + openBoxes);
                         findWinner();
                         findTie();
-                        if (gameOver === true) {
+                        if (gameOver) {
                             gameOver = false;
                         } else {
                             playerOneWrapper.classList.remove('current');
@@ -1184,7 +1227,7 @@
                         console.log("The array AFTER Player One selects Box 7 is: " + openBoxes);
                         findWinner();
                         findTie();
-                        if (gameOver === true) {
+                        if (gameOver) {
                             gameOver = false;
                         } else {
                             playerOneWrapper.classList.remove('current');
@@ -1210,7 +1253,7 @@
                         console.log("The array AFTER Player One selects Box 8 is: " + openBoxes);
                         findWinner();
                         findTie();
-                        if (gameOver === true) {
+                        if (gameOver) {
                             gameOver = false;
                         } else {
                             setTimeout( ai, Math.floor( Math.random() * 500 ) + 1000 );
@@ -1234,7 +1277,7 @@
                         console.log("The array AFTER Player One selects Box 9 is: " + openBoxes);
                         findWinner();
                         findTie();
-                        if (gameOver === true) {
+                        if (gameOver) {
                             gameOver = false;
                         } else {
                             playerOneWrapper.classList.remove('current');
