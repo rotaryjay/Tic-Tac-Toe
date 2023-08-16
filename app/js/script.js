@@ -4,6 +4,7 @@
 
     let openBoxes = [1,2,3,4,5,6,7,8,9];
     let gameOver = false;
+    let ai = false;
 
     /* ------------------------------------------------------------------------------------------ */
     /* Start One or Two Player Mode Selection */
@@ -33,6 +34,7 @@
         twoPlayer = false;
         playerModes();
         gameOver = false;
+        ai = true;
     }
 
     function activateTwoPlayerMode() {
@@ -44,6 +46,7 @@
         twoPlayer = true;
         playerModes();
         gameOver = false;
+        ai = false;
     }
 
     /* ------------------------------------------------------------------------------------------ */
@@ -253,13 +256,22 @@
         document.querySelector('.winnerOverlay').classList.remove('hidden');
         document.querySelector('.winner').textContent = playerTwoName;
         currentGameWinner = playerTwoName;
-        currentPlayer = 1;
-        playerOneWrapper.classList.remove('current');
-        playerTwoWrapper.classList.remove('current');
-        playerTwoWrapper.classList.add('current');
+        
         playerTwoTotalWinsDiv.textContent = playerTwoTotalWins;
         openBoxes = [1,2,3,4,5,6,7,8,9];
         gameOver = true;
+        if (ai) {
+            currentPlayer = 0;
+            playerOneWrapper.classList.remove('current');
+            playerTwoWrapper.classList.remove('current');
+            playerOneWrapper.classList.add('current');
+            alert("A.I. Won. It should now flip back to Player One.")
+        } else {
+            currentPlayer = 1;
+            playerOneWrapper.classList.remove('current');
+            playerTwoWrapper.classList.remove('current');
+            playerTwoWrapper.classList.add('current');
+        }
     }
     // No winner game reset
     function tiedGame() {
