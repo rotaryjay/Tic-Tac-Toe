@@ -1034,41 +1034,98 @@
             });
             function ai() {
                 currentPlayer = 1; // switch to player two
-                let currentPickedNumberIndex = randomBoxPicker();
-                console.log("The array BEFORE A.I. selects a box is: " + openBoxes);
-                console.log("The number picked is: " + openBoxes[currentPickedNumberIndex]);
-                let currentNumber = openBoxes[currentPickedNumberIndex];
-                console.log("currentNumber variable is " + currentNumber);
-                console.log("The random INDEX number picked from the array for A.I. is: " + currentPickedNumberIndex);
-                let currentBox = document.querySelector('.box' + openBoxes[currentPickedNumberIndex]);
-                openBoxes.splice(openBoxes.indexOf(currentNumber), 1); // Remove the selected item from the array
-                console.log("The array AFTER A.I. selects a box is: " + openBoxes);
-                console.log(currentBox);
-                currentBox.classList.add('o');
-                currentBox.classList.add('locked');
-                boxLocks[`box${currentNumber}Locked`] = true;
-                boxesLockedTo[`box${currentNumber}lockedto`] = 1;
-                playerOneWrapper.classList.add('current');
-                playerTwoWrapper.classList.remove('current');
-                findWinner();
-                currentPlayer = 0; // switch to player one
-                findTie();
-                //currentPlayer = 0; // switch to player one
+                if (boxLocks[`box1Locked`] === false) {
+                    box1.classList.add('o'); // Add an o
+                    box1.classList.add('locked'); // Add locked class to box DIV
+                    boxLocks[`box1Locked`] = true;
+                    boxesLockedTo[`box1lockedto`] = 1;
+                    openBoxes.splice(openBoxes.indexOf(1), 1); // Remove the selected item from the array
+                    playerOneWrapper.classList.add('current');
+                    playerTwoWrapper.classList.remove('current');
+                    findWinner();
+                    currentPlayer = 0; // switch to player one
+                    findTie();
+                } else if (boxLocks[`box5Locked`] === false) {
+                    box5.classList.add('o'); // Add an o
+                    box5.classList.add('locked'); // Add locked class to box DIV
+                    boxLocks[`box5Locked`] = true;
+                    boxesLockedTo[`box5lockedto`] = 1;
+                    openBoxes.splice(openBoxes.indexOf(5), 1); // Remove the selected item from the array
+                    playerOneWrapper.classList.add('current');
+                    playerTwoWrapper.classList.remove('current');
+                    findWinner();
+                    currentPlayer = 0; // switch to player one
+                    findTie();
+                } else if (boxLocks[`box3Locked`] === false) {
+                    box3.classList.add('o'); // Add an o
+                    box3.classList.add('locked'); // Add locked class to box DIV
+                    boxLocks[`box3Locked`] = true;
+                    boxesLockedTo[`box3lockedto`] = 1;
+                    openBoxes.splice(openBoxes.indexOf(3), 1); // Remove the selected item from the array
+                    playerOneWrapper.classList.add('current');
+                    playerTwoWrapper.classList.remove('current');
+                    findWinner();
+                    currentPlayer = 0; // switch to player one
+                    findTie();
+                } else if (boxLocks[`box7Locked`] === false) {
+                    box7.classList.add('o'); // Add an o
+                    box7.classList.add('locked'); // Add locked class to box DIV
+                    boxLocks[`box7Locked`] = true;
+                    boxesLockedTo[`box7lockedto`] = 1;
+                    openBoxes.splice(openBoxes.indexOf(7), 1); // Remove the selected item from the array
+                    playerOneWrapper.classList.add('current');
+                    playerTwoWrapper.classList.remove('current');
+                    findWinner();
+                    currentPlayer = 0; // switch to player one
+                    findTie();
+                } else if (boxLocks[`box9Locked`] === false) {
+                    box9.classList.add('o'); // Add an o
+                    box9.classList.add('locked'); // Add locked class to box DIV
+                    boxLocks[`box9Locked`] = true;
+                    boxesLockedTo[`box9lockedto`] = 1;
+                    openBoxes.splice(openBoxes.indexOf(9), 1); // Remove the selected item from the array
+                    playerOneWrapper.classList.add('current');
+                    playerTwoWrapper.classList.remove('current');
+                    findWinner();
+                    currentPlayer = 0; // switch to player one
+                    findTie();
+                } else {
+                    let currentPickedNumberIndex = randomBoxPicker();
+                    //console.log("The array BEFORE A.I. selects a box is: " + openBoxes);
+                    //console.log("The number picked is: " + openBoxes[currentPickedNumberIndex]);
+                    let currentNumber = openBoxes[currentPickedNumberIndex];
+                    //console.log("currentNumber variable is " + currentNumber);
+                    //console.log("The random INDEX number picked from the array for A.I. is: " + currentPickedNumberIndex);
+                    let currentBox = document.querySelector('.box' + openBoxes[currentPickedNumberIndex]);
+                    openBoxes.splice(openBoxes.indexOf(currentNumber), 1); // Remove the selected item from the array
+                    //console.log("The array AFTER A.I. selects a box is: " + openBoxes);
+                    //console.log(currentBox);
+                    currentBox.classList.add('o');
+                    currentBox.classList.add('locked');
+                    boxLocks[`box${currentNumber}Locked`] = true;
+                    boxesLockedTo[`box${currentNumber}lockedto`] = 1;
+                    playerOneWrapper.classList.add('current');
+                    playerTwoWrapper.classList.remove('current');
+                    findWinner();
+                    currentPlayer = 0; // switch to player one
+                    findTie();
+                    //currentPlayer = 0; // switch to player one
+                }
             }
             boxOneTouchRegion.addEventListener('click', function(e) {
                 if (boxLocks[`box1Locked`] === true) {
                     alert("This box is locked!");
                 } else {
                     if (currentPlayer == 0) {
-                        console.log("CLICK -----------------------------------------------------");
-                        console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
+                        //console.log("CLICK -----------------------------------------------------");
+                        //console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
                         box1.classList.add('x'); // Add an x
                         box1.classList.add('locked'); // Add locked class to box DIV
                         boxLocks[`box1Locked`] = true;
                         boxesLockedTo[`box1lockedto`] = 0;
                         openBoxes.splice(openBoxes.indexOf(1), 1); // Remove the selected item from the array
-                        console.log("Player One selects Box 1");
-                        console.log("The array AFTER Player One selects Box 1 is: " + openBoxes);
+                        //console.log("Player One selects Box 1");
+                        //console.log("The array AFTER Player One selects Box 1 is: " + openBoxes);
                         findWinner();
                         findTie();
                         if (gameOver) {
@@ -1086,15 +1143,15 @@
                     alert("This box is locked!");
                 } else {
                     if (currentPlayer == 0) {
-                        console.log("CLICK -----------------------------------------------------");
-                        console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
+                        //console.log("CLICK -----------------------------------------------------");
+                        //console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
                         box2.classList.add('x'); // Add an x
                         box2.classList.add('locked'); // Add locked class to box DIV
                         boxLocks[`box2Locked`] = true;
                         boxesLockedTo[`box2lockedto`] = 0;
                         openBoxes.splice(openBoxes.indexOf(2), 1); // Remove the selected item from the array
-                        console.log("Player One selects Box 2");
-                        console.log("The array AFTER Player One selects Box 2 is: " + openBoxes);
+                        //console.log("Player One selects Box 2");
+                        //console.log("The array AFTER Player One selects Box 2 is: " + openBoxes);
                         findWinner();
                         findTie();
                         if (gameOver) {
@@ -1112,15 +1169,15 @@
                     alert("This box is locked!");
                 } else {
                     if (currentPlayer == 0) {
-                        console.log("CLICK -----------------------------------------------------");
-                        console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
+                        //console.log("CLICK -----------------------------------------------------");
+                        //console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
                         box3.classList.add('x'); // Add an x
                         box3.classList.add('locked'); // Add locked class to box DIV
                         boxLocks[`box3Locked`] = true;
                         boxesLockedTo[`box3lockedto`] = 0;
                         openBoxes.splice(openBoxes.indexOf(3), 1); // Remove the selected item from the array
-                        console.log("Player One selects Box 3");
-                        console.log("The array AFTER Player One selects Box 3 is: " + openBoxes);
+                        //console.log("Player One selects Box 3");
+                        //console.log("The array AFTER Player One selects Box 3 is: " + openBoxes);
                         findWinner();
                         findTie();
                         if (gameOver) {
@@ -1138,8 +1195,8 @@
                     alert("This box is locked!");
                 } else {
                     if (currentPlayer == 0) {
-                        console.log("CLICK -----------------------------------------------------");
-                        console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
+                        //console.log("CLICK -----------------------------------------------------");
+                        //console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
                         box4.classList.add('x'); // Add an x
                         box4.classList.add('locked'); // Add locked class to box DIV
                         boxLocks[`box4Locked`] = true;
@@ -1164,15 +1221,15 @@
                     alert("This box is locked!");
                 } else {
                     if (currentPlayer == 0) {
-                        console.log("CLICK -----------------------------------------------------");
-                        console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
+                        //console.log("CLICK -----------------------------------------------------");
+                        //console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
                         box5.classList.add('x'); // Add an x
                         box5.classList.add('locked'); // Add locked class to box DIV
                         boxLocks[`box5Locked`] = true;
                         boxesLockedTo[`box5lockedto`] = 0;
                         openBoxes.splice(openBoxes.indexOf(5), 1); // Remove the selected item from the array
-                        console.log("Player One selects Box 5");
-                        console.log("The array AFTER Player One selects Box 5 is: " + openBoxes);
+                        //console.log("Player One selects Box 5");
+                        //console.log("The array AFTER Player One selects Box 5 is: " + openBoxes);
                         findWinner();
                         findTie();
                         if (gameOver) {
@@ -1190,15 +1247,15 @@
                     alert("This box is locked!");
                 } else {
                     if (currentPlayer == 0) {
-                        console.log("CLICK -----------------------------------------------------");
-                        console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
+                        //console.log("CLICK -----------------------------------------------------");
+                        //console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
                         box6.classList.add('x'); // Add an x
                         box6.classList.add('locked'); // Add locked class to box DIV
                         boxLocks[`box6Locked`] = true;
                         boxesLockedTo[`box6lockedto`] = 0;
                         openBoxes.splice(openBoxes.indexOf(6), 1); // Remove the selected item from the array
-                        console.log("Player One selects Box 6");
-                        console.log("The array AFTER Player One selects Box 6 is: " + openBoxes);
+                        //console.log("Player One selects Box 6");
+                        //console.log("The array AFTER Player One selects Box 6 is: " + openBoxes);
                         findWinner();
                         findTie();
                         if (gameOver) {
@@ -1216,15 +1273,15 @@
                     alert("This box is locked!");
                 } else {
                     if (currentPlayer == 0) {
-                        console.log("CLICK -----------------------------------------------------");
-                        console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
+                        //console.log("CLICK -----------------------------------------------------");
+                        //console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
                         box7.classList.add('x'); // Add an x
                         box7.classList.add('locked'); // Add locked class to box DIV
                         boxLocks[`box7Locked`] = true;
                         boxesLockedTo[`box7lockedto`] = 0;
                         openBoxes.splice(openBoxes.indexOf(7), 1); // Remove the selected item from the array
-                        console.log("Player One selects Box 7");
-                        console.log("The array AFTER Player One selects Box 7 is: " + openBoxes);
+                        //console.log("Player One selects Box 7");
+                        //console.log("The array AFTER Player One selects Box 7 is: " + openBoxes);
                         findWinner();
                         findTie();
                         if (gameOver) {
@@ -1242,15 +1299,15 @@
                     alert("This box is locked!");
                 } else {
                     if (currentPlayer == 0) {
-                        console.log("CLICK -----------------------------------------------------");
-                        console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
+                        //console.log("CLICK -----------------------------------------------------");
+                        //console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
                         box8.classList.add('x'); // Add an x
                         box8.classList.add('locked'); // Add locked class to box DIV
                         boxLocks[`box8Locked`] = true;
                         boxesLockedTo[`box8lockedto`] = 0;
                         openBoxes.splice(openBoxes.indexOf(8), 1); // Remove the selected item from the array
-                        console.log("Player One selects Box 8");
-                        console.log("The array AFTER Player One selects Box 8 is: " + openBoxes);
+                        //console.log("Player One selects Box 8");
+                        //console.log("The array AFTER Player One selects Box 8 is: " + openBoxes);
                         findWinner();
                         findTie();
                         if (gameOver) {
@@ -1266,15 +1323,15 @@
                     alert("This box is locked!");
                 } else {
                     if (currentPlayer == 0) {
-                        console.log("CLICK -----------------------------------------------------");
-                        console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
+                        //console.log("CLICK -----------------------------------------------------");
+                        //console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
                         box9.classList.add('x'); // Add an x
                         box9.classList.add('locked'); // Add locked class to box DIV
                         boxLocks[`box9Locked`] = true;
                         boxesLockedTo[`box9lockedto`] = 0;
                         openBoxes.splice(openBoxes.indexOf(9), 1); // Remove the selected item from the array
-                        console.log("Player One selects Box 9");
-                        console.log("The array AFTER Player One selects Box 9 is: " + openBoxes);
+                        //console.log("Player One selects Box 9");
+                        //console.log("The array AFTER Player One selects Box 9 is: " + openBoxes);
                         findWinner();
                         findTie();
                         if (gameOver) {
