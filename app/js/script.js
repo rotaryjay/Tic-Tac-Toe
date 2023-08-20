@@ -22,8 +22,6 @@
     document.querySelector('.twoPlayerModeButton').addEventListener('click', function() {
         activateTwoPlayerMode();
     });
-    //document.querySelector('.onePlayerModeButton').addEventListener('touchstart', activateOnePlayerMode());
-    //document.querySelector('.twoPlayerModeButton').addEventListener('touchstart', activateTwoPlayerMode());
 
     function activateOnePlayerMode() {
         //alert("One Player");
@@ -84,6 +82,9 @@
         boxLocks[`box1Locked`] = true;
         boxesLockedTo[`box1lockedto`] = 0;
         openBoxes.splice(openBoxes.indexOf(1), 1); // Remove the selected item from the array
+        playerOneWrapper.classList.remove('current');
+        playerTwoWrapper.classList.add('current');
+        currentPlayer = 1; // Flip to Player Two
     }
     function lockBox1toPlayer2() {
         box1.classList.add('o'); // Add an o
@@ -91,6 +92,9 @@
         boxLocks[`box1Locked`] = true;
         boxesLockedTo[`box1lockedto`] = 1;
         openBoxes.splice(openBoxes.indexOf(1), 1); // Remove the selected item from the array
+        currentPlayer = 0; // Flip to Player One
+        playerOneWrapper.classList.add('current');
+        playerTwoWrapper.classList.remove('current');
     }
     function lockBox2toPlayer1() {
         box2.classList.add('x'); // Add an o
@@ -98,6 +102,8 @@
         boxLocks[`box2Locked`] = true;
         boxesLockedTo[`box2lockedto`] = 0;
         openBoxes.splice(openBoxes.indexOf(2), 1); // Remove the selected item from the array
+        playerOneWrapper.classList.remove('current');
+        playerTwoWrapper.classList.add('current');
     }
     function lockBox2toPlayer2() {
         box2.classList.add('o'); // Add an o
@@ -105,6 +111,8 @@
         boxLocks[`box2Locked`] = true;
         boxesLockedTo[`box2lockedto`] = 1;
         openBoxes.splice(openBoxes.indexOf(2), 1); // Remove the selected item from the array
+        playerOneWrapper.classList.add('current');
+        playerTwoWrapper.classList.remove('current');
     }
     function lockBox3toPlayer1() {
         box3.classList.add('x'); // Add an o
@@ -112,6 +120,8 @@
         boxLocks[`box3Locked`] = true;
         boxesLockedTo[`box3lockedto`] = 0;
         openBoxes.splice(openBoxes.indexOf(3), 1); // Remove the selected item from the array
+        playerOneWrapper.classList.remove('current');
+        playerTwoWrapper.classList.add('current');
     }
     function lockBox3toPlayer2() {
         box3.classList.add('o'); // Add an o
@@ -119,6 +129,8 @@
         boxLocks[`box3Locked`] = true;
         boxesLockedTo[`box3lockedto`] = 1;
         openBoxes.splice(openBoxes.indexOf(3), 1); // Remove the selected item from the array
+        playerOneWrapper.classList.add('current');
+        playerTwoWrapper.classList.remove('current');
     }
     function lockBox4toPlayer1() {
         box4.classList.add('x'); // Add an o
@@ -126,6 +138,8 @@
         boxLocks[`box4Locked`] = true;
         boxesLockedTo[`box4lockedto`] = 0;
         openBoxes.splice(openBoxes.indexOf(4), 1); // Remove the selected item from the array
+        playerOneWrapper.classList.remove('current');
+        playerTwoWrapper.classList.add('current');
     }
     function lockBox4toPlayer2() {
         box4.classList.add('o'); // Add an o
@@ -133,6 +147,8 @@
         boxLocks[`box4Locked`] = true;
         boxesLockedTo[`box4lockedto`] = 1;
         openBoxes.splice(openBoxes.indexOf(4), 1); // Remove the selected item from the array
+        playerOneWrapper.classList.add('current');
+        playerTwoWrapper.classList.remove('current');
     }
     function lockBox5toPlayer1() {
         box5.classList.add('x'); // Add an o
@@ -140,6 +156,8 @@
         boxLocks[`box5Locked`] = true;
         boxesLockedTo[`box5lockedto`] = 0;
         openBoxes.splice(openBoxes.indexOf(5), 1); // Remove the selected item from the array
+        playerOneWrapper.classList.remove('current');
+        playerTwoWrapper.classList.add('current');
     }
     function lockBox5toPlayer2() {
         box5.classList.add('o'); // Add an o
@@ -147,6 +165,8 @@
         boxLocks[`box5Locked`] = true;
         boxesLockedTo[`box5lockedto`] = 1;
         openBoxes.splice(openBoxes.indexOf(5), 1); // Remove the selected item from the array
+        playerOneWrapper.classList.add('current');
+        playerTwoWrapper.classList.remove('current');
     }
     function lockBox6toPlayer1() {
         box6.classList.add('x'); // Add an o
@@ -154,6 +174,8 @@
         boxLocks[`box6Locked`] = true;
         boxesLockedTo[`box6lockedto`] = 0;
         openBoxes.splice(openBoxes.indexOf(6), 1); // Remove the selected item from the array
+        playerOneWrapper.classList.remove('current');
+        playerTwoWrapper.classList.add('current');
     }
     function lockBox6toPlayer2() {
         box6.classList.add('o'); // Add an o
@@ -161,6 +183,8 @@
         boxLocks[`box6Locked`] = true;
         boxesLockedTo[`box6lockedto`] = 1;
         openBoxes.splice(openBoxes.indexOf(6), 1); // Remove the selected item from the array
+        playerOneWrapper.classList.add('current');
+        playerTwoWrapper.classList.remove('current');
     }
     function lockBox7toPlayer1() {
         box7.classList.add('x'); // Add an o
@@ -168,6 +192,8 @@
         boxLocks[`box7Locked`] = true;
         boxesLockedTo[`box7lockedto`] = 0;
         openBoxes.splice(openBoxes.indexOf(7), 1); // Remove the selected item from the array
+        playerOneWrapper.classList.remove('current');
+        playerTwoWrapper.classList.add('current');
     }
     function lockBox7toPlayer2() {
         box7.classList.add('o'); // Add an o
@@ -175,6 +201,8 @@
         boxLocks[`box7Locked`] = true;
         boxesLockedTo[`box7lockedto`] = 1;
         openBoxes.splice(openBoxes.indexOf(7), 1); // Remove the selected item from the array
+        playerOneWrapper.classList.add('current');
+        playerTwoWrapper.classList.remove('current');
     }
     function lockBox8toPlayer1() {
         box8.classList.add('x'); // Add an o
@@ -182,6 +210,8 @@
         boxLocks[`box8Locked`] = true;
         boxesLockedTo[`box8lockedto`] = 0;
         openBoxes.splice(openBoxes.indexOf(8), 1); // Remove the selected item from the array
+        playerOneWrapper.classList.remove('current');
+        playerTwoWrapper.classList.add('current');
     }
     function lockBox8toPlayer2() {
         box8.classList.add('o'); // Add an o
@@ -189,6 +219,8 @@
         boxLocks[`box8Locked`] = true;
         boxesLockedTo[`box8lockedto`] = 1;
         openBoxes.splice(openBoxes.indexOf(8), 1); // Remove the selected item from the array
+        playerOneWrapper.classList.add('current');
+        playerTwoWrapper.classList.remove('current');
     }
     function lockBox9toPlayer1() {
         box9.classList.add('x'); // Add an o
@@ -196,6 +228,8 @@
         boxLocks[`box9Locked`] = true;
         boxesLockedTo[`box9lockedto`] = 0;
         openBoxes.splice(openBoxes.indexOf(9), 1); // Remove the selected item from the array
+        playerOneWrapper.classList.remove('current');
+        playerTwoWrapper.classList.add('current');
     }
     function lockBox9toPlayer2() {
         box9.classList.add('o'); // Add an o
@@ -203,11 +237,15 @@
         boxLocks[`box9Locked`] = true;
         boxesLockedTo[`box9lockedto`] = 1;
         openBoxes.splice(openBoxes.indexOf(9), 1); // Remove the selected item from the array
+        playerOneWrapper.classList.add('current');
+        playerTwoWrapper.classList.remove('current');
     }
     
     /* ------------------------------------------------------------------------------------------ */
     /* End Box Locking Functions */
     /* ------------------------------------------------------------------------------------------ */
+
+
 
 
     /* ------------------------------------------------------------------------------------------ */
@@ -231,6 +269,8 @@
     /* ------------------------------------------------------------------------------------------ */
     /* End player score cards */
     /* ------------------------------------------------------------------------------------------ */
+
+
 
 
 
@@ -408,7 +448,7 @@
         playerTwoTotalWinsDiv.textContent = playerTwoTotalWins;
         openBoxes = [1,2,3,4,5,6,7,8,9];
         gameOver = true;
-        if (ai) {
+        if (ai == true) {
             currentPlayer = 0;
             playerOneWrapper.classList.remove('current');
             playerTwoWrapper.classList.remove('current');
@@ -428,11 +468,12 @@
         document.querySelector('.tiedOverlay').classList.add('hidden');
         openBoxes = [1,2,3,4,5,6,7,8,9];
         gameOver = true;
-        if (ai) {
+        if (ai == true) {
             currentPlayer = 0;
             playerOneWrapper.classList.remove('current');
             playerTwoWrapper.classList.remove('current');
             playerOneWrapper.classList.add('current');
+            //ai == false;
             //alert("Game was tied with A.I. It should flip back to Player One.")
         } else {
 
@@ -925,22 +966,9 @@
                     alert("This box is locked!");
                 } else {
                     if (currentPlayer == 0) {
-                        //lockBox1toPlayer1()
-                        box1.classList.add('x');
-                        box1.classList.add('locked');
-                        currentPlayer = 1;
-                        boxLocks[`box1Locked`] = true;
-                        boxesLockedTo[`box1lockedto`] = 0;
-                        playerOneWrapper.classList.remove('current');
-                        playerTwoWrapper.classList.add('current');
+                        lockBox1toPlayer1();
                     } else {
-                        box1.classList.add('o');
-                        box1.classList.add('locked');
-                        currentPlayer = 0;
-                        boxLocks[`box1Locked`] = true;
-                        boxesLockedTo[`box1lockedto`] = 1;
-                        playerOneWrapper.classList.add('current');
-                        playerTwoWrapper.classList.remove('current');
+                        lockBox1toPlayer2();
                     }
                 }
                 findWinner();
@@ -951,21 +979,9 @@
                     alert("This box is locked!");
                 } else {
                     if (currentPlayer == 0) {
-                        box2.classList.add('x');
-                        box2.classList.add('locked');
-                        currentPlayer = 1;
-                        boxLocks[`box2Locked`] = true;
-                        boxesLockedTo[`box2lockedto`] = 0;
-                        playerOneWrapper.classList.remove('current');
-                        playerTwoWrapper.classList.add('current');
+                        lockBox2toPlayer1();
                     } else {
-                        box2.classList.add('o');
-                        box2.classList.add('locked');
-                        currentPlayer = 0;
-                        boxLocks[`box2Locked`] = true;
-                        boxesLockedTo[`box2lockedto`] = 1;
-                        playerOneWrapper.classList.add('current');
-                        playerTwoWrapper.classList.remove('current');
+                        lockBox2toPlayer2();
                     }
                 }
                 findWinner();
@@ -976,21 +992,9 @@
                     alert("This box is locked!");
                 } else {
                     if (currentPlayer == 0) {
-                        box3.classList.add('x');
-                        box3.classList.add('locked');
-                        currentPlayer = 1;
-                        boxLocks[`box3Locked`] = true;
-                        boxesLockedTo[`box3lockedto`] = 0;
-                        playerOneWrapper.classList.remove('current');
-                        playerTwoWrapper.classList.add('current');
+                        lockBox3toPlayer1();
                     } else {
-                        box3.classList.add('o');
-                        box3.classList.add('locked');
-                        currentPlayer = 0;
-                        boxLocks[`box3Locked`] = true;
-                        boxesLockedTo[`box3lockedto`] = 1;
-                        playerOneWrapper.classList.add('current');
-                        playerTwoWrapper.classList.remove('current');
+                        lockBox3toPlayer2();
                     }
                 }
                 findWinner();
@@ -1001,21 +1005,9 @@
                     alert("This box is locked!");
                 } else {
                     if (currentPlayer == 0) {
-                        box4.classList.add('x');
-                        box4.classList.add('locked');
-                        currentPlayer = 1;
-                        boxLocks[`box4Locked`] = true;
-                        boxesLockedTo[`box4lockedto`] = 0;
-                        playerOneWrapper.classList.remove('current');
-                        playerTwoWrapper.classList.add('current');
+                        lockBox4toPlayer1();
                     } else {
-                        box4.classList.add('o');
-                        box4.classList.add('locked');
-                        currentPlayer = 0;
-                        boxLocks[`box4Locked`] = true;
-                        boxesLockedTo[`box4lockedto`] = 1;
-                        playerOneWrapper.classList.add('current');
-                        playerTwoWrapper.classList.remove('current');
+                        lockBox4toPlayer2();
                     }
                 }
                 findWinner();
@@ -1026,21 +1018,9 @@
                     alert("This box is locked!");
                 } else {
                     if (currentPlayer == 0) {
-                        box5.classList.add('x');
-                        box5.classList.add('locked');
-                        currentPlayer = 1;
-                        boxLocks[`box5Locked`] = true;
-                        boxesLockedTo[`box5lockedto`] = 0;
-                        playerOneWrapper.classList.remove('current');
-                        playerTwoWrapper.classList.add('current');
+                        lockBox5toPlayer1();
                     } else {
-                        box5.classList.add('o');
-                        box5.classList.add('locked');
-                        currentPlayer = 0;
-                        boxLocks[`box5Locked`] = true;
-                        boxesLockedTo[`box5lockedto`] = 1;
-                        playerOneWrapper.classList.add('current');
-                        playerTwoWrapper.classList.remove('current');
+                        lockBox5toPlayer2();
                     }
                 }
                 findWinner();
@@ -1051,21 +1031,9 @@
                     alert("This box is locked!");
                 } else {
                     if (currentPlayer == 0) {
-                        box6.classList.add('x');
-                        box6.classList.add('locked');
-                        currentPlayer = 1;
-                        boxLocks[`box6Locked`] = true;
-                        boxesLockedTo[`box6lockedto`] = 0;
-                        playerOneWrapper.classList.remove('current');
-                        playerTwoWrapper.classList.add('current');
+                        lockBox6toPlayer1();
                     } else {
-                        box6.classList.add('o');
-                        box6.classList.add('locked');
-                        currentPlayer = 0;
-                        boxLocks[`box6Locked`] = true;
-                        boxesLockedTo[`box6lockedto`] = 1;
-                        playerOneWrapper.classList.add('current');
-                        playerTwoWrapper.classList.remove('current');
+                        lockBox6toPlayer2();
                     }
                 }
                 findWinner();
@@ -1076,21 +1044,9 @@
                     alert("This box is locked!");
                 } else {
                     if (currentPlayer == 0) {
-                        box7.classList.add('x');
-                        box7.classList.add('locked');
-                        currentPlayer = 1;
-                        boxLocks[`box7Locked`] = true;
-                        boxesLockedTo[`box7lockedto`] = 0;
-                        playerOneWrapper.classList.remove('current');
-                        playerTwoWrapper.classList.add('current');
+                        lockBox7toPlayer1();
                     } else {
-                        box7.classList.add('o');
-                        box7.classList.add('locked');
-                        currentPlayer = 0;
-                        boxLocks[`box7Locked`] = true;
-                        boxesLockedTo[`box7lockedto`] = 1;
-                        playerOneWrapper.classList.add('current');
-                        playerTwoWrapper.classList.remove('current');
+                        lockBox7toPlayer2();
                     }
                 }
                 findWinner();
@@ -1101,21 +1057,9 @@
                     alert("This box is locked!");
                 } else {
                     if (currentPlayer == 0) {
-                        box8.classList.add('x');
-                        box8.classList.add('locked');
-                        currentPlayer = 1;
-                        boxLocks[`box8Locked`] = true;
-                        boxesLockedTo[`box8lockedto`] = 0;
-                        playerOneWrapper.classList.remove('current');
-                        playerTwoWrapper.classList.add('current');
+                        lockBox8toPlayer1(); 
                     } else {
-                        box8.classList.add('o');
-                        box8.classList.add('locked');
-                        currentPlayer = 0;
-                        boxLocks[`box8Locked`] = true;
-                        boxesLockedTo[`box8lockedto`] = 1;
-                        playerOneWrapper.classList.add('current');
-                        playerTwoWrapper.classList.remove('current');
+                        lockBox8toPlayer2();
                     }
                 }
                 findWinner();
@@ -1126,21 +1070,9 @@
                     alert("This box is locked!");
                 } else {
                     if (currentPlayer == 0) {
-                        box9.classList.add('x');
-                        box9.classList.add('locked');
-                        currentPlayer = 1;
-                        boxLocks[`box9Locked`] = true;
-                        boxesLockedTo[`box9lockedto`] = 0;
-                        playerOneWrapper.classList.remove('current');
-                        playerTwoWrapper.classList.add('current');
+                        lockBox9toPlayer1();
                     } else {
-                        box9.classList.add('o');
-                        box9.classList.add('locked');
-                        currentPlayer = 0;
-                        boxLocks[`box9Locked`] = true;
-                        boxesLockedTo[`box9lockedto`] = 0;
-                        playerOneWrapper.classList.add('current');
-                        playerTwoWrapper.classList.remove('current');
+                        lockBox9toPlayer2();
                     }
                 }
                 findWinner();
@@ -1170,109 +1102,132 @@
                 }
             });
             function ai() {
-                currentPlayer = 1; // switch to player two
+                currentPlayer = 1; // Switch to player two
                 if ((boxesLockedTo[`box1lockedto`] == 0) && (boxesLockedTo[`box3lockedto`] == 0) && (boxLocks[`box2Locked`] == false)) {
                     lockBox2toPlayer2();
-                    playerOneWrapper.classList.add('current');
-                    playerTwoWrapper.classList.remove('current');
                     findWinner();
                     currentPlayer = 0; // switch to player one
                     findTie();
                 } else if ((boxesLockedTo[`box1lockedto`] == 0) && (boxesLockedTo[`box7lockedto`] == 0) && (boxLocks[`box4Locked`] == false)) {
                     lockBox4toPlayer2();
-                    playerOneWrapper.classList.add('current');
-                    playerTwoWrapper.classList.remove('current');
                     findWinner();
                     currentPlayer = 0; // switch to player one
                     findTie();
                 } else if ((boxesLockedTo[`box1lockedto`] == 0) && (boxesLockedTo[`box9lockedto`] == 0) && (boxLocks[`box5Locked`] == false)) {
                     lockBox5toPlayer2();
-                    playerOneWrapper.classList.add('current');
-                    playerTwoWrapper.classList.remove('current');
                     findWinner();
                     currentPlayer = 0; // switch to player one
                     findTie();
                 } else if ((boxesLockedTo[`box2lockedto`] == 0) && (boxesLockedTo[`box8lockedto`] == 0) && (boxLocks[`box5Locked`] == false)) {
                     lockBox5toPlayer2();
-                    playerOneWrapper.classList.add('current');
-                    playerTwoWrapper.classList.remove('current');
                     findWinner();
                     currentPlayer = 0; // switch to player one
                     findTie();
                 } else if ((boxesLockedTo[`box3lockedto`] == 0) && (boxesLockedTo[`box9lockedto`] == 0) && (boxLocks[`box6Locked`] == false)) {
                     lockBox6toPlayer2();
-                    playerOneWrapper.classList.add('current');
-                    playerTwoWrapper.classList.remove('current');
                     findWinner();
                     currentPlayer = 0; // switch to player one
                     findTie();
                 } else if ((boxesLockedTo[`box4lockedto`] == 0) && (boxesLockedTo[`box6lockedto`] == 0) && (boxLocks[`box5Locked`] == false)) {
                     lockBox6toPlayer2();
-                    playerOneWrapper.classList.add('current');
-                    playerTwoWrapper.classList.remove('current');
                     findWinner();
                     currentPlayer = 0; // switch to player one
                     findTie();
                 } else if ((boxesLockedTo[`box7lockedto`] == 0) && (boxesLockedTo[`box9lockedto`] == 0) && (boxLocks[`box8Locked`] == false)) {
                     lockBox8toPlayer2();
-                    playerOneWrapper.classList.add('current');
-                    playerTwoWrapper.classList.remove('current');
                     findWinner();
                     currentPlayer = 0; // switch to player one
                     findTie();
                 } else if ((boxesLockedTo[`box3lockedto`] == 0) && (boxesLockedTo[`box7lockedto`] == 0) && (boxLocks[`box5Locked`] == false)) {
                     lockBox5toPlayer2();
-                    playerOneWrapper.classList.add('current');
-                    playerTwoWrapper.classList.remove('current');
+                    findWinner();
+                    currentPlayer = 0; // switch to player one
+                    findTie()
+                } else if ((boxesLockedTo[`box1lockedto`] == 0) && (boxesLockedTo[`box3lockedto`] == 0) && (boxLocks[`box2Locked`] == false)) {
+                    lockBox2toPlayer2();
+                    findWinner();
+                    currentPlayer = 0; // switch to player one
+                    findTie();
+                } else if ((boxesLockedTo[`box4lockedto`] == 0) && (boxesLockedTo[`box6lockedto`] == 0) && (boxLocks[`box5Locked`] == false)) {
+                    lockBox5toPlayer2();
+                    findWinner();
+                    currentPlayer = 0; // switch to player one
+                    findTie();
+                } else if ((boxesLockedTo[`box7lockedto`] == 0) && (boxesLockedTo[`box9lockedto`] == 0) && (boxLocks[`box8Locked`] == false)) {
+                    lockBox8toPlayer2();
+                    findWinner();
+                    currentPlayer = 0; // switch to player one
+                    findTie();
+                } else if ((boxesLockedTo[`box1lockedto`] == 0) && (boxesLockedTo[`box5lockedto`] == 0) && (boxLocks[`box9Locked`] == false)) {
+                    lockBox9toPlayer2();
+                    findWinner();
+                    currentPlayer = 0; // switch to player one
+                    findTie();
+                } else if ((boxesLockedTo[`box3lockedto`] == 0) && (boxesLockedTo[`box5lockedto`] == 0) && (boxLocks[`box7Locked`] == false)) {
+                    lockBox7toPlayer2();
+                    findWinner();
+                    currentPlayer = 0; // switch to player one
+                    findTie();
+                } else if ((boxesLockedTo[`box1lockedto`] == 0) && (boxesLockedTo[`box2lockedto`] == 0) && (boxLocks[`box3Locked`] == false)) {
+                    lockBox3toPlayer2();
+                    findWinner();
+                    currentPlayer = 0; // switch to player one
+                    findTie();
+                } else if ((boxesLockedTo[`box4lockedto`] == 0) && (boxesLockedTo[`box5lockedto`] == 0) && (boxLocks[`box6Locked`] == false)) {
+                    lockBox6toPlayer2();
+                    findWinner();
+                    currentPlayer = 0; // switch to player one
+                    findTie();
+                } else if ((boxesLockedTo[`box7lockedto`] == 0) && (boxesLockedTo[`box8lockedto`] == 0) && (boxLocks[`box9Locked`] == false)) {
+                    lockBox9toPlayer2();
+                    findWinner();
+                    currentPlayer = 0; // switch to player one
+                    findTie();
+                } else if ((boxesLockedTo[`box1lockedto`] == 0) && (boxesLockedTo[`box4lockedto`] == 0) && (boxLocks[`box7Locked`] == false)) {
+                    lockBox7toPlayer2();
+                    findWinner();
+                    currentPlayer = 0; // switch to player one
+                    findTie();
+                } else if ((boxesLockedTo[`box2lockedto`] == 0) && (boxesLockedTo[`box5lockedto`] == 0) && (boxLocks[`box8Locked`] == false)) {
+                    lockBox8toPlayer2();
+                    findWinner();
+                    currentPlayer = 0; // switch to player one
+                    findTie();
+                } else if ((boxesLockedTo[`box3lockedto`] == 0) && (boxesLockedTo[`box6lockedto`] == 0) && (boxLocks[`box9Locked`] == false)) {
+                    lockBox9toPlayer2();
                     findWinner();
                     currentPlayer = 0; // switch to player one
                     findTie();
                 } else if (boxLocks[`box1Locked`] === false) {
                     lockBox1toPlayer2();
-                    playerOneWrapper.classList.add('current');
-                    playerTwoWrapper.classList.remove('current');
                     findWinner();
                     currentPlayer = 0; // switch to player one
                     findTie();
                 } else if (boxLocks[`box5Locked`] === false) {
                     lockBox5toPlayer2();
-                    playerOneWrapper.classList.add('current');
-                    playerTwoWrapper.classList.remove('current');
                     findWinner();
                     currentPlayer = 0; // switch to player one
                     findTie();
                 } else if (boxLocks[`box3Locked`] === false) {
                     lockBox3toPlayer2();
-                    playerOneWrapper.classList.add('current');
-                    playerTwoWrapper.classList.remove('current');
                     findWinner();
                     currentPlayer = 0; // switch to player one
                     findTie();
                 } else if (boxLocks[`box7Locked`] === false) {
                     lockBox7toPlayer2();
-                    playerOneWrapper.classList.add('current');
-                    playerTwoWrapper.classList.remove('current');
                     findWinner();
                     currentPlayer = 0; // switch to player one
                     findTie();
                 } else if (boxLocks[`box9Locked`] === false) {
                     lockBox9toPlayer2();
-                    playerOneWrapper.classList.add('current');
-                    playerTwoWrapper.classList.remove('current');
                     findWinner();
                     currentPlayer = 0; // switch to player one
                     findTie();
                 } else {
                     let currentPickedNumberIndex = randomBoxPicker();
-                    //console.log("The array BEFORE A.I. selects a box is: " + openBoxes);
-                    //console.log("The number picked is: " + openBoxes[currentPickedNumberIndex]);
                     let currentNumber = openBoxes[currentPickedNumberIndex];
-                    //console.log("currentNumber variable is " + currentNumber);
-                    //console.log("The random INDEX number picked from the array for A.I. is: " + currentPickedNumberIndex);
                     let currentBox = document.querySelector('.box' + openBoxes[currentPickedNumberIndex]);
                     openBoxes.splice(openBoxes.indexOf(currentNumber), 1); // Remove the selected item from the array
-                    //console.log("The array AFTER A.I. selects a box is: " + openBoxes);
-                    //console.log(currentBox);
                     currentBox.classList.add('o');
                     currentBox.classList.add('locked');
                     boxLocks[`box${currentNumber}Locked`] = true;
@@ -1282,7 +1237,6 @@
                     findWinner();
                     currentPlayer = 0; // switch to player one
                     findTie();
-                    //currentPlayer = 0; // switch to player one
                 }
             }
             boxOneTouchRegion.addEventListener('click', function(e) {
@@ -1290,15 +1244,7 @@
                     alert("This box is locked!");
                 } else {
                     if (currentPlayer == 0) {
-                        //console.log("CLICK -----------------------------------------------------");
-                        //console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
-                        box1.classList.add('x'); // Add an x
-                        box1.classList.add('locked'); // Add locked class to box DIV
-                        boxLocks[`box1Locked`] = true;
-                        boxesLockedTo[`box1lockedto`] = 0;
-                        openBoxes.splice(openBoxes.indexOf(1), 1); // Remove the selected item from the array
-                        //console.log("Player One selects Box 1");
-                        //console.log("The array AFTER Player One selects Box 1 is: " + openBoxes);
+                        lockBox1toPlayer1();
                         findWinner();
                         findTie();
                         if (gameOver) {
@@ -1316,15 +1262,7 @@
                     alert("This box is locked!");
                 } else {
                     if (currentPlayer == 0) {
-                        //console.log("CLICK -----------------------------------------------------");
-                        //console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
-                        box2.classList.add('x'); // Add an x
-                        box2.classList.add('locked'); // Add locked class to box DIV
-                        boxLocks[`box2Locked`] = true;
-                        boxesLockedTo[`box2lockedto`] = 0;
-                        openBoxes.splice(openBoxes.indexOf(2), 1); // Remove the selected item from the array
-                        //console.log("Player One selects Box 2");
-                        //console.log("The array AFTER Player One selects Box 2 is: " + openBoxes);
+                        lockBox2toPlayer1();
                         findWinner();
                         findTie();
                         if (gameOver) {
@@ -1342,15 +1280,7 @@
                     alert("This box is locked!");
                 } else {
                     if (currentPlayer == 0) {
-                        //console.log("CLICK -----------------------------------------------------");
-                        //console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
-                        box3.classList.add('x'); // Add an x
-                        box3.classList.add('locked'); // Add locked class to box DIV
-                        boxLocks[`box3Locked`] = true;
-                        boxesLockedTo[`box3lockedto`] = 0;
-                        openBoxes.splice(openBoxes.indexOf(3), 1); // Remove the selected item from the array
-                        //console.log("Player One selects Box 3");
-                        //console.log("The array AFTER Player One selects Box 3 is: " + openBoxes);
+                        lockBox3toPlayer1();
                         findWinner();
                         findTie();
                         if (gameOver) {
@@ -1368,15 +1298,7 @@
                     alert("This box is locked!");
                 } else {
                     if (currentPlayer == 0) {
-                        //console.log("CLICK -----------------------------------------------------");
-                        //console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
-                        box4.classList.add('x'); // Add an x
-                        box4.classList.add('locked'); // Add locked class to box DIV
-                        boxLocks[`box4Locked`] = true;
-                        boxesLockedTo[`box4lockedto`] = 0;
-                        openBoxes.splice(openBoxes.indexOf(4), 1); // Remove the selected item from the array
-                        console.log("Player One selects Box 4");
-                        console.log("The array AFTER Player One selects Box 4 is: " + openBoxes);
+                        lockBox4toPlayer1();
                         findWinner();
                         findTie();
                         if (gameOver) {
@@ -1394,15 +1316,7 @@
                     alert("This box is locked!");
                 } else {
                     if (currentPlayer == 0) {
-                        //console.log("CLICK -----------------------------------------------------");
-                        //console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
-                        box5.classList.add('x'); // Add an x
-                        box5.classList.add('locked'); // Add locked class to box DIV
-                        boxLocks[`box5Locked`] = true;
-                        boxesLockedTo[`box5lockedto`] = 0;
-                        openBoxes.splice(openBoxes.indexOf(5), 1); // Remove the selected item from the array
-                        //console.log("Player One selects Box 5");
-                        //console.log("The array AFTER Player One selects Box 5 is: " + openBoxes);
+                        lockBox5toPlayer1();
                         findWinner();
                         findTie();
                         if (gameOver) {
@@ -1420,15 +1334,7 @@
                     alert("This box is locked!");
                 } else {
                     if (currentPlayer == 0) {
-                        //console.log("CLICK -----------------------------------------------------");
-                        //console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
-                        box6.classList.add('x'); // Add an x
-                        box6.classList.add('locked'); // Add locked class to box DIV
-                        boxLocks[`box6Locked`] = true;
-                        boxesLockedTo[`box6lockedto`] = 0;
-                        openBoxes.splice(openBoxes.indexOf(6), 1); // Remove the selected item from the array
-                        //console.log("Player One selects Box 6");
-                        //console.log("The array AFTER Player One selects Box 6 is: " + openBoxes);
+                        lockBox6toPlayer1();
                         findWinner();
                         findTie();
                         if (gameOver) {
@@ -1446,15 +1352,7 @@
                     alert("This box is locked!");
                 } else {
                     if (currentPlayer == 0) {
-                        //console.log("CLICK -----------------------------------------------------");
-                        //console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
-                        box7.classList.add('x'); // Add an x
-                        box7.classList.add('locked'); // Add locked class to box DIV
-                        boxLocks[`box7Locked`] = true;
-                        boxesLockedTo[`box7lockedto`] = 0;
-                        openBoxes.splice(openBoxes.indexOf(7), 1); // Remove the selected item from the array
-                        //console.log("Player One selects Box 7");
-                        //console.log("The array AFTER Player One selects Box 7 is: " + openBoxes);
+                        lockBox7toPlayer1();
                         findWinner();
                         findTie();
                         if (gameOver) {
@@ -1472,15 +1370,7 @@
                     alert("This box is locked!");
                 } else {
                     if (currentPlayer == 0) {
-                        //console.log("CLICK -----------------------------------------------------");
-                        //console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
-                        box8.classList.add('x'); // Add an x
-                        box8.classList.add('locked'); // Add locked class to box DIV
-                        boxLocks[`box8Locked`] = true;
-                        boxesLockedTo[`box8lockedto`] = 0;
-                        openBoxes.splice(openBoxes.indexOf(8), 1); // Remove the selected item from the array
-                        //console.log("Player One selects Box 8");
-                        //console.log("The array AFTER Player One selects Box 8 is: " + openBoxes);
+                        lockBox8toPlayer1();
                         findWinner();
                         findTie();
                         if (gameOver) {
@@ -1496,15 +1386,7 @@
                     alert("This box is locked!");
                 } else {
                     if (currentPlayer == 0) {
-                        //console.log("CLICK -----------------------------------------------------");
-                        //console.log("The array BEFORE Player One selects Box 1 is: " + openBoxes);
-                        box9.classList.add('x'); // Add an x
-                        box9.classList.add('locked'); // Add locked class to box DIV
-                        boxLocks[`box9Locked`] = true;
-                        boxesLockedTo[`box9lockedto`] = 0;
-                        openBoxes.splice(openBoxes.indexOf(9), 1); // Remove the selected item from the array
-                        //console.log("Player One selects Box 9");
-                        //console.log("The array AFTER Player One selects Box 9 is: " + openBoxes);
+                        lockBox9toPlayer1();
                         findWinner();
                         findTie();
                         if (gameOver) {
