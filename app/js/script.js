@@ -24,27 +24,25 @@
     });
 
     function activateOnePlayerMode() {
-        //alert("One Player");
         document.querySelector('.playerModeOverlay').classList.add('hidden');
         document.querySelector('.playerOneOverlay').classList.remove('hidden');
         document.getElementById('playerOneNameInput').focus();
         onePlayer = true;
         twoPlayer = false;
-        playerModes();
         gameOver = false;
         ai = true;
+        playerModes();
     }
 
     function activateTwoPlayerMode() {
-        //alert("Two Player");
         document.querySelector('.playerModeOverlay').classList.add('hidden');
         document.querySelector('.playerOneOverlay').classList.remove('hidden');
         document.getElementById('playerOneNameInput').focus();
         onePlayer = false;
         twoPlayer = true;
-        playerModes();
         gameOver = false;
         ai = false;
+        playerModes();
     }
 
     /* ------------------------------------------------------------------------------------------ */
@@ -77,17 +75,16 @@
     /* ------------------------------------------------------------------------------------------ */
 
     function lockBox1toPlayer1() {
-        box1.classList.add('x'); // Add an o
+        box1.classList.add('x'); // Add an X
         box1.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box1Locked`] = true;
         boxesLockedTo[`box1lockedto`] = 0;
         openBoxes.splice(openBoxes.indexOf(1), 1); // Remove the selected item from the array
-        playerOneWrapper.classList.remove('current');
-        playerTwoWrapper.classList.add('current');
-        currentPlayer = 1; // Flip to Player Two
+        findWinner();
+        findTie();
     }
     function lockBox1toPlayer2() {
-        box1.classList.add('o'); // Add an o
+        box1.classList.add('o'); // Add an O
         box1.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box1Locked`] = true;
         boxesLockedTo[`box1lockedto`] = 1;
@@ -97,7 +94,7 @@
         playerTwoWrapper.classList.remove('current');
     }
     function lockBox2toPlayer1() {
-        box2.classList.add('x'); // Add an o
+        box2.classList.add('x'); // Add an X
         box2.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box2Locked`] = true;
         boxesLockedTo[`box2lockedto`] = 0;
@@ -106,7 +103,7 @@
         playerTwoWrapper.classList.add('current');
     }
     function lockBox2toPlayer2() {
-        box2.classList.add('o'); // Add an o
+        box2.classList.add('o'); // Add an O
         box2.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box2Locked`] = true;
         boxesLockedTo[`box2lockedto`] = 1;
@@ -115,7 +112,7 @@
         playerTwoWrapper.classList.remove('current');
     }
     function lockBox3toPlayer1() {
-        box3.classList.add('x'); // Add an o
+        box3.classList.add('x'); // Add an X
         box3.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box3Locked`] = true;
         boxesLockedTo[`box3lockedto`] = 0;
@@ -124,7 +121,7 @@
         playerTwoWrapper.classList.add('current');
     }
     function lockBox3toPlayer2() {
-        box3.classList.add('o'); // Add an o
+        box3.classList.add('o'); // Add an O
         box3.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box3Locked`] = true;
         boxesLockedTo[`box3lockedto`] = 1;
@@ -133,7 +130,7 @@
         playerTwoWrapper.classList.remove('current');
     }
     function lockBox4toPlayer1() {
-        box4.classList.add('x'); // Add an o
+        box4.classList.add('x'); // Add an X
         box4.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box4Locked`] = true;
         boxesLockedTo[`box4lockedto`] = 0;
@@ -142,7 +139,7 @@
         playerTwoWrapper.classList.add('current');
     }
     function lockBox4toPlayer2() {
-        box4.classList.add('o'); // Add an o
+        box4.classList.add('o'); // Add an O
         box4.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box4Locked`] = true;
         boxesLockedTo[`box4lockedto`] = 1;
@@ -151,7 +148,7 @@
         playerTwoWrapper.classList.remove('current');
     }
     function lockBox5toPlayer1() {
-        box5.classList.add('x'); // Add an o
+        box5.classList.add('x'); // Add an X
         box5.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box5Locked`] = true;
         boxesLockedTo[`box5lockedto`] = 0;
@@ -160,7 +157,7 @@
         playerTwoWrapper.classList.add('current');
     }
     function lockBox5toPlayer2() {
-        box5.classList.add('o'); // Add an o
+        box5.classList.add('o'); // Add an O
         box5.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box5Locked`] = true;
         boxesLockedTo[`box5lockedto`] = 1;
@@ -169,7 +166,7 @@
         playerTwoWrapper.classList.remove('current');
     }
     function lockBox6toPlayer1() {
-        box6.classList.add('x'); // Add an o
+        box6.classList.add('x'); // Add an X
         box6.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box6Locked`] = true;
         boxesLockedTo[`box6lockedto`] = 0;
@@ -178,7 +175,7 @@
         playerTwoWrapper.classList.add('current');
     }
     function lockBox6toPlayer2() {
-        box6.classList.add('o'); // Add an o
+        box6.classList.add('o'); // Add an O
         box6.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box6Locked`] = true;
         boxesLockedTo[`box6lockedto`] = 1;
@@ -187,7 +184,7 @@
         playerTwoWrapper.classList.remove('current');
     }
     function lockBox7toPlayer1() {
-        box7.classList.add('x'); // Add an o
+        box7.classList.add('x'); // Add an X
         box7.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box7Locked`] = true;
         boxesLockedTo[`box7lockedto`] = 0;
@@ -196,7 +193,7 @@
         playerTwoWrapper.classList.add('current');
     }
     function lockBox7toPlayer2() {
-        box7.classList.add('o'); // Add an o
+        box7.classList.add('o'); // Add an O
         box7.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box7Locked`] = true;
         boxesLockedTo[`box7lockedto`] = 1;
@@ -205,7 +202,7 @@
         playerTwoWrapper.classList.remove('current');
     }
     function lockBox8toPlayer1() {
-        box8.classList.add('x'); // Add an o
+        box8.classList.add('x'); // Add an X
         box8.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box8Locked`] = true;
         boxesLockedTo[`box8lockedto`] = 0;
@@ -214,7 +211,7 @@
         playerTwoWrapper.classList.add('current');
     }
     function lockBox8toPlayer2() {
-        box8.classList.add('o'); // Add an o
+        box8.classList.add('o'); // Add an O
         box8.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box8Locked`] = true;
         boxesLockedTo[`box8lockedto`] = 1;
@@ -223,7 +220,7 @@
         playerTwoWrapper.classList.remove('current');
     }
     function lockBox9toPlayer1() {
-        box9.classList.add('x'); // Add an o
+        box9.classList.add('x'); // Add an X
         box9.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box9Locked`] = true;
         boxesLockedTo[`box9lockedto`] = 0;
@@ -232,7 +229,7 @@
         playerTwoWrapper.classList.add('current');
     }
     function lockBox9toPlayer2() {
-        box9.classList.add('o'); // Add an o
+        box9.classList.add('o'); // Add an O
         box9.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box9Locked`] = true;
         boxesLockedTo[`box9lockedto`] = 1;
@@ -414,51 +411,38 @@
 
     // When player one wins
     function playerOneIsTheWinner() {
-        playerOneTotalWins++;
-        winnerOverlay.classList.remove('hidden');
-        winner.textContent = playerOneName;
-        currentGameWinner = playerOneName;
-        currentPlayer = 0;
-        playerOneWrapper.classList.remove('current');
-        playerTwoWrapper.classList.remove('current');
-        playerOneWrapper.classList.add('current');
-        playerOneTotalWinsDiv.textContent = playerOneTotalWins;
-        openBoxes = [1,2,3,4,5,6,7,8,9];
-        gameOver = true;
-        if (ai) {
-            currentPlayer = 0;
+        playerOneTotalWins++; // Add 1 to the Player One total wins
+        winnerOverlay.classList.remove('hidden'); // Shows the winner dialogue
+        winner.textContent = playerOneName; // Shows the Player One name in the winner dialogue
+        currentGameWinner = playerOneName; // Sets the current game winner variable to Player One
+        playerOneTotalWinsDiv.textContent = playerOneTotalWins; // Displays Player One total wins in the interface
+        openBoxes = [1,2,3,4,5,6,7,8,9]; // Resets the Open Boxes variable in preparation for another game play
+        gameOver = true; // Sets the game over variable
+        if (ai == true) { // If playing against the AI
+            currentPlayer = 0; // Reset the first player to Player One
             playerOneWrapper.classList.remove('current');
             playerTwoWrapper.classList.remove('current');
             playerOneWrapper.classList.add('current');
-            //alert("A.I. Won. It should now flip back to Player One.")
-        } else {
-            currentPlayer = 1;
-            playerOneWrapper.classList.remove('current');
-            playerTwoWrapper.classList.remove('current');
-            playerTwoWrapper.classList.add('current');
+        } else { // If NOT playing the AI
+            // Keep the current player as-is and don't change the focus of the player wrappers in the DOM
         }
     }
     // When player two wins
     function playerTwoIsTheWinner() {
-        playerTwoTotalWins++;
-        document.querySelector('.winnerOverlay').classList.remove('hidden');
-        document.querySelector('.winner').textContent = playerTwoName;
-        currentGameWinner = playerTwoName;
-        
-        playerTwoTotalWinsDiv.textContent = playerTwoTotalWins;
-        openBoxes = [1,2,3,4,5,6,7,8,9];
-        gameOver = true;
-        if (ai == true) {
-            currentPlayer = 0;
+        playerTwoTotalWins++; // Add 1 to the Player Two total wins
+        winnerOverlay.classList.remove('hidden'); // Shows the winner dialogue
+        winner.textContent = playerTwoName; // Shows the Player Two name in the winner dialogue
+        currentGameWinner = playerTwoName; // Sets the current game winner variable to Player Two
+        playerTwoTotalWinsDiv.textContent = playerTwoTotalWins; // Displays Player Two total wins in the interface
+        openBoxes = [1,2,3,4,5,6,7,8,9]; // Resets the Open Boxes variable in preparation for another game play
+        gameOver = true; // Sets the game over variable
+        if (ai == true) { // If playing against the AI
+            currentPlayer = 0; // Reset the first player to Player One
             playerOneWrapper.classList.remove('current');
             playerTwoWrapper.classList.remove('current');
             playerOneWrapper.classList.add('current');
-            //alert("A.I. Won. It should now flip back to Player One.")
         } else {
-            currentPlayer = 1;
-            playerOneWrapper.classList.remove('current');
-            playerTwoWrapper.classList.remove('current');
-            playerTwoWrapper.classList.add('current');
+            // Keep the current player as-is and don't change the focus of the player wrappers in the DOM
         }
     }
     // No winner game reset
@@ -506,6 +490,7 @@
     document.querySelector('.close').addEventListener('click', function () {
         unlockBoxes();
         clearBoxes();
+        gameOver = false;
         // Hides the Winner overlay
         document.querySelector('.winnerOverlay').classList.add('hidden');
     });
@@ -910,7 +895,7 @@
 
 
     /* ------------------------------------------------------------------------------------------ */
-    /* Start game play with touch */
+    /* Start game play */
     /* ------------------------------------------------------------------------------------------ */
 
     let boxOneTouchRegion = box1;
@@ -924,7 +909,8 @@
     let boxNineTouchRegion = box9;
 
     function playerModes() {
-        if (twoPlayer == true) {
+        if ((twoPlayer) && (gameOver == false) && (ai == false)) {
+            //alert("Two player selected!");
             // Player One name input
             document.querySelector('.goPlayerOneButton').addEventListener('click', function(e) {
                 // If Go button pressed
@@ -1078,12 +1064,14 @@
                 findWinner();
                 findTie();
             });
-        } else if (onePlayer == true) {
+        } else if ((onePlayer) && (gameOver == false) && (ai)) {
+            // alert("One Player is selected.");
             function randomBoxPicker() {
                 return Math.floor(Math.random() * openBoxes.length);
             };
 
             playerTwoName = 'A.I.';
+            // alert("Player Two name set to A.I.");
             document.querySelector('.playerTwo').textContent = playerTwoName;
             // Player One name input
             document.querySelector('.goPlayerOneButton').addEventListener('click', function(e) {
@@ -1101,7 +1089,7 @@
                     document.querySelector('.playerOneOverlay').classList.add('hidden');
                 }
             });
-            function ai() {
+            function artificialIntelligence() {
                 currentPlayer = 1; // Switch to player two
                 if ((boxesLockedTo[`box1lockedto`] == 0) && (boxesLockedTo[`box3lockedto`] == 0) && (boxLocks[`box2Locked`] == false)) {
                     lockBox2toPlayer2();
@@ -1252,7 +1240,7 @@
                         } else {
                             playerOneWrapper.classList.remove('current');
                             playerTwoWrapper.classList.add('current');
-                            setTimeout( ai, Math.floor( Math.random() * 500 ) + 1000 );
+                            setTimeout( artificialIntelligence, Math.floor( Math.random() * 500 ) + 1000 );
                         }
                     }
                 }
@@ -1270,7 +1258,7 @@
                         } else {
                             playerOneWrapper.classList.remove('current');
                             playerTwoWrapper.classList.add('current');
-                            setTimeout( ai, Math.floor( Math.random() * 500 ) + 1000 );
+                            setTimeout( artificialIntelligence, Math.floor( Math.random() * 500 ) + 1000 );
                         }
                     } 
                 }
@@ -1288,7 +1276,7 @@
                         } else {
                             playerOneWrapper.classList.remove('current');
                             playerTwoWrapper.classList.add('current');
-                            setTimeout( ai, Math.floor( Math.random() * 500 ) + 1000 );
+                            setTimeout( artificialIntelligence, Math.floor( Math.random() * 500 ) + 1000 );
                         }
                     } 
                 }
@@ -1306,7 +1294,7 @@
                         } else {
                             playerOneWrapper.classList.remove('current');
                             playerTwoWrapper.classList.add('current');
-                            setTimeout( ai, Math.floor( Math.random() * 500 ) + 1000 );
+                            setTimeout( artificialIntelligence, Math.floor( Math.random() * 500 ) + 1000 );
                         }
                     } 
                 }
@@ -1324,7 +1312,7 @@
                         } else {
                             playerOneWrapper.classList.remove('current');
                             playerTwoWrapper.classList.add('current');
-                            setTimeout( ai, Math.floor( Math.random() * 500 ) + 1000 );
+                            setTimeout( artificialIntelligence, Math.floor( Math.random() * 500 ) + 1000 );
                         }
                     } 
                 }
@@ -1342,7 +1330,7 @@
                         } else {
                             playerOneWrapper.classList.remove('current');
                             playerTwoWrapper.classList.add('current');
-                            setTimeout( ai, Math.floor( Math.random() * 500 ) + 1000 );
+                            setTimeout( artificialIntelligence, Math.floor( Math.random() * 500 ) + 1000 );
                         }
                     } 
                 }
@@ -1360,7 +1348,7 @@
                         } else {
                             playerOneWrapper.classList.remove('current');
                             playerTwoWrapper.classList.add('current');
-                            setTimeout( ai, Math.floor( Math.random() * 500 ) + 1000 );
+                            setTimeout( artificialIntelligence, Math.floor( Math.random() * 500 ) + 1000 );
                         }
                     } 
                 }
@@ -1376,7 +1364,7 @@
                         if (gameOver) {
                             gameOver = false;
                         } else {
-                            setTimeout( ai, Math.floor( Math.random() * 500 ) + 1000 );
+                            setTimeout( artificialIntelligence, Math.floor( Math.random() * 500 ) + 1000 );
                         }
                     } 
                 }
@@ -1394,16 +1382,18 @@
                         } else {
                             playerOneWrapper.classList.remove('current');
                             playerTwoWrapper.classList.add('current');
-                            setTimeout( ai, Math.floor( Math.random() * 500 ) + 1000 );
+                            setTimeout( artificialIntelligence, Math.floor( Math.random() * 500 ) + 1000 );
                         }
                     } 
                 }
             });
-        }  
+        } else {
+            //alert("Testing");
+        }
     }
 
     /* ------------------------------------------------------------------------------------------ */
-    /* End game play with touch */
+    /* End game play */
     /* ------------------------------------------------------------------------------------------ */
 
 
