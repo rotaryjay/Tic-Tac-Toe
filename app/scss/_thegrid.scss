@@ -1,10 +1,11 @@
 .thegrid { 
-    background-color: $black;
+    /*background-color: $black;*/
     width: 300px;
     height: 300px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: $boxshadow;
+    /*box-shadow: $boxshadow;*/
+    font-family: 'Nanum Gothic', sans-serif;
     .square {
         background-color: $white;
         height: 98px;
@@ -12,16 +13,20 @@
         float: left;
         border: 1px solid $black;
         border-radius: 10px;
-        background-size: 80%;
-        background-repeat: no-repeat;
-        background-position: center center;
-    } & .x {
-        background-image: url(../img/x.png);
-        box-shadow: $boxshadowinset;
-        transition: $hovertransition;
-    } & .o {
-        background-image: url(../img/o.png);
-        box-shadow: $boxshadowinset;
-        transition: $hovertransition;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 6em;
+        &.x {
+            animation: pulseGreen 1s ease-in-out forwards;
+            animation: pulseSymbol 0.25s ease-in-out forwards;
+            animation-fill-mode: forwards;
+            box-shadow: inset 0 0 20px rgba($green,0.5);
+        }
+        &.o {
+            animation: pulseRed 1s ease-in-out forwards;
+            animation: pulseSymbol 0.25s ease-in-out forwards;
+            box-shadow: inset 0 0 20px rgba($red,0.5);
+        }
     }
 }

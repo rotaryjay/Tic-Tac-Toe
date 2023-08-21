@@ -75,6 +75,7 @@
     /* ------------------------------------------------------------------------------------------ */
 
     function lockBox1toPlayer1() {
+        box1.textContent = 'X'; // Adds an X to the grid
         box1.classList.add('x'); // Add an X
         box1.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box1Locked`] = true;
@@ -84,6 +85,7 @@
         findTie();
     }
     function lockBox1toPlayer2() {
+        box1.textContent = 'O'; // Adds an X to the grid
         box1.classList.add('o'); // Add an O
         box1.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box1Locked`] = true;
@@ -94,6 +96,7 @@
         playerTwoWrapper.classList.remove('current');
     }
     function lockBox2toPlayer1() {
+        box2.textContent = 'X'; // Adds an X to the grid
         box2.classList.add('x'); // Add an X
         box2.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box2Locked`] = true;
@@ -103,6 +106,7 @@
         playerTwoWrapper.classList.add('current');
     }
     function lockBox2toPlayer2() {
+        box2.textContent = 'O'; // Adds an X to the grid
         box2.classList.add('o'); // Add an O
         box2.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box2Locked`] = true;
@@ -112,6 +116,7 @@
         playerTwoWrapper.classList.remove('current');
     }
     function lockBox3toPlayer1() {
+        box3.textContent = 'X'; // Adds an X to the grid
         box3.classList.add('x'); // Add an X
         box3.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box3Locked`] = true;
@@ -121,6 +126,7 @@
         playerTwoWrapper.classList.add('current');
     }
     function lockBox3toPlayer2() {
+        box3.textContent = 'O'; // Adds an X to the grid
         box3.classList.add('o'); // Add an O
         box3.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box3Locked`] = true;
@@ -130,6 +136,7 @@
         playerTwoWrapper.classList.remove('current');
     }
     function lockBox4toPlayer1() {
+        box4.textContent = 'X'; // Adds an X to the grid
         box4.classList.add('x'); // Add an X
         box4.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box4Locked`] = true;
@@ -139,6 +146,7 @@
         playerTwoWrapper.classList.add('current');
     }
     function lockBox4toPlayer2() {
+        box4.textContent = 'O'; // Adds an X to the grid
         box4.classList.add('o'); // Add an O
         box4.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box4Locked`] = true;
@@ -148,6 +156,7 @@
         playerTwoWrapper.classList.remove('current');
     }
     function lockBox5toPlayer1() {
+        box5.textContent = 'X'; // Adds an X to the grid
         box5.classList.add('x'); // Add an X
         box5.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box5Locked`] = true;
@@ -157,6 +166,7 @@
         playerTwoWrapper.classList.add('current');
     }
     function lockBox5toPlayer2() {
+        box5.textContent = 'O'; // Adds an X to the grid
         box5.classList.add('o'); // Add an O
         box5.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box5Locked`] = true;
@@ -166,6 +176,7 @@
         playerTwoWrapper.classList.remove('current');
     }
     function lockBox6toPlayer1() {
+        box6.textContent = 'X'; // Adds an X to the grid
         box6.classList.add('x'); // Add an X
         box6.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box6Locked`] = true;
@@ -175,6 +186,7 @@
         playerTwoWrapper.classList.add('current');
     }
     function lockBox6toPlayer2() {
+        box6.textContent = 'O'; // Adds an X to the grid
         box6.classList.add('o'); // Add an O
         box6.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box6Locked`] = true;
@@ -184,6 +196,7 @@
         playerTwoWrapper.classList.remove('current');
     }
     function lockBox7toPlayer1() {
+        box7.textContent = 'X'; // Adds an X to the grid
         box7.classList.add('x'); // Add an X
         box7.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box7Locked`] = true;
@@ -193,6 +206,7 @@
         playerTwoWrapper.classList.add('current');
     }
     function lockBox7toPlayer2() {
+        box7.textContent = 'O'; // Adds an X to the grid
         box7.classList.add('o'); // Add an O
         box7.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box7Locked`] = true;
@@ -202,6 +216,7 @@
         playerTwoWrapper.classList.remove('current');
     }
     function lockBox8toPlayer1() {
+        box8.textContent = 'X'; // Adds an X to the grid
         box8.classList.add('x'); // Add an X
         box8.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box8Locked`] = true;
@@ -211,6 +226,7 @@
         playerTwoWrapper.classList.add('current');
     }
     function lockBox8toPlayer2() {
+        box8.textContent = 'O'; // Adds an X to the grid
         box8.classList.add('o'); // Add an O
         box8.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box8Locked`] = true;
@@ -220,6 +236,7 @@
         playerTwoWrapper.classList.remove('current');
     }
     function lockBox9toPlayer1() {
+        box9.textContent = 'X'; // Adds an X to the grid
         box9.classList.add('x'); // Add an X
         box9.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box9Locked`] = true;
@@ -229,6 +246,7 @@
         playerTwoWrapper.classList.add('current');
     }
     function lockBox9toPlayer2() {
+        box9.textContent = 'O'; // Adds an X to the grid
         box9.classList.add('o'); // Add an O
         box9.classList.add('locked'); // Add locked class to box DIV
         boxLocks[`box9Locked`] = true;
@@ -300,54 +318,63 @@
 
     // Box clearing when game is won or tied
     function clearBoxOne() {
+        box1.textContent = '';
         box1.classList.remove('x');
         box1.classList.remove('o');
         box1.classList.remove('locked');
         boxLocks[`box1Locked`] = false;
     }
     function clearBoxTwo() {
+        box2.textContent = '';
         box2.classList.remove('x');
         box2.classList.remove('o');
         box2.classList.remove('locked');
         boxLocks[`box2Locked`] = false;
     }
     function clearBoxThree() {
+        box3.textContent = '';
         box3.classList.remove('x');
         box3.classList.remove('o');
         box3.classList.remove('locked');
         boxLocks[`box3Locked`] = false;
     }
     function clearBoxFour() {
+        box4.textContent = '';
         box4.classList.remove('x');
         box4.classList.remove('o');
         box4.classList.remove('locked');
         boxLocks[`box4Locked`] = false;
     }
     function clearBoxFive() {
+        box5.textContent = '';
         box5.classList.remove('x');
         box5.classList.remove('o');
         box5.classList.remove('locked');
         boxLocks[`box5Locked`] = false;
     }
     function clearBoxSix() {
+        box6.textContent = '';
         box6.classList.remove('x');
         box6.classList.remove('o');
         box6.classList.remove('locked');
         boxLocks[`box6Locked`] = false;
     }
     function clearBoxSeven() {
+        box7.textContent = '';
         box7.classList.remove('x');
         box7.classList.remove('o');
         box7.classList.remove('locked');
         boxLocks[`box7Locked`] = false;
     }
     function clearBoxEight() {
+        box8.textContent = '';
         box8.classList.remove('x');
         box8.classList.remove('o');
         box8.classList.remove('locked');
         boxLocks[`box8Locked`] = false;
     }
     function clearBoxNine() {
+        box9.textContent = '';
         box9.classList.remove('x');
         box9.classList.remove('o');
         box9.classList.remove('locked');

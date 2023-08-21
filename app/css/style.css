@@ -437,12 +437,13 @@ body main .gameWrapper {
 }
 
 .thegrid {
-  background-color: black;
+  /*background-color: $black;*/
   width: 300px;
   height: 300px;
   border-radius: 10px;
   margin: 0 auto;
-  box-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.6);
+  /*box-shadow: $boxshadow;*/
+  font-family: "Nanum Gothic", sans-serif;
 }
 .thegrid .square {
   background-color: white;
@@ -451,19 +452,21 @@ body main .gameWrapper {
   float: left;
   border: 1px solid black;
   border-radius: 10px;
-  background-size: 80%;
-  background-repeat: no-repeat;
-  background-position: center center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 6em;
 }
-.thegrid .x {
-  background-image: url(../img/x.png);
-  box-shadow: inset 0 0 17px 4px rgba(0, 0, 0, 0.3);
-  transition: all 300ms ease-in-out;
+.thegrid .square.x {
+  animation: pulseGreen 1s ease-in-out forwards;
+  animation: pulseSymbol 0.25s ease-in-out forwards;
+  animation-fill-mode: forwards;
+  box-shadow: inset 0 0 20px rgba(0, 128, 0, 0.5);
 }
-.thegrid .o {
-  background-image: url(../img/o.png);
-  box-shadow: inset 0 0 17px 4px rgba(0, 0, 0, 0.3);
-  transition: all 300ms ease-in-out;
+.thegrid .square.o {
+  animation: pulseRed 1s ease-in-out forwards;
+  animation: pulseSymbol 0.25s ease-in-out forwards;
+  box-shadow: inset 0 0 20px rgba(255, 0, 0, 0.5);
 }
 
 .button {
@@ -587,3 +590,35 @@ body main .gameWrapper {
         }
     }
 }*/
+@keyframes pulseGreen {
+  0% {
+    box-shadow: inset 0 0 20px rgba(0, 128, 0, 0);
+  }
+  100% {
+    box-shadow: inset 0 0 20px rgba(0, 128, 0, 0.5);
+  }
+}
+@keyframes pulseRed {
+  0% {
+    box-shadow: inset 0 0 20px rgba(255, 0, 0, 0);
+  }
+  100% {
+    box-shadow: inset 0 0 20px rgba(255, 0, 0, 0.5);
+  }
+}
+@keyframes pulseSymbol {
+  0% {
+    font-size: 4em;
+    color: rgba(0, 0, 0, 0);
+  }
+  80% {
+    font-size: 6em;
+  }
+  90% {
+    font-size: 7em;
+  }
+  100% {
+    font-size: 6em;
+    color: black;
+  }
+}
