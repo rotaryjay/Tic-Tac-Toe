@@ -740,6 +740,7 @@ function playerTwoIsTheWinner() {
     openBoxes = [1, 2, 3, 4, 5, 6, 7, 8, 9]; // Resets the Open Boxes variable in preparation for another game play
     gameOver = true; // Sets the game over variable
     if (ai == true) { // If playing against the AI
+        //alert("Player Two (A.I.) won.");
         currentPlayer = 0; // Reset the first player to Player One
         playerOneWrapper.classList.remove('current');
         playerTwoWrapper.classList.remove('current');
@@ -760,10 +761,8 @@ function tiedGame() {
         playerOneWrapper.classList.remove('current');
         playerTwoWrapper.classList.remove('current');
         playerOneWrapper.classList.add('current');
-        //ai == false;
-        //alert("Game was tied with A.I. It should flip back to Player One.")
     } else {
-
+        // Keep the current player as-is and don't change the focus of the player wrappers in the DOM
     }
 }
 function gameReset() {
