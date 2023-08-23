@@ -437,26 +437,57 @@ body main .gameWrapper {
 }
 
 .thegrid {
-  /*background-color: $black;*/
   width: 300px;
   height: 300px;
   border-radius: 10px;
-  margin: 0 auto;
-  /*box-shadow: $boxshadow;*/
+  /*margin: 0 auto;*/
   font-family: "Nanum Gothic", sans-serif;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 2px;
+  grid-row-gap: 2px;
+}
+.thegrid .box1 {
+  grid-area: 1/1/2/2;
+}
+.thegrid .box2 {
+  grid-area: 1/2/2/3;
+}
+.thegrid .box3 {
+  grid-area: 1/3/2/4;
+}
+.thegrid .box4 {
+  grid-area: 2/1/3/2;
+}
+.thegrid .box5 {
+  grid-area: 2/2/3/3;
+}
+.thegrid .box6 {
+  grid-area: 2/3/3/4;
+}
+.thegrid .box7 {
+  grid-area: 3/1/4/2;
+}
+.thegrid .box8 {
+  grid-area: 3/2/4/3;
+}
+.thegrid .box9 {
+  grid-area: 3/3/4/4;
 }
 .thegrid .square {
   background-color: white;
-  height: 98px;
-  width: 98px;
-  float: left;
   border: 1px solid black;
   border-radius: 10px;
+  font-size: 6em;
+  /*height: 98px;
+  width: 98px;
+  float: left;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 6em;
-  overflow: hidden;
+  overflow: hidden;*/
+  text-align: center;
 }
 .thegrid .square.x {
   animation: pulseGreen 1s ease-in-out forwards;

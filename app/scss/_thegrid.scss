@@ -1,23 +1,36 @@
 .thegrid { 
-    /*background-color: $black;*/
     width: 300px;
     height: 300px;
     border-radius: 10px;
-    margin: 0 auto;
-    /*box-shadow: $boxshadow;*/
+    /*margin: 0 auto;*/
     font-family: 'Nanum Gothic', sans-serif;
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    grid-template-rows: repeat(3, 1fr); 
+    grid-column-gap: 2px;
+    grid-row-gap: 2px; 
+    .box1 { grid-area: 1 / 1 / 2 / 2; } 
+    .box2 { grid-area: 1 / 2 / 2 / 3; } 
+    .box3 { grid-area: 1 / 3 / 2 / 4; } 
+    .box4 { grid-area: 2 / 1 / 3 / 2; } 
+    .box5 { grid-area: 2 / 2 / 3 / 3; } 
+    .box6 { grid-area: 2 / 3 / 3 / 4; } 
+    .box7 { grid-area: 3 / 1 / 4 / 2; } 
+    .box8 { grid-area: 3 / 2 / 4 / 3; } 
+    .box9 { grid-area: 3 / 3 / 4 / 4; } 
     .square {
         background-color: $white;
-        height: 98px;
-        width: 98px;
-        float: left;
         border: 1px solid $black;
         border-radius: 10px;
+        font-size: 6em;
+        /*height: 98px;
+        width: 98px;
+        float: left;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 6em;
-        overflow: hidden;
+        overflow: hidden;*/
+        text-align: center;
         &.x {
             animation: pulseGreen 1s ease-in-out forwards;
             animation: pulseSymbol 0.15s ease-in-out forwards;

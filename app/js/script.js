@@ -22,6 +22,17 @@ document.querySelector('.twoPlayerModeButton').addEventListener('click', functio
     activateTwoPlayerMode();
 });
 
+function switchToPlayerOne() {
+    currentPlayer = 0;
+    playerOneWrapper.classList.add('current');
+    playerTwoWrapper.classList.remove('current');
+}
+function switchToPlayerTwo() {
+    currentPlayer = 1;
+    playerOneWrapper.classList.remove('current');
+    playerTwoWrapper.classList.add('current');
+}
+
 function activateOnePlayerMode() {
     document.querySelector('.playerModeOverlay').classList.add('hidden');
     document.querySelector('.playerOneOverlay').classList.remove('hidden');
@@ -1256,10 +1267,10 @@ function playerModes() {
             } else {
                 if (currentPlayer == 0) {
                     lockBox1toPlayer1();
-                    currentPlayer = 1;
+                    switchToPlayerTwo();
                 } else {
                     lockBox1toPlayer2();
-                    currentPlayer = 0;
+                    switchToPlayerOne();
                 }
             }
             findWinner();
@@ -1271,10 +1282,10 @@ function playerModes() {
             } else {
                 if (currentPlayer == 0) {
                     lockBox2toPlayer1();
-                    currentPlayer = 1;
+                    switchToPlayerTwo();
                 } else {
                     lockBox2toPlayer2();
-                    currentPlayer = 0;
+                    switchToPlayerOne();
                 }
             }
             findWinner();
@@ -1286,10 +1297,10 @@ function playerModes() {
             } else {
                 if (currentPlayer == 0) {
                     lockBox3toPlayer1();
-                    currentPlayer = 1;
+                    switchToPlayerTwo();
                 } else {
                     lockBox3toPlayer2();
-                    currentPlayer = 0;
+                    switchToPlayerOne();
                 }
             }
             findWinner();
@@ -1301,10 +1312,10 @@ function playerModes() {
             } else {
                 if (currentPlayer == 0) {
                     lockBox4toPlayer1();
-                    currentPlayer = 1;
+                    switchToPlayerTwo();
                 } else {
                     lockBox4toPlayer2();
-                    currentPlayer = 0;
+                    switchToPlayerOne();
                 }
             }
             findWinner();
@@ -1316,10 +1327,10 @@ function playerModes() {
             } else {
                 if (currentPlayer == 0) {
                     lockBox5toPlayer1();
-                    currentPlayer = 1;
+                    switchToPlayerTwo();
                 } else {
                     lockBox5toPlayer2();
-                    currentPlayer = 0;
+                    switchToPlayerOne();
                 }
             }
             findWinner();
@@ -1331,10 +1342,10 @@ function playerModes() {
             } else {
                 if (currentPlayer == 0) {
                     lockBox6toPlayer1();
-                    currentPlayer = 1;
+                    switchToPlayerTwo();
                 } else {
                     lockBox6toPlayer2();
-                    currentPlayer = 0;
+                    switchToPlayerOne();
                 }
             }
             findWinner();
@@ -1346,10 +1357,10 @@ function playerModes() {
             } else {
                 if (currentPlayer == 0) {
                     lockBox7toPlayer1();
-                    currentPlayer = 1;
+                    switchToPlayerTwo();
                 } else {
                     lockBox7toPlayer2();
-                    currentPlayer = 0;
+                    switchToPlayerOne();
                 }
             }
             findWinner();
@@ -1361,10 +1372,10 @@ function playerModes() {
             } else {
                 if (currentPlayer == 0) {
                     lockBox8toPlayer1();
-                    currentPlayer = 1;
+                    switchToPlayerTwo();
                 } else {
                     lockBox8toPlayer2();
-                    currentPlayer = 0;
+                    switchToPlayerOne();
                 }
             }
             findWinner();
@@ -1376,10 +1387,10 @@ function playerModes() {
             } else {
                 if (currentPlayer == 0) {
                     lockBox9toPlayer1();
-                    currentPlayer = 1;
+                    switchToPlayerTwo();
                 } else {
                     lockBox9toPlayer2();
-                    currentPlayer = 0;
+                    switchToPlayerOne();
                 }
             }
             findWinner();
