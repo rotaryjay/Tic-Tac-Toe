@@ -439,8 +439,6 @@ body main .gameWrapper {
 .thegrid {
   width: 300px;
   height: 300px;
-  border-radius: 10px;
-  /*margin: 0 auto;*/
   font-family: "Nanum Gothic", sans-serif;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -478,52 +476,17 @@ body main .gameWrapper {
 .thegrid .square {
   background-color: white;
   border: 1px solid black;
-  border-radius: 10px;
   font-size: 6em;
-  /*height: 98px;
-  width: 98px;
-  float: left;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;*/
+  overflow: hidden;
   text-align: center;
 }
 .thegrid .square.x {
   animation: pulseGreen 1s ease-in-out forwards;
-  animation: pulseSymbol 0.15s ease-in-out forwards;
-  animation-fill-mode: forwards;
   box-shadow: inset 0 0 20px rgba(0, 128, 0, 0.5);
-  position: relative;
-  /*&::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(to left, rgba($darkgrey, 0.15), transparent);
-      transform: skewX(45deg) translate(0);
-      transition: 0.5s;
-      filter: blur(0px);
-  }*/
 }
 .thegrid .square.o {
   animation: pulseRed 1s ease-in-out forwards;
-  animation: pulseSymbol 0.15s ease-in-out forwards;
   box-shadow: inset 0 0 20px rgba(255, 0, 0, 0.5);
-  /*&::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(to left, rgba($darkgrey, 0.15), transparent);
-      transform: skewX(45deg) translate(0);
-      transition: 0.5s;
-      filter: blur(0px);
-  }*/
 }
 
 .button {
