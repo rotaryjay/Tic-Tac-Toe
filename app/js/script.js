@@ -1232,6 +1232,7 @@ function playerModes() {
                 document.getElementById('playerTwoNameInput').focus();
             }
         });
+
         // Player Two name input
         document.querySelector('.goPlayerTwoButton').addEventListener('click', function () {
             // If Go button pressed
@@ -1255,8 +1256,10 @@ function playerModes() {
             } else {
                 if (currentPlayer == 0) {
                     lockBox1toPlayer1();
+                    currentPlayer = 1;
                 } else {
                     lockBox1toPlayer2();
+                    currentPlayer = 0;
                 }
             }
             findWinner();
@@ -1268,8 +1271,10 @@ function playerModes() {
             } else {
                 if (currentPlayer == 0) {
                     lockBox2toPlayer1();
+                    currentPlayer = 1;
                 } else {
                     lockBox2toPlayer2();
+                    currentPlayer = 0;
                 }
             }
             findWinner();
@@ -1281,8 +1286,10 @@ function playerModes() {
             } else {
                 if (currentPlayer == 0) {
                     lockBox3toPlayer1();
+                    currentPlayer = 1;
                 } else {
                     lockBox3toPlayer2();
+                    currentPlayer = 0;
                 }
             }
             findWinner();
@@ -1294,8 +1301,10 @@ function playerModes() {
             } else {
                 if (currentPlayer == 0) {
                     lockBox4toPlayer1();
+                    currentPlayer = 1;
                 } else {
                     lockBox4toPlayer2();
+                    currentPlayer = 0;
                 }
             }
             findWinner();
@@ -1307,8 +1316,10 @@ function playerModes() {
             } else {
                 if (currentPlayer == 0) {
                     lockBox5toPlayer1();
+                    currentPlayer = 1;
                 } else {
                     lockBox5toPlayer2();
+                    currentPlayer = 0;
                 }
             }
             findWinner();
@@ -1320,8 +1331,10 @@ function playerModes() {
             } else {
                 if (currentPlayer == 0) {
                     lockBox6toPlayer1();
+                    currentPlayer = 1;
                 } else {
                     lockBox6toPlayer2();
+                    currentPlayer = 0;
                 }
             }
             findWinner();
@@ -1333,8 +1346,10 @@ function playerModes() {
             } else {
                 if (currentPlayer == 0) {
                     lockBox7toPlayer1();
+                    currentPlayer = 1;
                 } else {
                     lockBox7toPlayer2();
+                    currentPlayer = 0;
                 }
             }
             findWinner();
@@ -1346,8 +1361,10 @@ function playerModes() {
             } else {
                 if (currentPlayer == 0) {
                     lockBox8toPlayer1();
+                    currentPlayer = 1;
                 } else {
                     lockBox8toPlayer2();
+                    currentPlayer = 0;
                 }
             }
             findWinner();
@@ -1359,8 +1376,10 @@ function playerModes() {
             } else {
                 if (currentPlayer == 0) {
                     lockBox9toPlayer1();
+                    currentPlayer = 1;
                 } else {
                     lockBox9toPlayer2();
+                    currentPlayer = 0;
                 }
             }
             findWinner();
