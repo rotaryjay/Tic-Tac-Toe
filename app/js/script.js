@@ -368,8 +368,6 @@ function lockBox1toPlayer1() {
     boxLocks[`box1Locked`] = true;
     boxesLockedTo[`box1lockedto`] = 0;
     openBoxes.splice(openBoxes.indexOf(1), 1); // Remove the selected item from the array
-    findWinner();
-    findTie();
 }
 function lockBox1toPlayer2() {
     box1.textContent = 'O'; // Adds an X to the grid
@@ -1267,10 +1265,22 @@ function playerModes() {
             } else {
                 if (currentPlayer == 0) {
                     lockBox1toPlayer1();
-                    switchToPlayerTwo();
+                    findWinner();
+                    if (gameOver == false) {
+                        findTie();
+                        if (gameOver == false) {
+                            switchToPlayerTwo();
+                        }
+                    }
                 } else {
                     lockBox1toPlayer2();
-                    switchToPlayerOne();
+                    findWinner();
+                    if (gameOver == false) {
+                        findTie();
+                        if (gameOver == false) {
+                            switchToPlayerOne();
+                        }
+                    }
                 }
             }
             findWinner();
@@ -1282,10 +1292,22 @@ function playerModes() {
             } else {
                 if (currentPlayer == 0) {
                     lockBox2toPlayer1();
-                    switchToPlayerTwo();
+                    findWinner();
+                    if (gameOver == false) {
+                        findTie();
+                        if (gameOver == false) {
+                            switchToPlayerTwo();
+                        }
+                    }
                 } else {
                     lockBox2toPlayer2();
-                    switchToPlayerOne();
+                    findWinner();
+                    if (gameOver == false) {
+                        findTie();
+                        if (gameOver == false) {
+                            switchToPlayerOne();
+                        }
+                    }
                 }
             }
             findWinner();
@@ -1297,10 +1319,22 @@ function playerModes() {
             } else {
                 if (currentPlayer == 0) {
                     lockBox3toPlayer1();
-                    switchToPlayerTwo();
+                    findWinner();
+                    if (gameOver == false) {
+                        findTie();
+                        if (gameOver == false) {
+                            switchToPlayerTwo();
+                        }
+                    }
                 } else {
                     lockBox3toPlayer2();
-                    switchToPlayerOne();
+                    findWinner();
+                    if (gameOver == false) {
+                        findTie();
+                        if (gameOver == false) {
+                            switchToPlayerOne();
+                        }
+                    }
                 }
             }
             findWinner();
@@ -1312,10 +1346,22 @@ function playerModes() {
             } else {
                 if (currentPlayer == 0) {
                     lockBox4toPlayer1();
-                    switchToPlayerTwo();
+                    findWinner();
+                    if (gameOver == false) {
+                        findTie();
+                        if (gameOver == false) {
+                            switchToPlayerTwo();
+                        }
+                    }
                 } else {
                     lockBox4toPlayer2();
-                    switchToPlayerOne();
+                    findWinner();
+                    if (gameOver == false) {
+                        findTie();
+                        if (gameOver == false) {
+                            switchToPlayerOne();
+                        }
+                    }
                 }
             }
             findWinner();
@@ -1327,10 +1373,22 @@ function playerModes() {
             } else {
                 if (currentPlayer == 0) {
                     lockBox5toPlayer1();
-                    switchToPlayerTwo();
+                    findWinner();
+                    if (gameOver == false) {
+                        findTie();
+                        if (gameOver == false) {
+                            switchToPlayerTwo();
+                        }
+                    }
                 } else {
                     lockBox5toPlayer2();
-                    switchToPlayerOne();
+                    findWinner();
+                    if (gameOver == false) {
+                        findTie();
+                        if (gameOver == false) {
+                            switchToPlayerOne();
+                        }
+                    }
                 }
             }
             findWinner();
@@ -1342,10 +1400,22 @@ function playerModes() {
             } else {
                 if (currentPlayer == 0) {
                     lockBox6toPlayer1();
-                    switchToPlayerTwo();
+                    findWinner();
+                    if (gameOver == false) {
+                        findTie();
+                        if (gameOver == false) {
+                            switchToPlayerTwo();
+                        }
+                    }
                 } else {
                     lockBox6toPlayer2();
-                    switchToPlayerOne();
+                    findWinner();
+                    if (gameOver == false) {
+                        findTie();
+                        if (gameOver == false) {
+                            switchToPlayerOne();
+                        }
+                    }
                 }
             }
             findWinner();
@@ -1357,10 +1427,22 @@ function playerModes() {
             } else {
                 if (currentPlayer == 0) {
                     lockBox7toPlayer1();
-                    switchToPlayerTwo();
+                    findWinner();
+                    if (gameOver == false) {
+                        findTie();
+                        if (gameOver == false) {
+                            switchToPlayerTwo();
+                        }
+                    }
                 } else {
                     lockBox7toPlayer2();
-                    switchToPlayerOne();
+                    findWinner();
+                    if (gameOver == false) {
+                        findTie();
+                        if (gameOver == false) {
+                            switchToPlayerOne();
+                        }
+                    }
                 }
             }
             findWinner();
@@ -1372,10 +1454,22 @@ function playerModes() {
             } else {
                 if (currentPlayer == 0) {
                     lockBox8toPlayer1();
-                    switchToPlayerTwo();
+                    findWinner();
+                    if (gameOver == false) {
+                        findTie();
+                        if (gameOver == false) {
+                            switchToPlayerTwo();
+                        }
+                    }
                 } else {
                     lockBox8toPlayer2();
-                    switchToPlayerOne();
+                    findWinner();
+                    if (gameOver == false) {
+                        findTie();
+                        if (gameOver == false) {
+                            switchToPlayerOne();
+                        }
+                    }
                 }
             }
             findWinner();
@@ -1387,10 +1481,22 @@ function playerModes() {
             } else {
                 if (currentPlayer == 0) {
                     lockBox9toPlayer1();
-                    switchToPlayerTwo();
+                    findWinner();
+                    if (gameOver == false) {
+                        findTie();
+                        if (gameOver == false) {
+                            switchToPlayerTwo();
+                        }
+                    }
                 } else {
                     lockBox9toPlayer2();
-                    switchToPlayerOne();
+                    findWinner();
+                    if (gameOver == false) {
+                        findTie();
+                        if (gameOver == false) {
+                            switchToPlayerOne();
+                        }
+                    }
                 }
             }
             findWinner();
