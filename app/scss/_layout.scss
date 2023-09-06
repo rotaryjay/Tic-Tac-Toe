@@ -3,6 +3,10 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+    &.locked {
+        cursor: not-allowed;
+    }
+
     main { 
         display: grid;
         /*grid-template-columns: repeat(2, minmax(0, 1fr));

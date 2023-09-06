@@ -1681,7 +1681,7 @@ function playerModes() {
                     } else {
                         playerOneWrapper.classList.remove('current');
                         playerTwoWrapper.classList.add('current');
-                        setTimeout(artificialIntelligence, Math.floor(Math.random() * 500) + 1000);
+                        setTimeout(artificialIntelligence, Math.floor(Math.random() * 700) + 1500);
                     }
                 }
             }
